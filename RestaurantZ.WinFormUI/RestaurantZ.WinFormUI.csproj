@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,6 +71,18 @@
     <Compile Include="FrmNewCustomer.Designer.cs">
       <DependentUpon>FrmNewCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewUser.Designer.cs">
+      <DependentUpon>FrmNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmServices.Designer.cs">
+      <DependentUpon>FrmServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTemp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +94,12 @@
     </Compile>
     <Compile Include="FrmUpdateCustomers.Designer.cs">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MenuItem.cs">
@@ -94,11 +119,20 @@
     <EmbeddedResource Include="FrmNewCustomer.resx">
       <DependentUpon>FrmNewCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewUser.resx">
+      <DependentUpon>FrmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmServices.resx">
+      <DependentUpon>FrmServices.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTemp.resx">
       <DependentUpon>FrmTemp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateCustomers.resx">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuItem.resx">
       <DependentUpon>MenuItem.cs</DependentUpon>
@@ -108,6 +142,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -126,7 +161,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantZ.Business\RestaurantZ.Business.csproj">
+      <Project>{FB6B4225-3716-4A4F-A251-519F18D4A404}</Project>
+      <Name>RestaurantZ.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantZ.DataAccess\RestaurantZ.DataAccess.csproj">
+      <Project>{983EC8FA-097B-42C2-B145-198330139825}</Project>
+      <Name>RestaurantZ.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantZ.Entities\RestaurantZ.Entities.csproj">
+      <Project>{29764959-EC95-4116-B0B9-C2F159923913}</Project>
+      <Name>RestaurantZ.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Images\add.png" />
     <Content Include="Images\aksam-2.png" />
@@ -134,6 +182,7 @@
     <Content Include="Images\chef.png" />
     <Content Include="Images\clear.png" />
     <Content Include="Images\close.png" />
+    <Content Include="Images\cursor.gif" />
     <Content Include="Images\gece.png" />
     <Content Include="Images\help.png" />
     <Content Include="Images\info.png" />

@@ -32,9 +32,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblFormName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblFormName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,23 +46,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.chkNightMale = new System.Windows.Forms.CheckBox();
+            this.chkDinner = new System.Windows.Forms.CheckBox();
+            this.chkLunch = new System.Windows.Forms.CheckBox();
+            this.chkBreakfast = new System.Windows.Forms.CheckBox();
             this.txtBreakfast = new System.Windows.Forms.TextBox();
             this.txtLunch = new System.Windows.Forms.TextBox();
             this.txtDinner = new System.Windows.Forms.TextBox();
             this.txtNightMale = new System.Windows.Forms.TextBox();
-            this.chkBreakfast = new System.Windows.Forms.CheckBox();
-            this.chkLunch = new System.Windows.Forms.CheckBox();
-            this.chkDinner = new System.Windows.Forms.CheckBox();
-            this.chkNightMale = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtNotes = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -93,10 +93,12 @@
             this.btnClose.AutoSize = true;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(449, 0);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnClose.Location = new System.Drawing.Point(444, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(22, 22);
+            this.btnClose.Size = new System.Drawing.Size(27, 22);
             this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -109,6 +111,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(471, 31);
             this.panel2.TabIndex = 3;
+            // 
+            // lblFormName
+            // 
+            this.lblFormName.AutoSize = true;
+            this.lblFormName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormName.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFormName.ForeColor = System.Drawing.Color.White;
+            this.lblFormName.Location = new System.Drawing.Point(3, 3);
+            this.lblFormName.Name = "lblFormName";
+            this.lblFormName.Size = new System.Drawing.Size(148, 25);
+            this.lblFormName.TabIndex = 0;
+            this.lblFormName.Text = "YENİ MÜŞTERİ";
             // 
             // label1
             // 
@@ -129,18 +143,6 @@
             this.label2.Size = new System.Drawing.Size(3, 444);
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
-            // 
-            // lblFormName
-            // 
-            this.lblFormName.AutoSize = true;
-            this.lblFormName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFormName.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblFormName.ForeColor = System.Drawing.Color.White;
-            this.lblFormName.Location = new System.Drawing.Point(3, 3);
-            this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(148, 25);
-            this.lblFormName.TabIndex = 0;
-            this.lblFormName.Text = "YENİ MÜŞTERİ";
             // 
             // label4
             // 
@@ -247,6 +249,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Bilgileri";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(205, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(11, 13);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "*";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label12);
@@ -268,6 +279,86 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Müşterinin Aldığı Hizmetler";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(205, 100);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "TL";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(205, 75);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "TL";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(205, 50);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "TL";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(205, 27);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "TL";
+            // 
+            // chkNightMale
+            // 
+            this.chkNightMale.AutoSize = true;
+            this.chkNightMale.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chkNightMale.Location = new System.Drawing.Point(14, 97);
+            this.chkNightMale.Name = "chkNightMale";
+            this.chkNightMale.Size = new System.Drawing.Size(90, 18);
+            this.chkNightMale.TabIndex = 6;
+            this.chkNightMale.Text = "Gece Yemeği";
+            this.chkNightMale.UseVisualStyleBackColor = true;
+            // 
+            // chkDinner
+            // 
+            this.chkDinner.AutoSize = true;
+            this.chkDinner.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chkDinner.Location = new System.Drawing.Point(14, 73);
+            this.chkDinner.Name = "chkDinner";
+            this.chkDinner.Size = new System.Drawing.Size(97, 18);
+            this.chkDinner.TabIndex = 4;
+            this.chkDinner.Text = "Akşam Yemeği";
+            this.chkDinner.UseVisualStyleBackColor = true;
+            // 
+            // chkLunch
+            // 
+            this.chkLunch.AutoSize = true;
+            this.chkLunch.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chkLunch.Location = new System.Drawing.Point(14, 49);
+            this.chkLunch.Name = "chkLunch";
+            this.chkLunch.Size = new System.Drawing.Size(92, 18);
+            this.chkLunch.TabIndex = 2;
+            this.chkLunch.Text = "Öğlen Yemeği";
+            this.chkLunch.UseVisualStyleBackColor = true;
+            // 
+            // chkBreakfast
+            // 
+            this.chkBreakfast.AutoSize = true;
+            this.chkBreakfast.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chkBreakfast.Location = new System.Drawing.Point(14, 25);
+            this.chkBreakfast.Name = "chkBreakfast";
+            this.chkBreakfast.Size = new System.Drawing.Size(64, 18);
+            this.chkBreakfast.TabIndex = 0;
+            this.chkBreakfast.Text = "Kahvaltı";
+            this.chkBreakfast.UseVisualStyleBackColor = true;
             // 
             // txtBreakfast
             // 
@@ -301,50 +392,6 @@
             this.txtNightMale.Size = new System.Drawing.Size(83, 20);
             this.txtNightMale.TabIndex = 7;
             // 
-            // chkBreakfast
-            // 
-            this.chkBreakfast.AutoSize = true;
-            this.chkBreakfast.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chkBreakfast.Location = new System.Drawing.Point(14, 25);
-            this.chkBreakfast.Name = "chkBreakfast";
-            this.chkBreakfast.Size = new System.Drawing.Size(64, 18);
-            this.chkBreakfast.TabIndex = 0;
-            this.chkBreakfast.Text = "Kahvaltı";
-            this.chkBreakfast.UseVisualStyleBackColor = true;
-            // 
-            // chkLunch
-            // 
-            this.chkLunch.AutoSize = true;
-            this.chkLunch.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chkLunch.Location = new System.Drawing.Point(14, 49);
-            this.chkLunch.Name = "chkLunch";
-            this.chkLunch.Size = new System.Drawing.Size(92, 18);
-            this.chkLunch.TabIndex = 2;
-            this.chkLunch.Text = "Öğlen Yemeği";
-            this.chkLunch.UseVisualStyleBackColor = true;
-            // 
-            // chkDinner
-            // 
-            this.chkDinner.AutoSize = true;
-            this.chkDinner.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chkDinner.Location = new System.Drawing.Point(14, 73);
-            this.chkDinner.Name = "chkDinner";
-            this.chkDinner.Size = new System.Drawing.Size(97, 18);
-            this.chkDinner.TabIndex = 4;
-            this.chkDinner.Text = "Akşam Yemeği";
-            this.chkDinner.UseVisualStyleBackColor = true;
-            // 
-            // chkNightMale
-            // 
-            this.chkNightMale.AutoSize = true;
-            this.chkNightMale.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chkNightMale.Location = new System.Drawing.Point(14, 97);
-            this.chkNightMale.Name = "chkNightMale";
-            this.chkNightMale.Size = new System.Drawing.Size(90, 18);
-            this.chkNightMale.TabIndex = 6;
-            this.chkNightMale.Text = "Gece Yemeği";
-            this.chkNightMale.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtNotes);
@@ -365,42 +412,6 @@
             this.txtNotes.TabIndex = 0;
             this.txtNotes.Text = "";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(205, 27);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "TL";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(205, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "TL";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(205, 75);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 13);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "TL";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(205, 100);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "TL";
-            // 
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -410,15 +421,6 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "KAYDET";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(205, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(11, 13);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "*";
             // 
             // FrmNewCustomer
             // 

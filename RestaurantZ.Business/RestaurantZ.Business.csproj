@@ -41,7 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBreakfastService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\BreakfastManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantZ.DataAccess\RestaurantZ.DataAccess.csproj">
+      <Project>{983EC8FA-097B-42C2-B145-198330139825}</Project>
+      <Name>RestaurantZ.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantZ.Entities\RestaurantZ.Entities.csproj">
+      <Project>{29764959-EC95-4116-B0B9-C2F159923913}</Project>
+      <Name>RestaurantZ.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
