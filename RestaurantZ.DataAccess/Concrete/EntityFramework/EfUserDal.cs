@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantZ.DataAccess.Concrete.EntityFramework
 {
-    //inheritence
+    //inheritence + implementation
     public class EfUserDal : EfEntityRepositoryBase<User, EfRestaurantContext>,IUserDal
     {
         //EfEntityRepositoryBase classından kalıtım aldığı için içi boş

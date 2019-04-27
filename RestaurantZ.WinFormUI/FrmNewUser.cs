@@ -1,5 +1,6 @@
 ﻿using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.Concrete;
+using RestaurantZ.Business.ValidationRules;
 using RestaurantZ.DataAccess.Concrete.EntityFramework;
 using RestaurantZ.Entities.Concrete;
 using System;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,11 +18,13 @@ namespace RestaurantZ.WinFormUI
 {
     public partial class FrmNewUser : Form
     {
-        public IUserService _userService;
+        public IUserService _userService;// Business katmanı
+        public List<MyExceptionModel> allExceptions;// User managerden fluent validation vasıtası ile gelen hataları property isimlerine göre tutar.
         public FrmNewUser()
         {
             InitializeComponent();
             _userService = new UserManager(new EfUserDal());
+            allExceptions = new List<MyExceptionModel>(); 
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -30,24 +34,52 @@ namespace RestaurantZ.WinFormUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            allExceptions.Clear();
             User user = new User
             {
-                Name = "abc",
-                Surname = "def",
-                Phone = "0000000000",
-                Mail = "abc@abc.com",
-                UserName = "admin",
-                Password = "123456",
+                Name = txtName.Text.Trim(),
+                Surname = txtSurname.Text.Trim(),
+                Phone = txtPhone.Text.Trim(),
+                Mail = txtMail.Text.Trim(),
+                UserName = txtUserName.Text.Trim(),
+                Password = txtPwd1.Text.Trim(),
                 IsActive = true,
-                Role = "admin",
-                SyncId = "abcdefgh",
+                Role = rbEmployee.Checked ? "Employee" : "Manager",
+                SyncId = Guid.NewGuid().ToString(),
                 TransactionDate = DateTime.Now
-               
             };
-            if (_userService.Add(user))
+            try
             {
-                MessageBox.Show("ok");
+                _userService.Add(user);
             }
+            catch (MyException ex)
+            {
+                allExceptions = ex.MyExceptions;//hataları listeye at.
+                RunErrorProviders();
+            }
+        }
+
+        private void RunErrorProviders()
+        {
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Password"))
+            {
+                epTxtPwd.SetError(txtPwd1, Global.GetExceptionsByProperty(allExceptions, "Password"));
+            }
+            else
+            {
+                epTxtPwd.Clear();
+            }
+        }
+
+        private void txtPwd1_Validating(object sender, CancelEventArgs e)
+        {
+            
+           // string errorText = epTxtPwd.GetError(txtPwd1);  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtPwd1.UseSystemPasswordChar = false;
         }
     }
 }

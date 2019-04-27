@@ -108,6 +108,9 @@
     <Compile Include="MenuItem.Designer.cs">
       <DependentUpon>MenuItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomTools\PlaceHolderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCustomers.resx">

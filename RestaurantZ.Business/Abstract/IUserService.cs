@@ -9,6 +9,6 @@ namespace RestaurantZ.Business.Abstract
 {
     public interface IUserService
     {
-        bool Add(User user);
+        void Add(User user);
     }
 }

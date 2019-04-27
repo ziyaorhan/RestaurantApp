@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantZ.DataAccess.Concrete.EntityFramework
 {
-    //Bu generic classın amacı interfacelerin classlar için istediği ortak imzalar için generic parametreli metotları oluşturmaktır. Dolayısı ile bu class Ef...Dal şeklinde adlandırılan diğer classlarda tekrar tekrar metot yazmamak için oluşturulmuştur. 
+    //Bu generic classın amacı interfacelerin classlar için istediği ortak imzalar için generic parametreli metotları(somut classları ve içeriklerini) oluşturmaktır. Dolayısı ile bu class Ef...Dal şeklinde adlandırılan diğer classlarda tekrar tekrar metot yazmamak için oluşturulmuştur. 
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
+        //Not burdaki try catch kaldırılacak ya da düzenlenecek.
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())
