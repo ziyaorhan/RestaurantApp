@@ -10,6 +10,8 @@ namespace RestaurantZ.Business.ValidationRules
     {
         public static string NotEmty = "Boş geçilemez.";
         public static string EMail = "Geçerli bir E-Posta adresi giriniz.";
+        public static string Phone = "Başında sıfır olmadan 10 haneli olarak giriniz.";
+        public static string Password = "Büyük harf, küçük harf, rakam ve karakter içermelidir.";
         public static string MaxLength(int maxLength)
         {
             return String.Format("En fazla {0} karakter olmalıdır.",maxLength.ToString());

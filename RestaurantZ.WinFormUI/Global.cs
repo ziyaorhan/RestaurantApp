@@ -19,6 +19,8 @@ namespace RestaurantZ.WinFormUI
             string returnPath = projectFolderName + subPath;
             return returnPath;
         }
+
+        //Gelen exception listesinde ilgili property için hataları döndürür.
         public static string GetExceptionsByProperty(List<MyExceptionModel> exceptions,string propertyName)
         {
             string message = "";
@@ -31,6 +33,8 @@ namespace RestaurantZ.WinFormUI
                 } 
             return message;
         }
+
+        //Gelen exception listesinde ilgili property için hatanın varlığını kontrol eden metot.
         public static bool IsThereAExceptionByProperty(List<MyExceptionModel> exceptions,string propertyName)
         {
             if (exceptions!=null)
@@ -48,6 +52,12 @@ namespace RestaurantZ.WinFormUI
             {
                 return false;
             }
+        }
+
+        public static void SetError(TextBox textBox,string errorMesage)
+        {
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(textBox, errorMesage);
         }
     }
 }

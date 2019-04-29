@@ -24,7 +24,7 @@ namespace RestaurantZ.WinFormUI
         {
             InitializeComponent();
             _userService = new UserManager(new EfUserDal());
-            allExceptions = new List<MyExceptionModel>(); 
+            allExceptions = new List<MyExceptionModel>();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -37,11 +37,11 @@ namespace RestaurantZ.WinFormUI
             allExceptions.Clear();
             User user = new User
             {
-                Name = txtName.Text.Trim(),
-                Surname = txtSurname.Text.Trim(),
+                Name =txtName.Text.Trim(),
+                Surname =txtSurname.Text.Trim(),
                 Phone = txtPhone.Text.Trim(),
                 Mail = txtMail.Text.Trim(),
-                UserName = txtUserName.Text.Trim(),
+                UserName =txtMail.Text.Trim(),
                 Password = txtPwd1.Text.Trim(),
                 IsActive = true,
                 Role = rbEmployee.Checked ? "Employee" : "Manager",
@@ -51,6 +51,7 @@ namespace RestaurantZ.WinFormUI
             try
             {
                 _userService.Add(user);
+                this.Close();
             }
             catch (MyException ex)
             {
@@ -61,25 +62,68 @@ namespace RestaurantZ.WinFormUI
 
         private void RunErrorProviders()
         {
-            if (Global.IsThereAExceptionByProperty(allExceptions, "Password"))
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Name"))
             {
-                epTxtPwd.SetError(txtPwd1, Global.GetExceptionsByProperty(allExceptions, "Password"));
+                epName.SetError(txtName, Global.GetExceptionsByProperty(allExceptions, "Name"));
             }
             else
             {
-                epTxtPwd.Clear();
+                epName.Clear();
             }
-        }
+            //
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Surname"))
+            {
+                epSurname.SetError(txtSurname, Global.GetExceptionsByProperty(allExceptions, "Surname"));
+            }
+            else
+            {
+                epSurname.Clear();
+            }
+            //
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Phone"))
+            {
+                epPhone.SetError(txtPhone, Global.GetExceptionsByProperty(allExceptions, "Phone"));
+            }
+            else
+            {
+                epPhone.Clear();
+            }
+            //
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Mail"))
+            {
+                epMail.SetError(txtMail, Global.GetExceptionsByProperty(allExceptions, "Mail"));
+            }
+            else
+            {
+                epMail.Clear();
+            }
+            //
+            if (Global.IsThereAExceptionByProperty(allExceptions, "UserName"))
+            {
+                epUserName.SetError(txtUserName, Global.GetExceptionsByProperty(allExceptions, "UserName"));
+            }
+            else
+            {
+                epUserName.Clear();
+            }
+            //
+            if (Global.IsThereAExceptionByProperty(allExceptions, "Password"))
+            {
+                epPwd1.SetError(txtPwd1, Global.GetExceptionsByProperty(allExceptions, "Password"));
+            }
+            else
+            {
+                epPwd1.Clear();
+            }
 
-        private void txtPwd1_Validating(object sender, CancelEventArgs e)
-        {
-            
-           // string errorText = epTxtPwd.GetError(txtPwd1);  
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtPwd1.UseSystemPasswordChar = false;
+            if (txtPwd2.Text!=txtPwd1.Text)
+            {
+                epPwd2.SetError(txtPwd2, "-'Parola' ve 'Parola Tekrar' aynı olmalıdır.");
+            }
+            else
+            {
+                epPwd2.Clear();
+            }
         }
     }
 }

@@ -53,6 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTools\DecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomTools\LetterOrDigitTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomTools\LetterTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>

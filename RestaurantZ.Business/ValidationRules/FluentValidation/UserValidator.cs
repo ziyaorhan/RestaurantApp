@@ -17,7 +17,7 @@ namespace RestaurantZ.Business.ValidationRules.FluentValidation
                 .MaximumLength(25).WithMessage(MyMessages.MaxLength(25));
             RuleFor(p => p.Phone)
                 .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .Length(11).WithMessage(MyMessages.Length(11));
+                .Length(14).WithMessage(MyMessages.Phone);
             RuleFor(p => p.Mail)
                 .NotEmpty().WithMessage(MyMessages.NotEmty)
                 .EmailAddress().WithMessage(MyMessages.EMail);
@@ -27,7 +27,7 @@ namespace RestaurantZ.Business.ValidationRules.FluentValidation
             RuleFor(p => p.Password)
                 .NotEmpty().WithMessage(MyMessages.NotEmty)
                 .MinimumLength(8).WithMessage(MyMessages.MinLength(8))
-                .Must(ConfirmPwd).WithMessage("Büyük harf, küçük harf, rakam ve karakter içermelidir.");
+                .Must(ConfirmPwd).WithMessage(MyMessages.Password);
             RuleFor(p => p.IsActive)
                 .NotEmpty().WithMessage(MyMessages.NotEmty);
             RuleFor(p => p.SyncId)
