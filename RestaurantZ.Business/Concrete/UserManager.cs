@@ -1,5 +1,6 @@
 ﻿
 using RestaurantZ.Business.Abstract;
+using RestaurantZ.Business.Utilities;
 using RestaurantZ.Business.ValidationRules;
 using RestaurantZ.Business.ValidationRules.FluentValidation;
 using RestaurantZ.DataAccess.Abstract;
@@ -26,26 +27,9 @@ namespace RestaurantZ.Business.Concrete
         public void Add(User user)
         {
             //business kodları
-            UserValidator userValidator = new UserValidator();
-            var result = userValidator.Validate(user);
-            var ex = new List<MyExceptionModel>();
-            if (!result.IsValid)
-            {
-                foreach (var error in result.Errors)
-                {
-                    ex.Add(new MyExceptionModel
-                    {
-                        PropertyName = error.PropertyName,
-                        ErrorMessage = error.ErrorMessage
-                    });
-                }
-                throw new MyException(ex);
-            }
-            else
-            {
-                _userDal.Add(user);
-            }
-
+            ValidationTool.Validate(new UserValidator(), user);//Burada if else kullanmadık. Çünkü Validate metodu void bir metod olmasına rağmen validasyon sağlanmadığı takdirde throw ile hata fırlatan bir metot dolayısı ile doğrulanma olmaz ise aşağıdaki satıra geçilmeyeceltir. içerisindeki throw
+            //data access
+            _userDal.Add(user);
         }
         //burası dal ile benzer de faklı da olabilir. önce business kodları gelir.
         // GetAll() gibi metotlar burada da olabilir.

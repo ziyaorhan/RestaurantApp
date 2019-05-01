@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.ValidationRules
 {
-    public static class MyMessages
+    public static class RuleMessages
     {
         public static string NotEmty = "Boş geçilemez.";
         public static string EMail = "Geçerli bir E-Posta adresi giriniz.";

@@ -21,7 +21,7 @@ namespace RestaurantZ.WinFormUI
         }
 
         //Gelen exception listesinde ilgili property için hataları döndürür.
-        public static string GetExceptionsByProperty(List<MyExceptionModel> exceptions,string propertyName)
+        public static string GetExceptionsByProperty(List<MessagesAndProperties> exceptions,string propertyName)
         {
             string message = "";
                 foreach (var exception in exceptions)
@@ -35,7 +35,7 @@ namespace RestaurantZ.WinFormUI
         }
 
         //Gelen exception listesinde ilgili property için hatanın varlığını kontrol eden metot.
-        public static bool IsThereAExceptionByProperty(List<MyExceptionModel> exceptions,string propertyName)
+        public static bool IsThereAExceptionByProperty(List<MessagesAndProperties> exceptions,string propertyName)
         {
             if (exceptions!=null)
             {

@@ -10,36 +10,36 @@ namespace RestaurantZ.Business.ValidationRules.FluentValidation
         public UserValidator()
         {
             RuleFor(p => p.Name)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .MaximumLength(25).WithMessage(MyMessages.MaxLength(25));
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .MaximumLength(12).WithMessage(RuleMessages.MaxLength(25));
             RuleFor(p => p.Surname)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .MaximumLength(25).WithMessage(MyMessages.MaxLength(25));
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .MaximumLength(25).WithMessage(RuleMessages.MaxLength(25));
             RuleFor(p => p.Phone)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .Length(14).WithMessage(MyMessages.Phone);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .Length(14).WithMessage(RuleMessages.Phone);
             RuleFor(p => p.Mail)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .EmailAddress().WithMessage(MyMessages.EMail);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .EmailAddress().WithMessage(RuleMessages.EMail);
             RuleFor(p => p.UserName)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .MaximumLength(25).WithMessage(MyMessages.MaxLength(25));
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .MaximumLength(25).WithMessage(RuleMessages.MaxLength(25));
             RuleFor(p => p.Password)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .MinimumLength(8).WithMessage(MyMessages.MinLength(8))
-                .Must(ConfirmPwd).WithMessage(MyMessages.Password);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .MinimumLength(8).WithMessage(RuleMessages.MinLength(8))
+                .Must(ConfirmPwd).WithMessage(RuleMessages.Password);
             RuleFor(p => p.IsActive)
-                .NotEmpty().WithMessage(MyMessages.NotEmty);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty);
             RuleFor(p => p.SyncId)
-                .NotEmpty().WithMessage(MyMessages.NotEmty)
-                .Length(36).WithMessage(MyMessages.Length(36));
+                .NotEmpty().WithMessage(RuleMessages.NotEmty)
+                .Length(36).WithMessage(RuleMessages.Length(36));
             RuleFor(p => p.Role)
-                .NotEmpty().WithMessage(MyMessages.NotEmty);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty);
             RuleFor(p => p.TransactionDate)
-                .NotEmpty().WithMessage(MyMessages.NotEmty);
+                .NotEmpty().WithMessage(RuleMessages.NotEmty);
         }
         //Parola için yazılan kurallar MyCustomRules'tan çekildi.
-        private bool ConfirmPwd(string arg) => MyCustomRules.RuleForPassword(arg);
+        private bool ConfirmPwd(string arg) => CustomRules.RuleForPassword(arg);
         //Bu metot aşağıdaki ile aynı.Aşağıdaki blok tipinde, bu ise expression.
         //private bool ConfirmPwd(string arg)
         //{

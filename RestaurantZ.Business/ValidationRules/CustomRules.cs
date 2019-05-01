@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.ValidationRules
 {
-    public static class MyCustomRules
+    public static class CustomRules
     {
         public static bool RuleForPassword(string enteredStr)
         {
