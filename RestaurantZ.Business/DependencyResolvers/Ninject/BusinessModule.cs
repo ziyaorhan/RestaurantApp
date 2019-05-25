@@ -17,9 +17,11 @@ namespace RestaurantZ.Business.DependencyResolvers.Ninject
         {
             //UI(burada windows form) içerisindeki dependency(bağımlılık) durumunu yani new'leyerek tabakaların birbirine bağımlı olması durumunu ortadan kaldırmak için oluşturuldu.
             //Eğer soyut bir IUserService istenirse somut bir UserManager oluştur ve dönder.
-            Bind<IUserService>().To<UserManager>();//İleride servis odaklı bir mimariye geçilirse değiştirilmesi gereken yer UserManager olacaktır.
-            Bind<IUserDal>().To<EfUserDal>();//İleride NHibernate gibi bir ORM ile çalışılacaksa değiştirilecek yer EfUserDal olacaktır.
-
+            // Bind<SoyutNesne>().To<DönüştürülecekSomutNesne>().InSingletonScope()(nesneyi bir defa üretir ve performansı arttırır.)
+            Bind<IUserService>().To<UserManager>().InSingletonScope();//İleride servis odaklı bir mimariye geçilirse değiştirilmesi gereken yer UserManager olacaktır.
+            Bind<IUserDal>().To<EfUserDal>().InSingletonScope();//İleride NHibernate gibi bir ORM ile çalışılacaksa değiştirilecek yer EfUserDal olacaktır.
+            Bind<ICustomerDal>().To<EfCustomerDal>().InSingletonScope();
+            Bind<ICustomerService>().To<CustomerManager>().InSingletonScope();
         }
     }
 }

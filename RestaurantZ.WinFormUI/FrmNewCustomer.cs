@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RestaurantZ.DataAccess.Concrete.EntityFramework;
+using RestaurantZ.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +27,12 @@ namespace RestaurantZ.WinFormUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

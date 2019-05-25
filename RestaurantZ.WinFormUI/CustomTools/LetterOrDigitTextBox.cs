@@ -1,9 +1,9 @@
 ﻿using System;
-
+using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI.CustomTools
 {
-    class LetterOrDigitTextBox:PlaceHolderTextBox
+    class LetterOrDigitTextBox: System.Windows.Forms.TextBox
     {
         public LetterOrDigitTextBox()
         {

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI.CustomTools
 {
-    class DecimalTextBox:PlaceHolderTextBox
+    class DecimalTextBox:TextBox
     {
         public DecimalTextBox()
         {
@@ -18,7 +18,7 @@ namespace RestaurantZ.WinFormUI.CustomTools
             {
                 e.Handled = true;
             }
-            string enteredStr = (sender as TextBox).Text;//girilen metni al.
+            string enteredStr = (sender as System.Windows.Forms.TextBox).Text;//girilen metni al.
 
             if (!String.IsNullOrWhiteSpace(enteredStr))
             {
@@ -26,14 +26,14 @@ namespace RestaurantZ.WinFormUI.CustomTools
                 char firstChar = Convert.ToChar(enteredStr.Substring(0, 1));
                 if (firstChar == '.')
                 {
-                    (sender as TextBox).Text = "0.";
-                    (sender as TextBox).SelectionStart = 2;//nokatadan sonra fokusla (index)
-                    (sender as TextBox).Focus();
+                    (sender as System.Windows.Forms.TextBox).Text = "0.";
+                    (sender as System.Windows.Forms.TextBox).SelectionStart = 2;//nokatadan sonra fokusla (index)
+                    (sender as System.Windows.Forms.TextBox).Focus();
                 }
             }
 
             // eğer nokta karakteri birden fazla girilirse engelle(== -1 ise 1 defa)
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }

@@ -10,6 +10,5 @@ namespace RestaurantZ.Entities.Abstract
         decimal ExtraPrice { get; set; }
         string Description { get; set; }
         Customer Customer { get; set; }
-        User User { get; set; }
     }
 }

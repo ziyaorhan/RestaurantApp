@@ -1,47 +1,13 @@
-﻿using System;
+﻿using RestaurantZ.DataAccess.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace RestaurantZ.Business.ValidationRules
 {
     public static class CustomRules
     {
-        public static bool RuleForPassword(string enteredStr)
-        {
-            bool isThereABigLeter = false;//büyük harf
-            bool isThereASmallLeter = false;//küçük harf
-            bool isThereANumericChar = false;//sayısal karakter
-            bool isThereASymbolChar = false;//harf ya da rakam dışındaki karakterler.
-            if (!String.IsNullOrEmpty(enteredStr))
-            {
-                foreach (char item in enteredStr)
-                {
-                    if (Char.IsUpper(item))
-                    {
-                        isThereABigLeter = true;
-                    }
-                    if (Char.IsLower(item))
-                    {
-                        isThereASmallLeter = true;
-                    }
-                    if (Char.IsNumber(item))
-                    {
-                        isThereANumericChar = true;
-                    }
-                    if (!Char.IsLetterOrDigit(item))
-                    {
-                        isThereASymbolChar = true;
-                    }
-                }
-            }
-            if (isThereABigLeter == true && isThereASmallLeter == true && isThereANumericChar == true && isThereASymbolChar == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public static bool RuleForLetterOrDigit(string enteredStr)
         {
             if (!String.IsNullOrEmpty(enteredStr))
@@ -114,10 +80,10 @@ namespace RestaurantZ.Business.ValidationRules
                 {
                     foreach (char ch in otherChars)
                     {
-                        if (ch=='.')
+                        if (ch == '.')
                         {
                             pointCount += 1;
-                            if (pointCount>1)
+                            if (pointCount > 1)
                             {
                                 return false;//eğer '.' karakteri 1 den fazla ise false dön.
                             }

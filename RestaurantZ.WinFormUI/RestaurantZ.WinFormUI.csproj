@@ -107,6 +107,12 @@
     <Compile Include="FrmUpdateCustomers.Designer.cs">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateUserByAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateUserByAdmin.Designer.cs">
+      <DependentUpon>FrmUpdateUserByAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateCustomers.resx">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateUserByAdmin.resx">
+      <DependentUpon>FrmUpdateUserByAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
@@ -199,6 +208,7 @@
     <Content Include="Images\close.png" />
     <Content Include="Images\cursor.gif" />
     <Content Include="Images\gece.png" />
+    <Content Include="Images\guncelle.PNG" />
     <Content Include="Images\help.png" />
     <Content Include="Images\info.png" />
     <Content Include="Images\kahvalti.png" />
@@ -209,9 +219,11 @@
     <Content Include="Images\oglen.png" />
     <Content Include="Images\person.png" />
     <Content Include="Images\search.png" />
+    <Content Include="Images\sil.PNG" />
     <Content Include="Images\sync-darkred.png" />
     <Content Include="Images\sync-green.gif" />
     <Content Include="Images\updateUserInfo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

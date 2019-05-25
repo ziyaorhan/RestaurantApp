@@ -16,7 +16,7 @@ namespace RestaurantZ.WinFormUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUsers());
+            Application.Run(new FrmCustomers());
         }
     }
 }

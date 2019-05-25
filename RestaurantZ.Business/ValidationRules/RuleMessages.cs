@@ -24,5 +24,9 @@ namespace RestaurantZ.Business.ValidationRules
         {
             return String.Format("Toplam {0} karakter olmalıdır.", length.ToString());
         }
+        public static string GreaterThanOrEqualTo(int value)
+        {
+            return String.Format("Değer {0} ya da daha büyük olmalıdır.", value.ToString());
+        }   
     }
 }

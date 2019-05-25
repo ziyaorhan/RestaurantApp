@@ -32,21 +32,17 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFormName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtName = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
-            this.txtSurname = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
+            this.gbUserInfo = new System.Windows.Forms.GroupBox();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtMail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtUserName = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
+            this.gbLoginInfo = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPwd1 = new System.Windows.Forms.TextBox();
@@ -65,10 +61,15 @@
             this.epUserName = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkIsActive = new System.Windows.Forms.CheckBox();
+            this.txtUserName = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
+            this.txtName = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
+            this.txtSurname = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
+            this.txtMail = new RestaurantZ.WinFormUI.PlaceHolderTextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbUserInfo.SuspendLayout();
+            this.gbLoginInfo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epSurname)).BeginInit();
@@ -93,7 +94,7 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
             this.btnClose.Location = new System.Drawing.Point(338, 0);
             this.btnClose.Name = "btnClose";
@@ -106,23 +107,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Tomato;
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblFormName);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(19, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(361, 37);
             this.panel2.TabIndex = 13;
             // 
-            // label3
+            // lblFormName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(4, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "YENİ KULLANICI";
+            this.lblFormName.AutoSize = true;
+            this.lblFormName.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFormName.ForeColor = System.Drawing.Color.White;
+            this.lblFormName.Location = new System.Drawing.Point(4, 8);
+            this.lblFormName.Name = "lblFormName";
+            this.lblFormName.Size = new System.Drawing.Size(166, 25);
+            this.lblFormName.TabIndex = 1;
+            this.lblFormName.Text = "YENİ KULLANICI";
             // 
             // label1
             // 
@@ -153,43 +154,23 @@
             this.panel1.Size = new System.Drawing.Size(16, 449);
             this.panel1.TabIndex = 11;
             // 
-            // groupBox1
+            // gbUserInfo
             // 
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.txtSurname);
-            this.groupBox1.Controls.Add(this.txtPhone);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtMail);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(25, 65);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(346, 145);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kullanıcı Bilgileri";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtName.ForeColor = System.Drawing.Color.Gray;
-            this.txtName.Location = new System.Drawing.Point(105, 25);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolderText = null;
-            this.txtName.Size = new System.Drawing.Size(220, 22);
-            this.txtName.TabIndex = 0;
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtSurname.ForeColor = System.Drawing.Color.Gray;
-            this.txtSurname.Location = new System.Drawing.Point(105, 50);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.PlaceHolderText = null;
-            this.txtSurname.Size = new System.Drawing.Size(220, 22);
-            this.txtSurname.TabIndex = 1;
+            this.gbUserInfo.Controls.Add(this.txtMail);
+            this.gbUserInfo.Controls.Add(this.txtName);
+            this.gbUserInfo.Controls.Add(this.txtSurname);
+            this.gbUserInfo.Controls.Add(this.txtPhone);
+            this.gbUserInfo.Controls.Add(this.label4);
+            this.gbUserInfo.Controls.Add(this.label5);
+            this.gbUserInfo.Controls.Add(this.label6);
+            this.gbUserInfo.Controls.Add(this.label7);
+            this.gbUserInfo.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gbUserInfo.Location = new System.Drawing.Point(25, 65);
+            this.gbUserInfo.Name = "gbUserInfo";
+            this.gbUserInfo.Size = new System.Drawing.Size(346, 145);
+            this.gbUserInfo.TabIndex = 16;
+            this.gbUserInfo.TabStop = false;
+            this.gbUserInfo.Text = "Kullanıcı Bilgileri";
             // 
             // txtPhone
             // 
@@ -200,6 +181,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(220, 22);
             this.txtPhone.TabIndex = 2;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // label4
             // 
@@ -231,14 +213,6 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Telefon";
             // 
-            // txtMail
-            // 
-            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMail.Location = new System.Drawing.Point(105, 103);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(220, 22);
-            this.txtMail.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -249,31 +223,21 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "E-Posta";
             // 
-            // groupBox2
+            // gbLoginInfo
             // 
-            this.groupBox2.Controls.Add(this.txtUserName);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtPwd1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtPwd2);
-            this.groupBox2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(25, 220);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(346, 109);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Giriş Bilgileri";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtUserName.ForeColor = System.Drawing.Color.Gray;
-            this.txtUserName.Location = new System.Drawing.Point(105, 26);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.PlaceHolderText = null;
-            this.txtUserName.Size = new System.Drawing.Size(220, 22);
-            this.txtUserName.TabIndex = 0;
+            this.gbLoginInfo.Controls.Add(this.txtUserName);
+            this.gbLoginInfo.Controls.Add(this.label9);
+            this.gbLoginInfo.Controls.Add(this.label10);
+            this.gbLoginInfo.Controls.Add(this.txtPwd1);
+            this.gbLoginInfo.Controls.Add(this.label11);
+            this.gbLoginInfo.Controls.Add(this.txtPwd2);
+            this.gbLoginInfo.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gbLoginInfo.Location = new System.Drawing.Point(25, 220);
+            this.gbLoginInfo.Name = "gbLoginInfo";
+            this.gbLoginInfo.Size = new System.Drawing.Size(346, 109);
+            this.gbLoginInfo.TabIndex = 17;
+            this.gbLoginInfo.TabStop = false;
+            this.gbLoginInfo.Text = "Giriş Bilgileri";
             // 
             // label9
             // 
@@ -303,6 +267,7 @@
             this.txtPwd1.Size = new System.Drawing.Size(220, 22);
             this.txtPwd1.TabIndex = 1;
             this.txtPwd1.UseSystemPasswordChar = true;
+            this.txtPwd1.TextChanged += new System.EventHandler(this.txtPwd1_TextChanged);
             // 
             // label11
             // 
@@ -322,6 +287,7 @@
             this.txtPwd2.Size = new System.Drawing.Size(220, 22);
             this.txtPwd2.TabIndex = 2;
             this.txtPwd2.UseSystemPasswordChar = true;
+            this.txtPwd2.TextChanged += new System.EventHandler(this.txtPwd2_TextChanged);
             // 
             // rbEmployee
             // 
@@ -368,6 +334,7 @@
             this.rbManager.TabIndex = 1;
             this.rbManager.Text = "Yönetici";
             this.rbManager.UseVisualStyleBackColor = true;
+            this.rbManager.CheckedChanged += new System.EventHandler(this.rbManager_CheckedChanged);
             // 
             // btnSave
             // 
@@ -419,6 +386,61 @@
             // 
             this.epPwd2.ContainerControl = this;
             // 
+            // chkIsActive
+            // 
+            this.chkIsActive.AutoSize = true;
+            this.chkIsActive.Checked = true;
+            this.chkIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIsActive.Enabled = false;
+            this.chkIsActive.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chkIsActive.Location = new System.Drawing.Point(39, 388);
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Size = new System.Drawing.Size(110, 21);
+            this.chkIsActive.TabIndex = 20;
+            this.chkIsActive.Text = "Aktif Kullanıcı";
+            this.chkIsActive.UseVisualStyleBackColor = true;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtUserName.ForeColor = System.Drawing.Color.Gray;
+            this.txtUserName.Location = new System.Drawing.Point(105, 26);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(220, 22);
+            this.txtUserName.TabIndex = 0;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtName.ForeColor = System.Drawing.Color.Gray;
+            this.txtName.Location = new System.Drawing.Point(105, 25);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(220, 22);
+            this.txtName.TabIndex = 0;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtSurname.ForeColor = System.Drawing.Color.Gray;
+            this.txtSurname.Location = new System.Drawing.Point(105, 50);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(220, 22);
+            this.txtSurname.TabIndex = 1;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
+            // 
+            // txtMail
+            // 
+            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtMail.ForeColor = System.Drawing.Color.Gray;
+            this.txtMail.Location = new System.Drawing.Point(105, 103);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.PlaceHolderText = "abc@abc.com";
+            this.txtMail.Size = new System.Drawing.Size(220, 22);
+            this.txtMail.TabIndex = 7;
+            this.txtMail.Text = "abc@abc.com";
+            // 
             // FrmNewUser
             // 
             this.AcceptButton = this.btnSave;
@@ -426,11 +448,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(380, 449);
+            this.Controls.Add(this.chkIsActive);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbLoginInfo);
+            this.Controls.Add(this.gbUserInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
@@ -445,10 +468,10 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbUserInfo.ResumeLayout(false);
+            this.gbUserInfo.PerformLayout();
+            this.gbLoginInfo.ResumeLayout(false);
+            this.gbLoginInfo.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epName)).EndInit();
@@ -471,14 +494,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblFormName;
+        private System.Windows.Forms.GroupBox gbUserInfo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbLoginInfo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPwd1;
@@ -501,5 +523,7 @@
         private System.Windows.Forms.ErrorProvider epUserName;
         private System.Windows.Forms.ErrorProvider epPwd1;
         private System.Windows.Forms.ErrorProvider epPwd2;
+        private System.Windows.Forms.CheckBox chkIsActive;
+        private PlaceHolderTextBox txtMail;
     }
 }

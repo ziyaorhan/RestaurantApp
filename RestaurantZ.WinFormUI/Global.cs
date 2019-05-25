@@ -12,6 +12,7 @@ namespace RestaurantZ.WinFormUI
 {
     public static class Global
     {
+        //Herhangi bir dosyanın path'ini getirmek için.
         public static string GetPath(string subPath)
         {
             DirectoryInfo projectBinFolder = Directory.GetParent(Application.StartupPath);
@@ -19,45 +20,11 @@ namespace RestaurantZ.WinFormUI
             string returnPath = projectFolderName + subPath;
             return returnPath;
         }
-
-        //Gelen exception listesinde ilgili property için hataları döndürür.
-        public static string GetExceptionsByProperty(List<MessagesAndProperties> exceptions,string propertyName)
-        {
-            string message = "";
-                foreach (var exception in exceptions)
-                {
-                    if (exception.PropertyName == propertyName)
-                    {
-                        message += "-" + exception.ErrorMessage+Environment.NewLine;
-                    }
-                } 
-            return message;
-        }
-
-        //Gelen exception listesinde ilgili property için hatanın varlığını kontrol eden metot.
-        public static bool IsThereAExceptionByProperty(List<MessagesAndProperties> exceptions,string propertyName)
-        {
-            if (exceptions!=null)
-            {
-                foreach (var exception in exceptions)
-                {
-                    if (exception.PropertyName ==propertyName)
-                    {
-                        return true; 
-                    }
-                }
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static void SetError(TextBox textBox,string errorMesage)
+        //Textbox'ta error mesajlarını göstermek için.
+        public static void SetError(System.Windows.Forms.TextBox textBox, string errorMesage)
         {
             ErrorProvider errorProvider = new ErrorProvider();
             errorProvider.SetError(textBox, errorMesage);
-        }
+        } 
     }
 }

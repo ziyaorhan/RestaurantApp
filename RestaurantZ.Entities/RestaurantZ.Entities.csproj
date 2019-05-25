@@ -44,11 +44,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IEntity.cs" />
     <Compile Include="Abstract\IService.cs" />
-    <Compile Include="Abstract\ITable.cs" />
+    <Compile Include="Concrete\BaseEntity.cs" />
     <Compile Include="Concrete\Breakfast.cs" />
     <Compile Include="Concrete\Customer.cs" />
-    <Compile Include="Concrete\CustomerService.cs" />
     <Compile Include="Concrete\Dinner.cs" />
+    <Compile Include="Concrete\LoginInfo.cs" />
     <Compile Include="Concrete\Lunch.cs" />
     <Compile Include="Concrete\NightMale.cs" />
     <Compile Include="Concrete\User.cs" />

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public class PlaceHolderTextBox : TextBox
+    public class PlaceHolderTextBox :TextBox
     {
         bool isPlaceHolder = true;
 
