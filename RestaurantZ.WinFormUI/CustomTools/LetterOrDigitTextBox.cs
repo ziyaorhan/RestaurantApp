@@ -13,7 +13,7 @@ namespace RestaurantZ.WinFormUI.CustomTools
         private void LetterOrDigitTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             //girilen karakter harf sayı ya da back tuşu değilse engelle.
-            if (!char.IsLetterOrDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar) != 8)
+            if (!char.IsLetterOrDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar) != 8 && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }

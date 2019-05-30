@@ -133,6 +133,24 @@ namespace RestaurantZ.WinFormUI
         {
             tsTxtSearch.Text = "";
         }
+
+        private void tsmiUsers_Click(object sender, EventArgs e)
+        {
+           // Cursor.Current = Cursors.WaitCursor;
+            this.Hide();         
+            FrmUsers frmUsers = new FrmUsers();
+            frmUsers.ShowDialog();
+            //Cursor.Current = Cursors.Default;
+        }
+
+        private void tsmiCustomers_Click(object sender, EventArgs e)
+        {
+           // Cursor.Current = Cursors.WaitCursor;
+            this.Hide();
+            FrmCustomers frmCustomers = new FrmCustomers();
+            frmCustomers.ShowDialog();
+           // Cursor.Current = Cursors.Default;
+        }
     }
 }
 

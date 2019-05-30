@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.DependencyResolvers.Ninject;
@@ -41,25 +35,8 @@ namespace RestaurantZ.WinFormUI
             btnNewUser.Image = Image.FromFile(Global.GetPath("\\Images\\add.png"));
             DgvUsersFill();
             //
-            DataGridViewButtonColumn btnUpdate = new DataGridViewButtonColumn();
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.HeaderText = "Güncelle";
-            btnUpdate.Text = "Güncelle";
-            btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.DefaultCellStyle.ForeColor = Color.White;
-            btnUpdate.DefaultCellStyle.BackColor = Color.Green;
-            btnUpdate.UseColumnTextForButtonValue = true; //buton için tex özelliğini kullan.
-            this.dgvUsers.Columns.Add(btnUpdate);
-            //
-            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-            btnDelete.Name = "btnDelete";
-            btnDelete.HeaderText = "Sil";
-            btnDelete.Text = "Sil";
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.DefaultCellStyle.ForeColor = Color.White;
-            btnDelete.DefaultCellStyle.BackColor = Color.Red;
-            btnDelete.UseColumnTextForButtonValue = true; //buton için tex özelliğini kullan.
-            this.dgvUsers.Columns.Add(btnDelete);
+            Global.GetUpdateButton(dgvUsers);
+            Global.GetDeleteButton(dgvUsers);
         }
 
         public void DgvUsersFill()
@@ -105,6 +82,8 @@ namespace RestaurantZ.WinFormUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            FrmMain refreshedFrm =(FrmMain) Application.OpenForms["FrmMain"];
+            refreshedFrm.Show();
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -120,8 +99,8 @@ namespace RestaurantZ.WinFormUI
             //Güncelle
             if (dgvUsers.Columns[e.ColumnIndex].Name == "btnUpdate")
             {
-                int deletedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
-                FrmUpdateUserByAdmin frmUpdateUserByAdmin = new FrmUpdateUserByAdmin(deletedUseerId);
+                int updatedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
+                FrmUpdateUserByAdmin frmUpdateUserByAdmin = new FrmUpdateUserByAdmin(updatedUseerId);
                 frmUpdateUserByAdmin.ShowDialog();
             }
             //Sil

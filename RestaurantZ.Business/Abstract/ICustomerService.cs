@@ -14,5 +14,7 @@ namespace RestaurantZ.Business.Abstract
         Customer Get(int id);
         List<Customer> GetAll();
         void Delete(Customer customer);
+        List<Customer> GetAllByCustomerName(string customerName);
+        List<Customer> GetPassiveCustomers();
     }
 }

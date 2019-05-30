@@ -36,11 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNewCustomer = new System.Windows.Forms.Button();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.txtSearch = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
+            this.chkPassiveCustomer = new System.Windows.Forms.CheckBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -49,7 +52,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(19, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(630, 22);
+            this.panel4.Size = new System.Drawing.Size(769, 22);
             this.panel4.TabIndex = 12;
             // 
             // btnClose
@@ -57,7 +60,7 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnClose.Location = new System.Drawing.Point(607, 0);
+            this.btnClose.Location = new System.Drawing.Point(746, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 22);
             this.btnClose.TabIndex = 0;
@@ -72,7 +75,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(19, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(630, 37);
+            this.panel2.Size = new System.Drawing.Size(769, 37);
             this.panel2.TabIndex = 13;
             // 
             // label3
@@ -92,7 +95,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(19, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(630, 3);
+            this.label1.Size = new System.Drawing.Size(769, 3);
             this.label1.TabIndex = 14;
             this.label1.Text = "label1";
             // 
@@ -102,7 +105,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Location = new System.Drawing.Point(16, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(3, 414);
+            this.label2.Size = new System.Drawing.Size(3, 527);
             this.label2.TabIndex = 15;
             this.label2.Text = "label2";
             // 
@@ -112,7 +115,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(16, 414);
+            this.panel1.Size = new System.Drawing.Size(16, 527);
             this.panel1.TabIndex = 11;
             // 
             // dgvCustomers
@@ -121,21 +124,15 @@
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(22, 122);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(627, 292);
+            this.dgvCustomers.Size = new System.Drawing.Size(766, 405);
             this.dgvCustomers.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(22, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 17;
+            this.dgvCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellContentClick);
             // 
             // btnNewCustomer
             // 
             this.btnNewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewCustomer.Location = new System.Drawing.Point(552, 83);
+            this.btnNewCustomer.Location = new System.Drawing.Point(691, 83);
             this.btnNewCustomer.Name = "btnNewCustomer";
             this.btnNewCustomer.Size = new System.Drawing.Size(97, 33);
             this.btnNewCustomer.TabIndex = 18;
@@ -145,14 +142,43 @@
             this.btnNewCustomer.UseVisualStyleBackColor = true;
             this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
+            // pbSearch
+            // 
+            this.pbSearch.Location = new System.Drawing.Point(22, 96);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(20, 20);
+            this.pbSearch.TabIndex = 19;
+            this.pbSearch.TabStop = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(48, 96);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(110, 20);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // chkPassiveCustomer
+            // 
+            this.chkPassiveCustomer.AutoSize = true;
+            this.chkPassiveCustomer.Location = new System.Drawing.Point(174, 96);
+            this.chkPassiveCustomer.Name = "chkPassiveCustomer";
+            this.chkPassiveCustomer.Size = new System.Drawing.Size(176, 20);
+            this.chkPassiveCustomer.TabIndex = 21;
+            this.chkPassiveCustomer.Text = "Sadece Pasif Müşterileri Getir";
+            this.chkPassiveCustomer.UseVisualStyleBackColor = true;
+            this.chkPassiveCustomer.CheckedChanged += new System.EventHandler(this.chkPassiveCustomer_CheckedChanged);
+            // 
             // FrmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(649, 414);
+            this.ClientSize = new System.Drawing.Size(788, 527);
+            this.Controls.Add(this.chkPassiveCustomer);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.btnNewCustomer);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvCustomers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
@@ -165,11 +191,11 @@
             this.Name = "FrmCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCustomers";
-            this.Load += new System.EventHandler(this.FrmCustomers_Load);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +211,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNewCustomer;
+        private System.Windows.Forms.PictureBox pbSearch;
+        private CustomTools.LetterOrDigitTextBox txtSearch;
+        private System.Windows.Forms.CheckBox chkPassiveCustomer;
     }
 }

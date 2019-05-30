@@ -76,6 +76,16 @@ namespace RestaurantZ.Business.Concrete
             }
         }
 
+        public List<Customer> GetAllByCustomerName(string customerName)
+        {
+            return _customerDal.GetAll(c=>c.CustomerName.ToLower().Contains(customerName.ToLower()));
+        }
+
+        public List<Customer> GetPassiveCustomers()
+        {
+            return _customerDal.GetAll(c => c.IsActive == false);
+        }
+
         public void Update(Customer customer)
         {
             ValidationTool.Validate(new CustomerValidator(new EfCustomerDal(), customer), customer);

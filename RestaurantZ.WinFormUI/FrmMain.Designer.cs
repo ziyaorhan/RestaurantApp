@@ -53,10 +53,8 @@
             this.tsLblSync = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblSettings = new System.Windows.Forms.ToolStripSplitButton();
-            this.kullanıcılarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsLblCustomer = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblReports = new System.Windows.Forms.ToolStripSplitButton();
             this.günlükRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aylıkRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,10 +68,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvMain = new System.Windows.Forms.DataGridView();
+            this.tsmiCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemNightMeal = new RestaurantZ.WinFormUI.MenuItem();
             this.menuItemDinner = new RestaurantZ.WinFormUI.MenuItem();
             this.menuItemLaunch = new RestaurantZ.WinFormUI.MenuItem();
             this.menuItemBreakFast = new RestaurantZ.WinFormUI.MenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -82,23 +82,21 @@
             this.panel3.SuspendLayout();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Tomato;
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pbLogo);
-            this.panel1.Controls.Add(this.menuItemNightMeal);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.menuItemDinner);
-            this.panel1.Controls.Add(this.menuItemLaunch);
-            this.panel1.Controls.Add(this.menuItemBreakFast);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(205, 569);
+            this.panel1.Size = new System.Drawing.Size(205, 562);
             this.panel1.TabIndex = 5;
             // 
             // label1
@@ -146,7 +144,7 @@
             this.panel2.Location = new System.Drawing.Point(205, 0);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(813, 32);
+            this.panel2.Size = new System.Drawing.Size(821, 32);
             this.panel2.TabIndex = 6;
             // 
             // label8
@@ -174,9 +172,10 @@
             this.tsBtnSessionOut,
             this.toolStripSeparator5,
             this.tsLblSessionName});
+            this.tsTop.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsTop.Location = new System.Drawing.Point(0, 0);
             this.tsTop.Name = "tsTop";
-            this.tsTop.Size = new System.Drawing.Size(813, 32);
+            this.tsTop.Size = new System.Drawing.Size(821, 32);
             this.tsTop.TabIndex = 0;
             this.tsTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tsTop_MouseDown);
             // 
@@ -278,7 +277,7 @@
             this.bilgilerimiGuncelleToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bilgilerimiGuncelleToolStripMenuItem.Name = "bilgilerimiGuncelleToolStripMenuItem";
             this.bilgilerimiGuncelleToolStripMenuItem.ShowShortcutKeys = false;
-            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bilgilerimiGuncelleToolStripMenuItem.Text = "Bilgilerimi Güncelle";
             this.bilgilerimiGuncelleToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -290,7 +289,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(205, 32);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(813, 42);
+            this.panel4.Size = new System.Drawing.Size(821, 42);
             this.panel4.TabIndex = 7;
             // 
             // panel3
@@ -299,7 +298,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 18);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(810, 24);
+            this.panel3.Size = new System.Drawing.Size(818, 24);
             this.panel3.TabIndex = 13;
             // 
             // tsMain
@@ -312,8 +311,6 @@
             this.toolStripSeparator1,
             this.tsLblSettings,
             this.toolStripSeparator2,
-            this.tsLblCustomer,
-            this.toolStripSeparator3,
             this.tsLblReports,
             this.tsLblDate,
             this.toolStripSeparator6,
@@ -322,7 +319,7 @@
             this.tsBtnClear});
             this.tsMain.Location = new System.Drawing.Point(0, 0);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(810, 25);
+            this.tsMain.Size = new System.Drawing.Size(818, 25);
             this.tsMain.TabIndex = 0;
             // 
             // tsLblSync
@@ -346,35 +343,23 @@
             // 
             this.tsLblSettings.DropDownButtonWidth = 24;
             this.tsLblSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kullanıcılarToolStripMenuItem});
+            this.tsmiUsers,
+            this.tsmiCustomers});
             this.tsLblSettings.Name = "tsLblSettings";
             this.tsLblSettings.Size = new System.Drawing.Size(74, 22);
             this.tsLblSettings.Text = "Ayarlar";
             // 
-            // kullanıcılarToolStripMenuItem
+            // tsmiUsers
             // 
-            this.kullanıcılarToolStripMenuItem.Name = "kullanıcılarToolStripMenuItem";
-            this.kullanıcılarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.kullanıcılarToolStripMenuItem.Text = "Kullanıcılar";
+            this.tsmiUsers.Name = "tsmiUsers";
+            this.tsmiUsers.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUsers.Text = "Kullanıcılar";
+            this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsLblCustomer
-            // 
-            this.tsLblCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsLblCustomer.Image = ((System.Drawing.Image)(resources.GetObject("tsLblCustomer.Image")));
-            this.tsLblCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsLblCustomer.Name = "tsLblCustomer";
-            this.tsLblCustomer.Size = new System.Drawing.Size(71, 22);
-            this.tsLblCustomer.Text = "Müşteriler";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // tsLblReports
             // 
@@ -390,19 +375,19 @@
             // günlükRaporToolStripMenuItem
             // 
             this.günlükRaporToolStripMenuItem.Name = "günlükRaporToolStripMenuItem";
-            this.günlükRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.günlükRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.günlükRaporToolStripMenuItem.Text = "Günlük Rapor";
             // 
             // aylıkRaporToolStripMenuItem
             // 
             this.aylıkRaporToolStripMenuItem.Name = "aylıkRaporToolStripMenuItem";
-            this.aylıkRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.aylıkRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aylıkRaporToolStripMenuItem.Text = "Aylık Rapor";
             // 
             // kapsamlıRaporToolStripMenuItem
             // 
             this.kapsamlıRaporToolStripMenuItem.Name = "kapsamlıRaporToolStripMenuItem";
-            this.kapsamlıRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.kapsamlıRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kapsamlıRaporToolStripMenuItem.Text = "Kapsamlı Rapor";
             // 
             // tsLblDate
@@ -455,7 +440,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Location = new System.Drawing.Point(205, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(813, 3);
+            this.label3.Size = new System.Drawing.Size(821, 3);
             this.label3.TabIndex = 10;
             // 
             // label5
@@ -464,13 +449,12 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Location = new System.Drawing.Point(205, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(3, 492);
+            this.label5.Size = new System.Drawing.Size(3, 485);
             this.label5.TabIndex = 11;
             // 
             // dgvMain
             // 
             this.dgvMain.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMain.Location = new System.Drawing.Point(208, 77);
@@ -478,51 +462,71 @@
             this.dgvMain.ReadOnly = true;
             this.dgvMain.RowHeadersWidth = 16;
             this.dgvMain.ShowEditingIcon = false;
-            this.dgvMain.Size = new System.Drawing.Size(810, 492);
+            this.dgvMain.Size = new System.Drawing.Size(818, 485);
             this.dgvMain.TabIndex = 12;
+            // 
+            // tsmiCustomers
+            // 
+            this.tsmiCustomers.Name = "tsmiCustomers";
+            this.tsmiCustomers.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCustomers.Text = "Müşteriler";
+            this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
             // 
             // menuItemNightMeal
             // 
             this.menuItemNightMeal.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemNightMeal.Location = new System.Drawing.Point(2, 487);
-            this.menuItemNightMeal.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.menuItemNightMeal.Location = new System.Drawing.Point(3, 184);
+            this.menuItemNightMeal.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.menuItemNightMeal.Name = "menuItemNightMeal";
-            this.menuItemNightMeal.Size = new System.Drawing.Size(201, 58);
+            this.menuItemNightMeal.Size = new System.Drawing.Size(201, 45);
             this.menuItemNightMeal.TabIndex = 7;
             // 
             // menuItemDinner
             // 
             this.menuItemDinner.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemDinner.Location = new System.Drawing.Point(2, 415);
-            this.menuItemDinner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.menuItemDinner.Location = new System.Drawing.Point(3, 125);
+            this.menuItemDinner.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.menuItemDinner.Name = "menuItemDinner";
-            this.menuItemDinner.Size = new System.Drawing.Size(201, 58);
+            this.menuItemDinner.Size = new System.Drawing.Size(201, 45);
             this.menuItemDinner.TabIndex = 7;
             // 
             // menuItemLaunch
             // 
             this.menuItemLaunch.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemLaunch.Location = new System.Drawing.Point(2, 342);
-            this.menuItemLaunch.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.menuItemLaunch.Location = new System.Drawing.Point(3, 66);
+            this.menuItemLaunch.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.menuItemLaunch.Name = "menuItemLaunch";
-            this.menuItemLaunch.Size = new System.Drawing.Size(201, 58);
+            this.menuItemLaunch.Size = new System.Drawing.Size(201, 45);
             this.menuItemLaunch.TabIndex = 7;
             // 
             // menuItemBreakFast
             // 
             this.menuItemBreakFast.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemBreakFast.Location = new System.Drawing.Point(2, 270);
-            this.menuItemBreakFast.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.menuItemBreakFast.Location = new System.Drawing.Point(3, 7);
+            this.menuItemBreakFast.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.menuItemBreakFast.Name = "menuItemBreakFast";
-            this.menuItemBreakFast.Size = new System.Drawing.Size(201, 58);
+            this.menuItemBreakFast.Size = new System.Drawing.Size(201, 45);
             this.menuItemBreakFast.TabIndex = 7;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.menuItemBreakFast);
+            this.flowLayoutPanel1.Controls.Add(this.menuItemLaunch);
+            this.flowLayoutPanel1.Controls.Add(this.menuItemDinner);
+            this.flowLayoutPanel1.Controls.Add(this.menuItemNightMeal);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 309);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 253);
+            this.flowLayoutPanel1.TabIndex = 10;
             // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1018, 569);
+            this.ClientSize = new System.Drawing.Size(1026, 562);
             this.ControlBox = false;
             this.Controls.Add(this.dgvMain);
             this.Controls.Add(this.label5);
@@ -552,6 +556,7 @@
             this.tsMain.ResumeLayout(false);
             this.tsMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -588,9 +593,8 @@
         private System.Windows.Forms.ToolStrip tsMain;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSplitButton tsLblSettings;
-        private System.Windows.Forms.ToolStripMenuItem kullanıcılarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUsers;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSplitButton tsLblReports;
         private System.Windows.Forms.ToolStripMenuItem günlükRaporToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aylıkRaporToolStripMenuItem;
@@ -600,7 +604,8 @@
         private System.Windows.Forms.ToolStripLabel tsLblSearch;
         private System.Windows.Forms.ToolStripTextBox tsTxtSearch;
         private System.Windows.Forms.ToolStripButton tsBtnClear;
-        private System.Windows.Forms.ToolStripButton tsLblCustomer;
         private System.Windows.Forms.ToolStripLabel tsLblSync;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCustomers;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

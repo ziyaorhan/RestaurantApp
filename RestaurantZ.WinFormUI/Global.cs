@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,5 +27,30 @@ namespace RestaurantZ.WinFormUI
             ErrorProvider errorProvider = new ErrorProvider();
             errorProvider.SetError(textBox, errorMesage);
         } 
+        public static void GetUpdateButton(DataGridView dataGridView)
+        {
+            DataGridViewButtonColumn btnUpdate = new DataGridViewButtonColumn();
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.HeaderText = "Güncelle";
+            btnUpdate.Text = "Güncelle";
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.DefaultCellStyle.ForeColor = Color.White;
+            btnUpdate.DefaultCellStyle.BackColor = Color.Green;
+            btnUpdate.UseColumnTextForButtonValue = true; //buton için tex özelliğini kullan.
+            dataGridView.Columns.Add(btnUpdate);
+        }
+        public static void GetDeleteButton(DataGridView dataGridView)
+        {
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnDelete";
+            btnDelete.HeaderText = "Sil";
+            btnDelete.Text = "Sil";
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.DefaultCellStyle.ForeColor = Color.White;
+            btnDelete.DefaultCellStyle.BackColor = Color.Red;
+            btnDelete.UseColumnTextForButtonValue = true; //buton için tex özelliğini kullan.
+            dataGridView.Columns.Add(btnDelete);
+
+        }
     }
 }

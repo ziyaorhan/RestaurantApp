@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public class PlaceHolderTextBox :TextBox
+    public class PlaceHolderTextBox : TextBox
     {
         bool isPlaceHolder = true;
 
@@ -12,8 +12,9 @@ namespace RestaurantZ.WinFormUI
 
         public PlaceHolderTextBox()//kurucu metot
         {
+
             GotFocus += removePlaceHolder;//focuslandığında eventi
-            LostFocus += setPlaceholder;  //focustan uzaklaştığında eventi
+            LostFocus += setPlaceholder;//focustan uzaklaştığında eventi
         }
 
         public string PlaceHolderText
@@ -29,7 +30,23 @@ namespace RestaurantZ.WinFormUI
         public new string Text
         {
             get => isPlaceHolder ? string.Empty : base.Text;
-            set => base.Text = value;
+            set
+            {
+                if (value != string.Empty && value != PlaceHolderText)
+                {
+                    base.Text = value;
+                    this.ForeColor = Color.Black;
+                    this.Font = new Font(this.Font, FontStyle.Regular);
+                    isPlaceHolder = false;
+                }
+                else
+                {
+                    base.Text = PlaceHolderText;
+                    this.ForeColor = Color.Gray;
+                    this.Font = new Font(this.Font, FontStyle.Italic);
+                    isPlaceHolder = true;
+                }
+            }
         }
 
         //textbox' a lost focus olduğunda(yani odak kaybedilirse) place holder çalışacak.
@@ -42,9 +59,15 @@ namespace RestaurantZ.WinFormUI
                 this.Font = new Font(this.Font, FontStyle.Italic);
                 isPlaceHolder = true;
             }
+            else
+            {
+                isPlaceHolder = false;
+                this.ForeColor = Color.Black;
+                this.Font = new Font(this.Font, FontStyle.Regular);
+            }
         }
 
-        //textbox'a focus edildiğinde place holder silinecektir.
+        //textbox'a focus edildiğinde place holder silinecektir.(text property ile place holder aynı ise silinecek)
         private void removePlaceHolder()
         {
 
