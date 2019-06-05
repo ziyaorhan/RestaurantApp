@@ -22,6 +22,12 @@ namespace RestaurantZ.Business.DependencyResolvers.Ninject
             Bind<IUserDal>().To<EfUserDal>().InSingletonScope();//İleride NHibernate gibi bir ORM ile çalışılacaksa değiştirilecek yer EfUserDal olacaktır.
             Bind<ICustomerDal>().To<EfCustomerDal>().InSingletonScope();
             Bind<ICustomerService>().To<CustomerManager>().InSingletonScope();
+
+            Bind<IBreakfastDal>().To<EfBreakfastDal>().InSingletonScope();
+            Bind<IBreakfastService>().To<BreakfastManager>().InSingletonScope();
+            //
+            Bind<IJoinService>().To<JoinManager>().InSingletonScope();
+            
         }
     }
 }

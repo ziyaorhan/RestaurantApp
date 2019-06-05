@@ -53,9 +53,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IBreakfastService.cs" />
     <Compile Include="Abstract\ICustomerService.cs" />
+    <Compile Include="Abstract\IJoinService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\BreakfastManager.cs" />
     <Compile Include="Concrete\CustomerManager.cs" />
+    <Compile Include="Concrete\JoinManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Utilities\ValidationTool.cs" />
     <Compile Include="Utilities\Variables.cs" />
     <Compile Include="ValidationRules\FluentValidation\CustomerValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\IServiceValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\UserValidator.cs" />
     <Compile Include="ValidationRules\CustomRules.cs" />
     <Compile Include="ValidationRules\CustomExceptionForValidation.cs" />

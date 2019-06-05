@@ -1,10 +1,19 @@
 ﻿using RestaurantZ.Entities.Abstract;
 using System;
+using System.Collections.Generic;
 
 namespace RestaurantZ.Entities.Concrete
 {
     public class Customer : BaseEntity,IEntity
     {
+        public Customer()
+        {
+            this.Breakfasts = new HashSet<Breakfast>();
+            this.Lunches = new HashSet<Lunch>();
+            this.Dinners = new HashSet<Dinner>();
+            this.NightMales = new HashSet<NightMale>();
+        }
+
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerRepresentative { get; set; }
@@ -19,7 +28,13 @@ namespace RestaurantZ.Entities.Concrete
         public decimal LunchPrice { get; set; }
         public decimal DinnerPrice { get; set; }
         public decimal NightMalePrice { get; set; }
+
         public bool IsActive { get; set; }
         public bool IsVisible { get; set; }
+
+        public /*virtual*/ ICollection<Breakfast> Breakfasts { get; set; }
+        public /*virtual*/ ICollection<Lunch> Lunches { get; set; }
+        public /*virtual*/ ICollection<Dinner> Dinners { get; set; }
+        public /*virtual*/ ICollection<NightMale> NightMales { get; set; }
     }
 }

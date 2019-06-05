@@ -49,6 +49,7 @@ namespace RestaurantZ.WinFormUI
             btnDelete.DefaultCellStyle.ForeColor = Color.White;
             btnDelete.DefaultCellStyle.BackColor = Color.Red;
             btnDelete.UseColumnTextForButtonValue = true; //buton için tex özelliğini kullan.
+            btnDelete.Width = 30;
             dataGridView.Columns.Add(btnDelete);
 
         }

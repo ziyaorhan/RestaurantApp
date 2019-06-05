@@ -27,7 +27,7 @@ namespace RestaurantZ.Business.Concrete
             {
                 _customerDal.Add(customer);
             }
-            catch 
+            catch
             {
                 throw new Exception("Yeni bir müşteri eklenirken hata oluştu.");
             }
@@ -78,7 +78,17 @@ namespace RestaurantZ.Business.Concrete
 
         public List<Customer> GetAllByCustomerName(string customerName)
         {
-            return _customerDal.GetAll(c=>c.CustomerName.ToLower().Contains(customerName.ToLower()));
+            return _customerDal.GetAll(c => c.CustomerName.ToLower().Contains(customerName.ToLower()));
+        }
+
+        public List<Customer> GetAllRcvBrkfstByCstmrName(string customerName)
+        {
+            return _customerDal.GetAll(c => c.BreakfastPrice > 0 && c.CustomerName.ToLower().Contains(customerName.ToLower()));
+        }
+
+        public List<Customer> GetAllActiveAndReceivingBreakfast()
+        {
+            return _customerDal.GetAll(c => c.BreakfastPrice > 0 && c.IsActive == true);
         }
 
         public List<Customer> GetPassiveCustomers()
@@ -97,6 +107,13 @@ namespace RestaurantZ.Business.Concrete
             {
                 throw new Exception("Müşteri güncellenirken bir hata oluştu.");
             }
+        }
+
+        public object GetAllForDgv()
+        {
+            var customers = _customerDal.GetAll();
+            var result = customers.Select(c => new { c.CustomerId, c.CustomerName, c.BreakfastPrice, c.LunchPrice, c.DinnerPrice, c.NightMalePrice, c.IsActive }).ToList();
+            return result;
         }
     }
 }

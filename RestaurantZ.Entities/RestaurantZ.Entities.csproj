@@ -48,6 +48,7 @@
     <Compile Include="Concrete\Breakfast.cs" />
     <Compile Include="Concrete\Customer.cs" />
     <Compile Include="Concrete\Dinner.cs" />
+    <Compile Include="Concrete\Join\BreakfastDgv.cs" />
     <Compile Include="Concrete\LoginInfo.cs" />
     <Compile Include="Concrete\Lunch.cs" />
     <Compile Include="Concrete\NightMale.cs" />

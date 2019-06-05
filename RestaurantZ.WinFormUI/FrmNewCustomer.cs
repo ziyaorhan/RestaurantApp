@@ -23,9 +23,9 @@ namespace RestaurantZ.WinFormUI
             {
                 _customerService = InstanceFactory.GetInstance<ICustomerService>();
             }
-            catch 
+            catch
             {
-               MessageBox.Show("Form açılırken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
+                MessageBox.Show("Form açılırken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
             }
             allExceptions = new List<MessagesAndProperties>();
         }
@@ -79,19 +79,19 @@ namespace RestaurantZ.WinFormUI
 
         private void FillPrices()
         {
-            if (txtBreakfast.Text==string.Empty)
+            if (txtBreakfast.Text == string.Empty || txtBreakfast.Text == ".")
             {
                 txtBreakfast.Text = "0.00";
             }
-            if (txtLunch.Text==string.Empty)
+            if (txtLunch.Text == string.Empty || txtLunch.Text == ".")
             {
                 txtLunch.Text = "0.00";
             }
-            if (txtDinner.Text == string.Empty)
+            if (txtDinner.Text == string.Empty || txtDinner.Text == ".")
             {
                 txtDinner.Text = "0.00";
             }
-            if (txtNightMale.Text == string.Empty)
+            if (txtNightMale.Text == string.Empty || txtNightMale.Text == ".")
             {
                 txtNightMale.Text = "0.00";
             }

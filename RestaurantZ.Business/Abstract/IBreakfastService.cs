@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.Abstract
 {
-    interface IBreakfastService
+    public interface IBreakfastService
     {
-        bool Add(Breakfast breakfast);
+        void Add(Breakfast breakfast);
+        void Update(Breakfast breakfast);
+        Breakfast Get(int id);
+        List<Breakfast> GetAll();
+        void Delete(Breakfast breakfast);
     }
 }

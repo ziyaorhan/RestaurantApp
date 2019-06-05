@@ -8,7 +8,7 @@ namespace RestaurantZ.Entities.Concrete
 {
     public static class LoginInfo
     {
-        public static int CurrentUserId=0;
+        public static int CurrentUserId=1;
         public static string CurrentUserName="";
         public static string CurrentUserRole="";
     }

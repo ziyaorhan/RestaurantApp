@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public partial class FrmServices : Form
+    public partial class FrmNigthMale : Form
     {
-        public FrmServices()
+        public FrmNigthMale()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

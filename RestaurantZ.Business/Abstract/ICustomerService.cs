@@ -16,5 +16,8 @@ namespace RestaurantZ.Business.Abstract
         void Delete(Customer customer);
         List<Customer> GetAllByCustomerName(string customerName);
         List<Customer> GetPassiveCustomers();
+        List<Customer> GetAllActiveAndReceivingBreakfast();
+        List<Customer> GetAllRcvBrkfstByCstmrName(string customerName);
+        object GetAllForDgv();
     }
 }

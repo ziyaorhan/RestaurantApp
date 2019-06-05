@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTools\DecimalPlaceHolderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomTools\DecimalTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -65,11 +68,26 @@
     <Compile Include="CustomTools\LetterTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomTools\MinDecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCustomers.Designer.cs">
       <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDinner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDinner.Designer.cs">
+      <DependentUpon>FrmDinner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLunch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLunch.Designer.cs">
+      <DependentUpon>FrmLunch.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -89,11 +107,17 @@
     <Compile Include="FrmNewUser.Designer.cs">
       <DependentUpon>FrmNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmServices.cs">
+    <Compile Include="FrmBreakfast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmServices.Designer.cs">
-      <DependentUpon>FrmServices.cs</DependentUpon>
+    <Compile Include="FrmBreakfast.Designer.cs">
+      <DependentUpon>FrmBreakfast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNigthMale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNigthMale.Designer.cs">
+      <DependentUpon>FrmNigthMale.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTemp.cs">
       <SubType>Form</SubType>
@@ -134,6 +158,12 @@
     <EmbeddedResource Include="FrmCustomers.resx">
       <DependentUpon>FrmCustomers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDinner.resx">
+      <DependentUpon>FrmDinner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLunch.resx">
+      <DependentUpon>FrmLunch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,8 +173,11 @@
     <EmbeddedResource Include="FrmNewUser.resx">
       <DependentUpon>FrmNewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmServices.resx">
-      <DependentUpon>FrmServices.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBreakfast.resx">
+      <DependentUpon>FrmBreakfast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNigthMale.resx">
+      <DependentUpon>FrmNigthMale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTemp.resx">
       <DependentUpon>FrmTemp.cs</DependentUpon>
@@ -166,7 +199,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -212,6 +247,7 @@
     <Content Include="Images\help.png" />
     <Content Include="Images\info.png" />
     <Content Include="Images\kahvalti.png" />
+    <Content Include="Images\kahvalti2.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logout.png" />
     <Content Include="Images\maximise.png" />

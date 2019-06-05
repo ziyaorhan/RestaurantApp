@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.tsTop = new System.Windows.Forms.ToolStrip();
@@ -54,11 +49,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblSettings = new System.Windows.Forms.ToolStripSplitButton();
             this.tsmiUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblReports = new System.Windows.Forms.ToolStripSplitButton();
             this.günlükRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aylıkRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kapsamlıRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geçmişKayıtlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsLblDate = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblSearch = new System.Windows.Forms.ToolStripLabel();
@@ -68,72 +65,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvMain = new System.Windows.Forms.DataGridView();
-            this.tsmiCustomers = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemNightMeal = new RestaurantZ.WinFormUI.MenuItem();
-            this.menuItemDinner = new RestaurantZ.WinFormUI.MenuItem();
-            this.menuItemLaunch = new RestaurantZ.WinFormUI.MenuItem();
-            this.menuItemBreakFast = new RestaurantZ.WinFormUI.MenuItem();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBreakfast = new System.Windows.Forms.Button();
+            this.btnLunch = new System.Windows.Forms.Button();
+            this.btnDinner = new System.Windows.Forms.Button();
+            this.btnNightMale = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tsTop.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Tomato;
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pbLogo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(205, 562);
-            this.panel1.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Forte", 15.75F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(37, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 22);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Kevser Kebap";
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLogo.Location = new System.Drawing.Point(77, 5);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(50, 50);
-            this.pbLogo.TabIndex = 8;
-            this.pbLogo.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(0, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 3);
-            this.label2.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Tomato;
-            this.label6.Location = new System.Drawing.Point(3, 709);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 3);
-            this.label6.TabIndex = 6;
             // 
             // panel2
             // 
@@ -277,7 +226,7 @@
             this.bilgilerimiGuncelleToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bilgilerimiGuncelleToolStripMenuItem.Name = "bilgilerimiGuncelleToolStripMenuItem";
             this.bilgilerimiGuncelleToolStripMenuItem.ShowShortcutKeys = false;
-            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.bilgilerimiGuncelleToolStripMenuItem.Text = "Bilgilerimi Güncelle";
             this.bilgilerimiGuncelleToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -352,9 +301,16 @@
             // tsmiUsers
             // 
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUsers.Size = new System.Drawing.Size(140, 22);
             this.tsmiUsers.Text = "Kullanıcılar";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
+            // 
+            // tsmiCustomers
+            // 
+            this.tsmiCustomers.Name = "tsmiCustomers";
+            this.tsmiCustomers.Size = new System.Drawing.Size(140, 22);
+            this.tsmiCustomers.Text = "Müşteriler";
+            this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
             // 
             // toolStripSeparator2
             // 
@@ -367,7 +323,8 @@
             this.tsLblReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.günlükRaporToolStripMenuItem,
             this.aylıkRaporToolStripMenuItem,
-            this.kapsamlıRaporToolStripMenuItem});
+            this.kapsamlıRaporToolStripMenuItem,
+            this.geçmişKayıtlarToolStripMenuItem});
             this.tsLblReports.Name = "tsLblReports";
             this.tsLblReports.Size = new System.Drawing.Size(84, 22);
             this.tsLblReports.Text = "Raporlar";
@@ -375,20 +332,26 @@
             // günlükRaporToolStripMenuItem
             // 
             this.günlükRaporToolStripMenuItem.Name = "günlükRaporToolStripMenuItem";
-            this.günlükRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.günlükRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.günlükRaporToolStripMenuItem.Text = "Günlük Rapor";
             // 
             // aylıkRaporToolStripMenuItem
             // 
             this.aylıkRaporToolStripMenuItem.Name = "aylıkRaporToolStripMenuItem";
-            this.aylıkRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aylıkRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aylıkRaporToolStripMenuItem.Text = "Aylık Rapor";
             // 
             // kapsamlıRaporToolStripMenuItem
             // 
             this.kapsamlıRaporToolStripMenuItem.Name = "kapsamlıRaporToolStripMenuItem";
-            this.kapsamlıRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kapsamlıRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.kapsamlıRaporToolStripMenuItem.Text = "Kapsamlı Rapor";
+            // 
+            // geçmişKayıtlarToolStripMenuItem
+            // 
+            this.geçmişKayıtlarToolStripMenuItem.Name = "geçmişKayıtlarToolStripMenuItem";
+            this.geçmişKayıtlarToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.geçmişKayıtlarToolStripMenuItem.Text = "Geçmiş Kayıtlar";
             // 
             // tsLblDate
             // 
@@ -456,70 +419,130 @@
             // 
             this.dgvMain.BackgroundColor = System.Drawing.Color.White;
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMain.Location = new System.Drawing.Point(208, 77);
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.ReadOnly = true;
             this.dgvMain.RowHeadersWidth = 16;
             this.dgvMain.ShowEditingIcon = false;
-            this.dgvMain.Size = new System.Drawing.Size(818, 485);
+            this.dgvMain.Size = new System.Drawing.Size(806, 485);
             this.dgvMain.TabIndex = 12;
             // 
-            // tsmiCustomers
+            // label6
             // 
-            this.tsmiCustomers.Name = "tsmiCustomers";
-            this.tsmiCustomers.Size = new System.Drawing.Size(180, 22);
-            this.tsmiCustomers.Text = "Müşteriler";
-            this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
+            this.label6.BackColor = System.Drawing.Color.Tomato;
+            this.label6.Location = new System.Drawing.Point(3, 709);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 3);
+            this.label6.TabIndex = 6;
             // 
-            // menuItemNightMeal
+            // label2
             // 
-            this.menuItemNightMeal.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemNightMeal.Location = new System.Drawing.Point(3, 184);
-            this.menuItemNightMeal.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.menuItemNightMeal.Name = "menuItemNightMeal";
-            this.menuItemNightMeal.Size = new System.Drawing.Size(201, 45);
-            this.menuItemNightMeal.TabIndex = 7;
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(0, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 3);
+            this.label2.TabIndex = 9;
             // 
-            // menuItemDinner
+            // pbLogo
             // 
-            this.menuItemDinner.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemDinner.Location = new System.Drawing.Point(3, 125);
-            this.menuItemDinner.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.menuItemDinner.Name = "menuItemDinner";
-            this.menuItemDinner.Size = new System.Drawing.Size(201, 45);
-            this.menuItemDinner.TabIndex = 7;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLogo.Location = new System.Drawing.Point(77, 5);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(50, 50);
+            this.pbLogo.TabIndex = 8;
+            this.pbLogo.TabStop = false;
             // 
-            // menuItemLaunch
+            // label1
             // 
-            this.menuItemLaunch.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemLaunch.Location = new System.Drawing.Point(3, 66);
-            this.menuItemLaunch.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.menuItemLaunch.Name = "menuItemLaunch";
-            this.menuItemLaunch.Size = new System.Drawing.Size(201, 45);
-            this.menuItemLaunch.TabIndex = 7;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Forte", 15.75F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(37, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 22);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Kevser Kebap";
             // 
-            // menuItemBreakFast
+            // panel1
             // 
-            this.menuItemBreakFast.BackColor = System.Drawing.Color.Tomato;
-            this.menuItemBreakFast.Location = new System.Drawing.Point(3, 7);
-            this.menuItemBreakFast.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.menuItemBreakFast.Name = "menuItemBreakFast";
-            this.menuItemBreakFast.Size = new System.Drawing.Size(201, 45);
-            this.menuItemBreakFast.TabIndex = 7;
+            this.panel1.BackColor = System.Drawing.Color.Tomato;
+            this.panel1.Controls.Add(this.btnNightMale);
+            this.panel1.Controls.Add(this.btnDinner);
+            this.panel1.Controls.Add(this.btnLunch);
+            this.panel1.Controls.Add(this.btnBreakfast);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbLogo);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(205, 562);
+            this.panel1.TabIndex = 5;
             // 
-            // flowLayoutPanel1
+            // btnBreakfast
             // 
-            this.flowLayoutPanel1.Controls.Add(this.menuItemBreakFast);
-            this.flowLayoutPanel1.Controls.Add(this.menuItemLaunch);
-            this.flowLayoutPanel1.Controls.Add(this.menuItemDinner);
-            this.flowLayoutPanel1.Controls.Add(this.menuItemNightMeal);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 309);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 253);
-            this.flowLayoutPanel1.TabIndex = 10;
+            this.btnBreakfast.BackColor = System.Drawing.Color.Tomato;
+            this.btnBreakfast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBreakfast.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBreakfast.ForeColor = System.Drawing.Color.White;
+            this.btnBreakfast.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBreakfast.Location = new System.Drawing.Point(0, 149);
+            this.btnBreakfast.Name = "btnBreakfast";
+            this.btnBreakfast.Size = new System.Drawing.Size(205, 56);
+            this.btnBreakfast.TabIndex = 0;
+            this.btnBreakfast.Text = "KAHVALTI";
+            this.btnBreakfast.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBreakfast.UseVisualStyleBackColor = false;
+            this.btnBreakfast.Click += new System.EventHandler(this.btnBreakfast_Click);
+            // 
+            // btnLunch
+            // 
+            this.btnLunch.BackColor = System.Drawing.Color.Tomato;
+            this.btnLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLunch.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLunch.ForeColor = System.Drawing.Color.White;
+            this.btnLunch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLunch.Location = new System.Drawing.Point(0, 226);
+            this.btnLunch.Name = "btnLunch";
+            this.btnLunch.Size = new System.Drawing.Size(205, 56);
+            this.btnLunch.TabIndex = 0;
+            this.btnLunch.Text = "ÖĞLEN Y.";
+            this.btnLunch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLunch.UseVisualStyleBackColor = false;
+            this.btnLunch.Click += new System.EventHandler(this.btnBreakfast_Click);
+            // 
+            // btnDinner
+            // 
+            this.btnDinner.BackColor = System.Drawing.Color.Tomato;
+            this.btnDinner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDinner.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDinner.ForeColor = System.Drawing.Color.White;
+            this.btnDinner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDinner.Location = new System.Drawing.Point(0, 304);
+            this.btnDinner.Name = "btnDinner";
+            this.btnDinner.Size = new System.Drawing.Size(205, 56);
+            this.btnDinner.TabIndex = 0;
+            this.btnDinner.Text = "AKŞAM Y.";
+            this.btnDinner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDinner.UseVisualStyleBackColor = false;
+            this.btnDinner.Click += new System.EventHandler(this.btnBreakfast_Click);
+            // 
+            // btnNightMale
+            // 
+            this.btnNightMale.BackColor = System.Drawing.Color.Tomato;
+            this.btnNightMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNightMale.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNightMale.ForeColor = System.Drawing.Color.White;
+            this.btnNightMale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNightMale.Location = new System.Drawing.Point(0, 387);
+            this.btnNightMale.Name = "btnNightMale";
+            this.btnNightMale.Size = new System.Drawing.Size(205, 56);
+            this.btnNightMale.TabIndex = 0;
+            this.btnNightMale.Text = "GECE Y.";
+            this.btnNightMale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNightMale.UseVisualStyleBackColor = false;
+            this.btnNightMale.Click += new System.EventHandler(this.btnBreakfast_Click);
             // 
             // FrmMain
             // 
@@ -543,9 +566,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tsTop.ResumeLayout(false);
@@ -556,23 +576,16 @@
             this.tsMain.ResumeLayout(false);
             this.tsMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private MenuItem menuItemNightMeal;
-        private MenuItem menuItemDinner;
-        private MenuItem menuItemLaunch;
-        private MenuItem menuItemBreakFast;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -606,6 +619,15 @@
         private System.Windows.Forms.ToolStripButton tsBtnClear;
         private System.Windows.Forms.ToolStripLabel tsLblSync;
         private System.Windows.Forms.ToolStripMenuItem tsmiCustomers;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnBreakfast;
+        private System.Windows.Forms.ToolStripMenuItem geçmişKayıtlarToolStripMenuItem;
+        private System.Windows.Forms.Button btnNightMale;
+        private System.Windows.Forms.Button btnDinner;
+        private System.Windows.Forms.Button btnLunch;
     }
 }

@@ -27,8 +27,8 @@ namespace RestaurantZ.Business.ValidationRules.FluentValidation
                 .NotEmpty().WithMessage(RuleMessages.NotEmty)
                 .Length(14).WithMessage(RuleMessages.Phone);
             RuleFor(c => c.Mail)
-                .Cascade(CascadeMode.StopOnFirstFailure) 
-                .EmailAddress().When(c=>c.Mail!=string.Empty). WithMessage(RuleMessages.EMail)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .EmailAddress().When(c => c.Mail != string.Empty).WithMessage(RuleMessages.EMail)
                 .Must(UniqueMail).WithMessage("Bu mail adresi başka bir müşteriye aittir. Farklı bir mail adresi giriniz.");
             RuleFor(c => c.BreakfastPrice).
                 GreaterThanOrEqualTo(0).WithMessage(RuleMessages.GreaterThanOrEqualTo(0));

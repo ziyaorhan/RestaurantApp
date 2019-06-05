@@ -1,4 +1,5 @@
 ﻿using RestaurantZ.Entities.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestaurantZ.Entities.Concrete
@@ -7,11 +8,11 @@ namespace RestaurantZ.Entities.Concrete
     {
         public int BreakfastId { get; set; }     
         //IService
-        public ushort NumberOfPerson { get; set; }
-        public decimal ExtraPrice { get; set; }// not: default 0 durumuna bakılacak.
+        public int NumberOfPerson { get; set; }
+        public decimal ExtraPrice { get; set; }
         public string Description { get; set; }
         //
-        //[ForeignKey("Customer")]
-        public Customer Customer { get; set; }
+        public int CustomerId { get; set; }
+        public /*virtual*/ Customer Customer { get; set; }
     }
 }

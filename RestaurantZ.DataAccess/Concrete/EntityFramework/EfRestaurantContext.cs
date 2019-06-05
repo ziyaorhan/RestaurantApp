@@ -13,6 +13,7 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
         public EfRestaurantContext() : base("name=RestaurantZConnStr")
         {
             Database.SetInitializer<EfRestaurantContext>(new CustomDBInitializer());
+           // this.Configuration.LazyLoadingEnabled = false;
         }
         public class CustomDBInitializer : CreateDatabaseIfNotExists<EfRestaurantContext>
         {
@@ -39,6 +40,10 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
                     CustomerRepresentative = "Abdullah Şahin",
                     Phone1 = "(111) 111-1111",
                     Notes = "Herhangi bir hesabı olmayan, dışarıdan gelen müşteri tutarları kayıt altına alınmak istenirse bu seçenek seçilmelidir.",
+                    BreakfastPrice = 11,
+                    LunchPrice = 12,
+                    DinnerPrice = 15,
+                    NightMalePrice = 27,
                     IsActive = true,
                     IsVisible = true
                 };
@@ -97,4 +102,8 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
             }
         }
     }
+
 }
+
+
+

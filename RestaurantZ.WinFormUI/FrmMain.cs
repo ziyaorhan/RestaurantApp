@@ -15,12 +15,16 @@ namespace RestaurantZ.WinFormUI
         public FrmMain()
         {
             InitializeComponent();
-          
+            InitializeCustom();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            #region Style
+
+        }
+
+        private void InitializeCustom()
+        {
             pbLogo.BackgroundImage = Image.FromFile(Global.GetPath("\\Images\\chef.png"));
             //
             tsBtnMin.Image = Image.FromFile(Global.GetPath("\\Images\\minimize.png"));
@@ -37,7 +41,7 @@ namespace RestaurantZ.WinFormUI
             //
             tsBtnSessionOut.Image = Image.FromFile(Global.GetPath("\\Images\\logout.png"));
             //
-            tsLblSearch.Image= Image.FromFile(Global.GetPath("\\Images\\search.png"));
+            tsLblSearch.Image = Image.FromFile(Global.GetPath("\\Images\\search.png"));
             //
             tsBtnClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
             //
@@ -45,27 +49,29 @@ namespace RestaurantZ.WinFormUI
             //
             tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-darkred.png"));
             //
+            //btnBreakfast.Image = Image.FromFile(Global.GetPath("\\Images\\kahvalti.png"));
             //MenuItem'ların renk ve icon ayarları
             //mouse eventler user control tarafında yapıldı.
-            menuItemBreakFast.lblLabel.Text = "KAHVALTI";
-            menuItemBreakFast.pbIcon.Image = Image.FromFile(Global.GetPath("\\Images\\kahvalti.png"));
+
             //
-            menuItemLaunch.lblLabel.Text = "ÖĞLEN YEMEĞİ";
-            menuItemLaunch.pbIcon.Image = Image.FromFile(Global.GetPath("\\Images\\oglen.png"));
+            tsLblDate.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd");
             //
-            menuItemDinner.lblLabel.Text = "AKŞAM YEMEĞİ";
-            menuItemDinner.pbIcon.Image = Image.FromFile(Global.GetPath("\\Images\\aksam-2.png"));
+            btnBreakfast.Image= Image.FromFile(Global.GetPath("\\Images\\kahvalti2.png"));
+            btnBreakfast.ImageAlign = ContentAlignment.MiddleLeft;
             //
-            menuItemNightMeal.lblLabel.Text = "GECE YEMEĞİ";
-            menuItemNightMeal.pbIcon.Image = Image.FromFile(Global.GetPath("\\Images\\gece.png"));
+            btnLunch.Image = Image.FromFile(Global.GetPath("\\Images\\oglen.png"));
+            btnLunch.ImageAlign = ContentAlignment.MiddleLeft;
             //
-            tsLblDate.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd"); 
-            #endregion
+            btnDinner.Image = Image.FromFile(Global.GetPath("\\Images\\aksam-2.png"));  
+            btnDinner.ImageAlign = ContentAlignment.MiddleLeft;
+            //
+            btnNightMale.Image = Image.FromFile(Global.GetPath("\\Images\\gece.png"));
+            btnNightMale.ImageAlign = ContentAlignment.MiddleLeft;
         }
 
         private void tsLblSync_Click(object sender, EventArgs e)
         {
-            tsLblSync.Image= Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
+            tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
         }
 
         // Title bar özelliği(controlbox) kapalı iken formu hareket ettirebilmek için
@@ -136,8 +142,8 @@ namespace RestaurantZ.WinFormUI
 
         private void tsmiUsers_Click(object sender, EventArgs e)
         {
-           // Cursor.Current = Cursors.WaitCursor;
-            this.Hide();         
+            // Cursor.Current = Cursors.WaitCursor;
+            this.Hide();
             FrmUsers frmUsers = new FrmUsers();
             frmUsers.ShowDialog();
             //Cursor.Current = Cursors.Default;
@@ -145,11 +151,18 @@ namespace RestaurantZ.WinFormUI
 
         private void tsmiCustomers_Click(object sender, EventArgs e)
         {
-           // Cursor.Current = Cursors.WaitCursor;
+            // Cursor.Current = Cursors.WaitCursor;
             this.Hide();
             FrmCustomers frmCustomers = new FrmCustomers();
             frmCustomers.ShowDialog();
-           // Cursor.Current = Cursors.Default;
+            // Cursor.Current = Cursors.Default;
+        }
+
+        private void btnBreakfast_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmBreakfast frmBreakfast = new FrmBreakfast();
+            frmBreakfast.ShowDialog();
         }
     }
 }
