@@ -2,7 +2,7 @@
 
 namespace RestaurantZ.DataAccess.Abstract
 {
-    public interface IBreakfastDal:IEntityRepository<Breakfast>
+    public interface ILunchDal : IEntityRepository<Lunch>
     {
     }
 }

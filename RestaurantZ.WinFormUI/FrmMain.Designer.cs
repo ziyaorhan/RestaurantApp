@@ -70,10 +70,10 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBreakfast = new System.Windows.Forms.Button();
-            this.btnLunch = new System.Windows.Forms.Button();
-            this.btnDinner = new System.Windows.Forms.Button();
             this.btnNightMale = new System.Windows.Forms.Button();
+            this.btnDinner = new System.Windows.Forms.Button();
+            this.btnLunch = new System.Windows.Forms.Button();
+            this.btnBreakfast = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tsTop.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -480,37 +480,21 @@
             this.panel1.Size = new System.Drawing.Size(205, 562);
             this.panel1.TabIndex = 5;
             // 
-            // btnBreakfast
+            // btnNightMale
             // 
-            this.btnBreakfast.BackColor = System.Drawing.Color.Tomato;
-            this.btnBreakfast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBreakfast.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBreakfast.ForeColor = System.Drawing.Color.White;
-            this.btnBreakfast.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBreakfast.Location = new System.Drawing.Point(0, 149);
-            this.btnBreakfast.Name = "btnBreakfast";
-            this.btnBreakfast.Size = new System.Drawing.Size(205, 56);
-            this.btnBreakfast.TabIndex = 0;
-            this.btnBreakfast.Text = "KAHVALTI";
-            this.btnBreakfast.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBreakfast.UseVisualStyleBackColor = false;
-            this.btnBreakfast.Click += new System.EventHandler(this.btnBreakfast_Click);
-            // 
-            // btnLunch
-            // 
-            this.btnLunch.BackColor = System.Drawing.Color.Tomato;
-            this.btnLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLunch.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLunch.ForeColor = System.Drawing.Color.White;
-            this.btnLunch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLunch.Location = new System.Drawing.Point(0, 226);
-            this.btnLunch.Name = "btnLunch";
-            this.btnLunch.Size = new System.Drawing.Size(205, 56);
-            this.btnLunch.TabIndex = 0;
-            this.btnLunch.Text = "ÖĞLEN Y.";
-            this.btnLunch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLunch.UseVisualStyleBackColor = false;
-            this.btnLunch.Click += new System.EventHandler(this.btnBreakfast_Click);
+            this.btnNightMale.BackColor = System.Drawing.Color.Tomato;
+            this.btnNightMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNightMale.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNightMale.ForeColor = System.Drawing.Color.White;
+            this.btnNightMale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNightMale.Location = new System.Drawing.Point(0, 387);
+            this.btnNightMale.Name = "btnNightMale";
+            this.btnNightMale.Size = new System.Drawing.Size(205, 56);
+            this.btnNightMale.TabIndex = 0;
+            this.btnNightMale.Text = "GECE Y.";
+            this.btnNightMale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNightMale.UseVisualStyleBackColor = false;
+            this.btnNightMale.Click += new System.EventHandler(this.btnBreakfast_Click);
             // 
             // btnDinner
             // 
@@ -528,21 +512,37 @@
             this.btnDinner.UseVisualStyleBackColor = false;
             this.btnDinner.Click += new System.EventHandler(this.btnBreakfast_Click);
             // 
-            // btnNightMale
+            // btnLunch
             // 
-            this.btnNightMale.BackColor = System.Drawing.Color.Tomato;
-            this.btnNightMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNightMale.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnNightMale.ForeColor = System.Drawing.Color.White;
-            this.btnNightMale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNightMale.Location = new System.Drawing.Point(0, 387);
-            this.btnNightMale.Name = "btnNightMale";
-            this.btnNightMale.Size = new System.Drawing.Size(205, 56);
-            this.btnNightMale.TabIndex = 0;
-            this.btnNightMale.Text = "GECE Y.";
-            this.btnNightMale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNightMale.UseVisualStyleBackColor = false;
-            this.btnNightMale.Click += new System.EventHandler(this.btnBreakfast_Click);
+            this.btnLunch.BackColor = System.Drawing.Color.Tomato;
+            this.btnLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLunch.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLunch.ForeColor = System.Drawing.Color.White;
+            this.btnLunch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLunch.Location = new System.Drawing.Point(0, 226);
+            this.btnLunch.Name = "btnLunch";
+            this.btnLunch.Size = new System.Drawing.Size(205, 56);
+            this.btnLunch.TabIndex = 0;
+            this.btnLunch.Text = "ÖĞLEN Y.";
+            this.btnLunch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLunch.UseVisualStyleBackColor = false;
+            this.btnLunch.Click += new System.EventHandler(this.btnLunch_Click);
+            // 
+            // btnBreakfast
+            // 
+            this.btnBreakfast.BackColor = System.Drawing.Color.Tomato;
+            this.btnBreakfast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBreakfast.Font = new System.Drawing.Font("Ubuntu", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBreakfast.ForeColor = System.Drawing.Color.White;
+            this.btnBreakfast.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBreakfast.Location = new System.Drawing.Point(0, 149);
+            this.btnBreakfast.Name = "btnBreakfast";
+            this.btnBreakfast.Size = new System.Drawing.Size(205, 56);
+            this.btnBreakfast.TabIndex = 0;
+            this.btnBreakfast.Text = "KAHVALTI";
+            this.btnBreakfast.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBreakfast.UseVisualStyleBackColor = false;
+            this.btnBreakfast.Click += new System.EventHandler(this.btnBreakfast_Click);
             // 
             // FrmMain
             // 

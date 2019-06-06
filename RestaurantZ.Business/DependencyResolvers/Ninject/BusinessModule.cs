@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.DependencyResolvers.Ninject
 {
-    public class BusinessModule:NinjectModule
+    public class BusinessModule : NinjectModule
     {
         public override void Load()
         {
@@ -27,7 +27,10 @@ namespace RestaurantZ.Business.DependencyResolvers.Ninject
             Bind<IBreakfastService>().To<BreakfastManager>().InSingletonScope();
             //
             Bind<IJoinService>().To<JoinManager>().InSingletonScope();
-            
+            //
+            Bind<ILunchService>().To<LunchManager>().InSingletonScope();
+            Bind<ILunchDal>().To<EfLunchDal>().InSingletonScope();
+            //
         }
     }
 }

@@ -11,5 +11,7 @@ namespace RestaurantZ.Business.Abstract
     {
         object GetAllForBreakfastFormDgv();
         object GetAllForBreakfastFormDgv(string customerName);
+        object GetAllForLunchFormDgv();
+        object GetAllForLunchFormDgv(string customerName);
     }
 }

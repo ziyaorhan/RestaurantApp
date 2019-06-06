@@ -54,10 +54,12 @@
     <Compile Include="Abstract\IBreakfastService.cs" />
     <Compile Include="Abstract\ICustomerService.cs" />
     <Compile Include="Abstract\IJoinService.cs" />
+    <Compile Include="Abstract\ILunchService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\BreakfastManager.cs" />
     <Compile Include="Concrete\CustomerManager.cs" />
     <Compile Include="Concrete\JoinManager.cs" />
+    <Compile Include="Concrete\LunchManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />

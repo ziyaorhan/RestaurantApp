@@ -3,7 +3,7 @@ using RestaurantZ.Entities.Concrete;
 
 namespace RestaurantZ.DataAccess.Concrete.EntityFramework
 {
-    public class EfBreakfastDal :EfEntityRepositoryBase<Breakfast,EfRestaurantContext>, IBreakfastDal
+    public class EfLunchDal : EfEntityRepositoryBase<Lunch, EfRestaurantContext>, ILunchDal
     {
 
     }

@@ -1,10 +1,9 @@
 ﻿using RestaurantZ.Entities.Abstract;
-using System;
 using System.Collections.Generic;
 
 namespace RestaurantZ.Entities.Concrete
 {
-    public class Customer : BaseEntity,IEntity
+    public class Customer : BaseEntity, IEntity
     {
         public Customer()
         {
@@ -32,9 +31,9 @@ namespace RestaurantZ.Entities.Concrete
         public bool IsActive { get; set; }
         public bool IsVisible { get; set; }
 
-        public /*virtual*/ ICollection<Breakfast> Breakfasts { get; set; }
-        public /*virtual*/ ICollection<Lunch> Lunches { get; set; }
-        public /*virtual*/ ICollection<Dinner> Dinners { get; set; }
-        public /*virtual*/ ICollection<NightMale> NightMales { get; set; }
+        public ICollection<Breakfast> Breakfasts { get; set; }
+        public ICollection<Lunch> Lunches { get; set; }
+        public ICollection<Dinner> Dinners { get; set; }
+        public ICollection<NightMale> NightMales { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using RestaurantZ.Entities.Abstract;
+
 namespace RestaurantZ.DataAccess.Abstract
 {
     //generic interface verilen tipe göre imzaları oluştruyor.

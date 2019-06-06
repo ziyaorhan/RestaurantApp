@@ -1,17 +1,12 @@
 ﻿
 using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.Utilities;
-using RestaurantZ.Business.ValidationRules;
 using RestaurantZ.Business.ValidationRules.FluentValidation;
 using RestaurantZ.DataAccess.Abstract;
 using RestaurantZ.DataAccess.Concrete.EntityFramework;
 using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.Concrete
 {

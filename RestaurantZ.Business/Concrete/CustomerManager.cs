@@ -7,8 +7,6 @@ using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.Concrete
 {
@@ -86,11 +84,6 @@ namespace RestaurantZ.Business.Concrete
             return _customerDal.GetAll(c => c.BreakfastPrice > 0 && c.CustomerName.ToLower().Contains(customerName.ToLower()));
         }
 
-        public List<Customer> GetAllActiveAndReceivingBreakfast()
-        {
-            return _customerDal.GetAll(c => c.BreakfastPrice > 0 && c.IsActive == true);
-        }
-
         public List<Customer> GetPassiveCustomers()
         {
             return _customerDal.GetAll(c => c.IsActive == false);
@@ -114,6 +107,16 @@ namespace RestaurantZ.Business.Concrete
             var customers = _customerDal.GetAll();
             var result = customers.Select(c => new { c.CustomerId, c.CustomerName, c.BreakfastPrice, c.LunchPrice, c.DinnerPrice, c.NightMalePrice, c.IsActive }).ToList();
             return result;
+        }
+
+        public List<Customer> GetAllActiveAndReceivingBreakfast()
+        {
+            return _customerDal.GetAll(c => c.BreakfastPrice > 0 && c.IsActive == true);
+        }
+
+        public List<Customer> GetAllActiveAndReceivingLunch()
+        {
+            return _customerDal.GetAll(c => c.LunchPrice > 0 && c.IsActive == true);
         }
     }
 }
