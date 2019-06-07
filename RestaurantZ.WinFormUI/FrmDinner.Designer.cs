@@ -34,7 +34,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.rTxtDescription = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbCustomer = new System.Windows.Forms.ComboBox();
@@ -48,14 +47,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtExtraPrice = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.decimalTextBox1 = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
             this.nudNumberOfPerson = new System.Windows.Forms.NumericUpDown();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -68,6 +66,7 @@
             this.pbClear = new System.Windows.Forms.PictureBox();
             this.txtSearch = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -87,24 +86,27 @@
             this.pnlTop.Controls.Add(this.btnClose);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(25, 0);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(879, 29);
             this.pnlTop.TabIndex = 29;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
             this.btnClose.Location = new System.Drawing.Point(848, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 29);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label2
             // 
@@ -113,14 +115,14 @@
             this.label2.Location = new System.Drawing.Point(21, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(4, 758);
+            this.label2.Size = new System.Drawing.Size(4, 749);
             this.label2.TabIndex = 32;
             this.label2.Text = "label2";
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(129, 69);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -139,7 +141,7 @@
             // 
             this.rTxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rTxtDescription.Location = new System.Drawing.Point(129, 140);
-            this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtDescription.Name = "rTxtDescription";
             this.rTxtDescription.Size = new System.Drawing.Size(203, 99);
             this.rTxtDescription.TabIndex = 3;
@@ -155,18 +157,6 @@
             this.label8.Size = new System.Drawing.Size(50, 14);
             this.label8.TabIndex = 11;
             this.label8.Text = "Açıklama";
-            // 
-            // btnSave
-            // 
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSave.Location = new System.Drawing.Point(755, 213);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 30);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "KAYDET";
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -195,10 +185,11 @@
             this.cbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCustomer.FormattingEnabled = true;
             this.cbCustomer.Location = new System.Drawing.Point(129, 33);
-            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Size = new System.Drawing.Size(203, 25);
             this.cbCustomer.TabIndex = 0;
+            this.cbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbCustomer_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -206,7 +197,7 @@
             this.panel2.Controls.Add(this.lblServiceName);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(25, 29);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(879, 48);
             this.panel2.TabIndex = 30;
@@ -248,7 +239,7 @@
             // txtCustomerDetail
             // 
             this.txtCustomerDetail.Location = new System.Drawing.Point(345, 33);
-            this.txtCustomerDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomerDetail.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomerDetail.Name = "txtCustomerDetail";
             this.txtCustomerDetail.ReadOnly = true;
             this.txtCustomerDetail.Size = new System.Drawing.Size(504, 22);
@@ -280,9 +271,9 @@
             // 
             this.groupBox2.Controls.Add(this.dgvService);
             this.groupBox2.Location = new System.Drawing.Point(33, 381);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(863, 373);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
@@ -295,7 +286,7 @@
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvService.Location = new System.Drawing.Point(4, 19);
-            this.dgvService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
             this.dgvService.RowHeadersWidth = 16;
@@ -305,11 +296,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtExtraPrice);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.rTxtDescription);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbCustomer);
@@ -318,31 +309,31 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(33, 85);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(863, 251);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yeni Kayıt";
+            // 
+            // txtExtraPrice
+            // 
+            this.txtExtraPrice.Location = new System.Drawing.Point(129, 105);
+            this.txtExtraPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExtraPrice.Name = "txtExtraPrice";
+            this.txtExtraPrice.Size = new System.Drawing.Size(203, 22);
+            this.txtExtraPrice.TabIndex = 21;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Tomato;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 758);
+            this.panel1.Size = new System.Drawing.Size(21, 749);
             this.panel1.TabIndex = 28;
-            // 
-            // txtExtraPrice
-            // 
-            this.txtExtraPrice.Location = new System.Drawing.Point(129, 105);
-            this.txtExtraPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtExtraPrice.Name = "txtExtraPrice";
-            this.txtExtraPrice.Size = new System.Drawing.Size(203, 22);
-            this.txtExtraPrice.TabIndex = 21;
             // 
             // groupBox3
             // 
@@ -350,7 +341,6 @@
             this.groupBox3.Controls.Add(this.nudNumberOfPerson);
             this.groupBox3.Controls.Add(this.richTextBox1);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.comboBox1);
@@ -360,9 +350,9 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.Location = new System.Drawing.Point(33, 85);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(863, 251);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
@@ -372,7 +362,7 @@
             // 
             this.decimalTextBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.decimalTextBox1.Location = new System.Drawing.Point(129, 105);
-            this.decimalTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.decimalTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.decimalTextBox1.Name = "decimalTextBox1";
             this.decimalTextBox1.Size = new System.Drawing.Size(203, 22);
             this.decimalTextBox1.TabIndex = 21;
@@ -381,7 +371,7 @@
             // 
             this.nudNumberOfPerson.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudNumberOfPerson.Location = new System.Drawing.Point(129, 69);
-            this.nudNumberOfPerson.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudNumberOfPerson.Margin = new System.Windows.Forms.Padding(4);
             this.nudNumberOfPerson.Minimum = new decimal(new int[] {
             1,
             0,
@@ -401,7 +391,7 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richTextBox1.Location = new System.Drawing.Point(129, 140);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(203, 99);
             this.richTextBox1.TabIndex = 3;
@@ -417,18 +407,6 @@
             this.label9.Size = new System.Drawing.Size(63, 17);
             this.label9.TabIndex = 11;
             this.label9.Text = "Açıklama";
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(755, 213);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -458,7 +436,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(129, 33);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(203, 25);
             this.comboBox1.TabIndex = 0;
@@ -478,7 +456,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox1.Location = new System.Drawing.Point(345, 33);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(510, 22);
@@ -511,9 +489,9 @@
             this.groupBox4.Controls.Add(this.dgvDinner);
             this.groupBox4.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox4.Location = new System.Drawing.Point(33, 381);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(863, 373);
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
@@ -526,13 +504,14 @@
             this.dgvDinner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDinner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDinner.Location = new System.Drawing.Point(4, 19);
-            this.dgvDinner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDinner.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDinner.Name = "dgvDinner";
             this.dgvDinner.ReadOnly = true;
             this.dgvDinner.RowHeadersWidth = 16;
             this.dgvDinner.ShowEditingIcon = false;
             this.dgvDinner.Size = new System.Drawing.Size(855, 350);
             this.dgvDinner.TabIndex = 0;
+            this.dgvDinner.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDinner_CellContentClick);
             // 
             // pbClear
             // 
@@ -543,6 +522,7 @@
             this.pbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbClear.TabIndex = 37;
             this.pbClear.TabStop = false;
+            this.pbClear.Click += new System.EventHandler(this.pbClear_Click);
             // 
             // txtSearch
             // 
@@ -552,6 +532,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(145, 22);
             this.txtSearch.TabIndex = 36;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pbSearch
             // 
@@ -562,30 +543,44 @@
             this.pbSearch.TabIndex = 35;
             this.pbSearch.TabStop = false;
             // 
+            // btnSave
+            // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSave.Location = new System.Drawing.Point(749, 209);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 30);
+            this.btnSave.TabIndex = 22;
+            this.btnSave.Text = "KAYDET";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // FrmDinner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(904, 758);
+            this.ClientSize = new System.Drawing.Size(904, 749);
             this.Controls.Add(this.pbClear);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox3);
             this.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDinner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDinner";
+            this.Load += new System.EventHandler(this.FrmDinner_Load);
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -613,7 +608,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.RichTextBox rTxtDescription;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbCustomer;
@@ -634,7 +628,6 @@
         private System.Windows.Forms.NumericUpDown nudNumberOfPerson;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -647,5 +640,6 @@
         private System.Windows.Forms.PictureBox pbClear;
         private CustomTools.LetterOrDigitTextBox txtSearch;
         private System.Windows.Forms.PictureBox pbSearch;
+        private System.Windows.Forms.Button btnSave;
     }
 }

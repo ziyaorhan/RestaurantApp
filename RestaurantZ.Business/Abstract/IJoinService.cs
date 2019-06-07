@@ -1,10 +1,4 @@
-﻿using RestaurantZ.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace RestaurantZ.Business.Abstract
 {
     public interface IJoinService
@@ -13,5 +7,7 @@ namespace RestaurantZ.Business.Abstract
         object GetAllForBreakfastFormDgv(string customerName);
         object GetAllForLunchFormDgv();
         object GetAllForLunchFormDgv(string customerName);
+        object GetAllForDinnerFormDgv(string customerName);
+        object GetAllForDinnerFormDgv();
     }
 }

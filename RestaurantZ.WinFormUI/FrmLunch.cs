@@ -180,7 +180,7 @@ namespace RestaurantZ.WinFormUI
                     }
                     catch
                     {
-                        MessageBox.Show("Kullanıcı silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
+                        MessageBox.Show("Öğlen yemeği silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
                     }
                     DgvLunchFill();
                 }

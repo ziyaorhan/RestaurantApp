@@ -510,7 +510,7 @@
             this.btnDinner.Text = "AKŞAM Y.";
             this.btnDinner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDinner.UseVisualStyleBackColor = false;
-            this.btnDinner.Click += new System.EventHandler(this.btnBreakfast_Click);
+            this.btnDinner.Click += new System.EventHandler(this.btnDinner_Click);
             // 
             // btnLunch
             // 

@@ -3,11 +3,6 @@ using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.Concrete;
 using RestaurantZ.DataAccess.Abstract;
 using RestaurantZ.DataAccess.Concrete.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantZ.Business.DependencyResolvers.Ninject
 {
@@ -31,6 +26,8 @@ namespace RestaurantZ.Business.DependencyResolvers.Ninject
             Bind<ILunchService>().To<LunchManager>().InSingletonScope();
             Bind<ILunchDal>().To<EfLunchDal>().InSingletonScope();
             //
+            Bind<IDinnerService>().To<DinnerManager>().InSingletonScope();
+            Bind<IDinnerDal>().To<EfDinnerDal>().InSingletonScope();
         }
     }
 }

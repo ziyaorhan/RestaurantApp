@@ -183,7 +183,7 @@ namespace RestaurantZ.WinFormUI
                     }
                     catch
                     {
-                        MessageBox.Show("Kullanıcı silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
+                        MessageBox.Show("Kahvaltı silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
                     }
                     DgvBreakfastFill();
                 }
@@ -192,12 +192,19 @@ namespace RestaurantZ.WinFormUI
 
         private void pnlTop_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Release the mouse capture started by the mouse down.
+                pnlTop.Capture = false; //select control
 
-        }
-
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
-        {
-
+                // Create and send a WM_NCLBUTTONDOWN message.
+                const int WM_NCLBUTTONDOWN = 0x00A1;
+                const int HTCAPTION = 2;
+                Message msg =
+                    Message.Create(this.Handle, WM_NCLBUTTONDOWN,
+                        new IntPtr(HTCAPTION), IntPtr.Zero);
+                this.DefWndProc(ref msg);
+            }
         }
     }
 }

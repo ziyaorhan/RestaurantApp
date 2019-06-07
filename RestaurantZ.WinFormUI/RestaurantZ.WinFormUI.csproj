@@ -56,9 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomTools\DecimalPlaceHolderTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CustomTools\DecimalTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,9 +63,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomTools\LetterTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomTools\MinDecimalTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FrmCustomers.cs">
@@ -144,12 +138,6 @@
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="MenuItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MenuItem.Designer.cs">
-      <DependentUpon>MenuItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomTools\PlaceHolderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -190,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuItem.resx">
-      <DependentUpon>MenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

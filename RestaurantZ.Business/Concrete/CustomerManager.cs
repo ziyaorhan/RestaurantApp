@@ -118,5 +118,10 @@ namespace RestaurantZ.Business.Concrete
         {
             return _customerDal.GetAll(c => c.LunchPrice > 0 && c.IsActive == true);
         }
+
+        public List<Customer> GetAllActiveAndReceivingDinner()
+        {
+            return _customerDal.GetAll(c => c.DinnerPrice > 0 && c.IsActive == true);
+        }
     }
 }

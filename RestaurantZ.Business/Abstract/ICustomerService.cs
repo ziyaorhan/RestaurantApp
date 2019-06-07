@@ -20,5 +20,6 @@ namespace RestaurantZ.Business.Abstract
         List<Customer> GetAllRcvBrkfstByCstmrName(string customerName);
         object GetAllForDgv();
         List<Customer> GetAllActiveAndReceivingLunch();
+        List<Customer> GetAllActiveAndReceivingDinner();
     }
 }
