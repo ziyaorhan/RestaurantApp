@@ -18,6 +18,7 @@ namespace RestaurantZ.Business.Concrete
         {
             _customerDal = customerDal;
         }
+
         public void Add(Customer customer)
         {
             ValidationTool.Validate(new CustomerValidator(new EfCustomerDal(), customer), customer);
@@ -122,6 +123,11 @@ namespace RestaurantZ.Business.Concrete
         public List<Customer> GetAllActiveAndReceivingDinner()
         {
             return _customerDal.GetAll(c => c.DinnerPrice > 0 && c.IsActive == true);
+        }
+
+        public List<Customer> GetAllActiveAndReceivingNightMale()
+        {
+            return _customerDal.GetAll(c => c.NightMalePrice > 0 && c.IsActive == true);
         }
     }
 }

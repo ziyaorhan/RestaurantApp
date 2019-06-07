@@ -419,7 +419,7 @@
             // 
             this.dgvMain.BackgroundColor = System.Drawing.Color.White;
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMain.Location = new System.Drawing.Point(208, 77);
+            this.dgvMain.Location = new System.Drawing.Point(214, 80);
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.ReadOnly = true;
             this.dgvMain.RowHeadersWidth = 16;
@@ -494,7 +494,7 @@
             this.btnNightMale.Text = "GECE Y.";
             this.btnNightMale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNightMale.UseVisualStyleBackColor = false;
-            this.btnNightMale.Click += new System.EventHandler(this.btnBreakfast_Click);
+            this.btnNightMale.Click += new System.EventHandler(this.btnNightMale_Click);
             // 
             // btnDinner
             // 

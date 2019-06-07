@@ -12,14 +12,16 @@ namespace RestaurantZ.Business.Concrete
         private IBreakfastDal _breakfastDal;
         private ILunchDal _lunchDal;
         private IDinnerDal _dinnerDal;
+        private INightMaleDal _nightMaleDal;
 
-        public JoinManager(IUserDal userDal, ICustomerDal customerDal, IBreakfastDal breakfastDal, ILunchDal lunchDal, IDinnerDal dinnerDal)
+        public JoinManager(IUserDal userDal, ICustomerDal customerDal, IBreakfastDal breakfastDal, ILunchDal lunchDal, IDinnerDal dinnerDal,INightMaleDal nightMaleDal)
         {
             _userDal = userDal;
             _customerDal = customerDal;
             _breakfastDal = breakfastDal;
             _lunchDal = lunchDal;
             _dinnerDal = dinnerDal;
+            _nightMaleDal = nightMaleDal;
         }
 
         public object GetAllForBreakfastFormDgv()
@@ -173,6 +175,58 @@ namespace RestaurantZ.Business.Concrete
                              d.ExtraPrice,
                              d.Description,
                              d.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForNightMaleFormDgv()
+        {
+            var customers = _customerDal.GetAll();
+            var nightMales = _nightMaleDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from n in nightMales
+                         join c in customers
+                         on n.CustomerId equals c.CustomerId
+                         join u in users
+                         on n.CreatedUserId equals u.UserId
+                         where n.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
+                         orderby n.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             n.NightMaleId,
+                             c.CustomerName,
+                             n.NumberOfPerson,
+                             n.ExtraPrice,
+                             n.Description,
+                             n.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForNightMaleFormDgv(string customerName)
+        {
+            var customers = _customerDal.GetAll(c => c.CustomerName.ToLower().Contains(customerName.ToLower()));
+            var nightMales = _nightMaleDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from n in nightMales
+                         join c in customers
+                         on n.CustomerId equals c.CustomerId
+                         join u in users
+                         on n.CreatedUserId equals u.UserId
+                         where n.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
+                         orderby n.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             n.NightMaleId,
+                             c.CustomerName,
+                             n.NumberOfPerson,
+                             n.ExtraPrice,
+                             n.Description,
+                             n.CreatedDate,
                              nameSurname = u.Name + " " + u.Surname
                          };
             return result.ToList();

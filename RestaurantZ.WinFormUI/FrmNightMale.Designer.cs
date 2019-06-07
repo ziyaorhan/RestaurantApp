@@ -1,6 +1,6 @@
 ﻿namespace RestaurantZ.WinFormUI
 {
-    partial class FrmNigthMale
+    partial class FrmNightMale
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nudNumberOfPerson = new System.Windows.Forms.NumericUpDown();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -69,7 +67,7 @@
             // 
             this.nudNumberOfPerson.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudNumberOfPerson.Location = new System.Drawing.Point(129, 71);
-            this.nudNumberOfPerson.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudNumberOfPerson.Margin = new System.Windows.Forms.Padding(4);
             this.nudNumberOfPerson.Minimum = new decimal(new int[] {
             1,
             0,
@@ -89,31 +87,34 @@
             this.pnlTop.Controls.Add(this.btnClose);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(25, 0);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(879, 29);
             this.pnlTop.TabIndex = 29;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
             this.btnClose.Location = new System.Drawing.Point(848, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 29);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // rTxtDescription
             // 
             this.rTxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rTxtDescription.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rTxtDescription.Location = new System.Drawing.Point(129, 141);
-            this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtDescription.Name = "rTxtDescription";
             this.rTxtDescription.Size = new System.Drawing.Size(203, 99);
             this.rTxtDescription.TabIndex = 3;
@@ -135,12 +136,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Location = new System.Drawing.Point(755, 213);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 30);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "KAYDET";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label5
             // 
@@ -170,10 +172,11 @@
             this.cbCustomer.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbCustomer.FormattingEnabled = true;
             this.cbCustomer.Location = new System.Drawing.Point(129, 33);
-            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Size = new System.Drawing.Size(203, 25);
             this.cbCustomer.TabIndex = 0;
+            this.cbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbCustomer_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -181,7 +184,7 @@
             this.panel2.Controls.Add(this.lblServiceName);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(25, 29);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(879, 48);
             this.panel2.TabIndex = 30;
@@ -224,7 +227,7 @@
             // 
             this.txtCustomerDetail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCustomerDetail.Location = new System.Drawing.Point(345, 33);
-            this.txtCustomerDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomerDetail.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomerDetail.Name = "txtCustomerDetail";
             this.txtCustomerDetail.ReadOnly = true;
             this.txtCustomerDetail.Size = new System.Drawing.Size(510, 22);
@@ -257,9 +260,9 @@
             this.groupBox2.Controls.Add(this.dgvNightMale);
             this.groupBox2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(33, 381);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(863, 373);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
@@ -269,32 +272,17 @@
             // 
             this.dgvNightMale.BackgroundColor = System.Drawing.Color.White;
             this.dgvNightMale.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNightMale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNightMale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNightMale.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvNightMale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNightMale.Location = new System.Drawing.Point(4, 19);
-            this.dgvNightMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNightMale.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNightMale.Name = "dgvNightMale";
             this.dgvNightMale.ReadOnly = true;
             this.dgvNightMale.RowHeadersWidth = 16;
             this.dgvNightMale.ShowEditingIcon = false;
             this.dgvNightMale.Size = new System.Drawing.Size(855, 350);
             this.dgvNightMale.TabIndex = 0;
+            this.dgvNightMale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNightMale_CellContentClick);
             // 
             // groupBox1
             // 
@@ -312,9 +300,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(33, 85);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(863, 251);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
@@ -334,7 +322,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 758);
+            this.panel1.Size = new System.Drawing.Size(21, 749);
             this.panel1.TabIndex = 28;
             // 
             // label2
@@ -344,7 +332,7 @@
             this.label2.Location = new System.Drawing.Point(21, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(4, 758);
+            this.label2.Size = new System.Drawing.Size(4, 749);
             this.label2.TabIndex = 32;
             this.label2.Text = "label2";
             // 
@@ -357,6 +345,7 @@
             this.pbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbClear.TabIndex = 37;
             this.pbClear.TabStop = false;
+            this.pbClear.Click += new System.EventHandler(this.pbClear_Click);
             // 
             // txtSearch
             // 
@@ -366,6 +355,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(145, 22);
             this.txtSearch.TabIndex = 36;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pbSearch
             // 
@@ -377,12 +367,12 @@
             this.pbSearch.TabIndex = 35;
             this.pbSearch.TabStop = false;
             // 
-            // FrmNigthMale
+            // FrmNightMale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(904, 758);
+            this.ClientSize = new System.Drawing.Size(904, 749);
             this.Controls.Add(this.pbClear);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pbSearch);
@@ -395,10 +385,11 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FrmNigthMale";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FrmNightMale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNigthMale";
+            this.Load += new System.EventHandler(this.FrmNightMale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPerson)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

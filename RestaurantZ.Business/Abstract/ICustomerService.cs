@@ -21,5 +21,6 @@ namespace RestaurantZ.Business.Abstract
         object GetAllForDgv();
         List<Customer> GetAllActiveAndReceivingLunch();
         List<Customer> GetAllActiveAndReceivingDinner();
+        List<Customer> GetAllActiveAndReceivingNightMale();
     }
 }

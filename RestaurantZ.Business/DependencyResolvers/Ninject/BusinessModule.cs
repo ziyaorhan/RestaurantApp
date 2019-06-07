@@ -28,6 +28,9 @@ namespace RestaurantZ.Business.DependencyResolvers.Ninject
             //
             Bind<IDinnerService>().To<DinnerManager>().InSingletonScope();
             Bind<IDinnerDal>().To<EfDinnerDal>().InSingletonScope();
+            //
+            Bind<INightMaleService>().To<NightMaleManager>().InSingletonScope();
+            Bind<INightMaleDal>().To<EfNightMaleDal>().InSingletonScope();
         }
     }
 }

@@ -107,11 +107,11 @@
     <Compile Include="FrmBreakfast.Designer.cs">
       <DependentUpon>FrmBreakfast.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNigthMale.cs">
+    <Compile Include="FrmNightMale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNigthMale.Designer.cs">
-      <DependentUpon>FrmNigthMale.cs</DependentUpon>
+    <Compile Include="FrmNightMale.Designer.cs">
+      <DependentUpon>FrmNightMale.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTemp.cs">
       <SubType>Form</SubType>
@@ -164,8 +164,8 @@
     <EmbeddedResource Include="FrmBreakfast.resx">
       <DependentUpon>FrmBreakfast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNigthMale.resx">
-      <DependentUpon>FrmNigthMale.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNightMale.resx">
+      <DependentUpon>FrmNightMale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTemp.resx">
       <DependentUpon>FrmTemp.cs</DependentUpon>

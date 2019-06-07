@@ -178,6 +178,13 @@ namespace RestaurantZ.WinFormUI
             FrmDinner frmDinner = new FrmDinner();
             frmDinner.ShowDialog();
         }
+
+        private void btnNightMale_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmNightMale frmNightMale = new FrmNightMale();
+            frmNightMale.ShowDialog();
+        }
     }
 }
 
