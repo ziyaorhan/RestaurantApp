@@ -37,6 +37,8 @@ namespace RestaurantZ.WinFormUI
         {
             this.Close();
             FrmMain openedFrm = (FrmMain)Application.OpenForms["FrmMain"];
+            openedFrm.DgvFrmMainFill();
+            openedFrm.RecordCountsFill();
             openedFrm.Show();
         }
 

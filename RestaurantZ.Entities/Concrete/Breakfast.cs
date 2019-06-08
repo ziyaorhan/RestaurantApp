@@ -11,5 +11,6 @@ namespace RestaurantZ.Entities.Concrete
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
     }
 }

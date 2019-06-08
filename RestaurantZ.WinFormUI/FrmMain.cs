@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RestaurantZ.Business.Abstract;
+using RestaurantZ.Business.DependencyResolvers.Ninject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +14,53 @@ namespace RestaurantZ.WinFormUI
 {
     public partial class FrmMain : Form
     {
+        private IJoinService _joinService;
         public FrmMain()
         {
             InitializeComponent();
             InitializeCustom();
+            _joinService = InstanceFactory.GetInstance<IJoinService>();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            DgvFrmMainFill();
+            RecordCountsFill();
+        }
 
+        public void RecordCountsFill()
+        {
+            lblAllRecord.Text = _joinService.GetRecordCount().AllCount.ToString();
+            lblBreakfastRecord.Text = _joinService.GetRecordCount().BreakfastCount.ToString();
+            lblLunchRecord.Text = _joinService.GetRecordCount().LunchCount.ToString();
+            lblDinnerRecord.Text = _joinService.GetRecordCount().DinnerCount.ToString();
+            lblNightMaleRecord.Text = _joinService.GetRecordCount().NightMaleCount.ToString();
+        }
+
+        public void DgvFrmMainFill()
+        {
+            dgvMain.DataSource = _joinService.GetAllForMainDgv();
+            dgvMain.Columns["ServiceName"].HeaderText = "Hizmet";
+            dgvMain.Columns["CustomerName"].HeaderText = "Müşteri";
+            dgvMain.Columns["NumberOfPerson"].HeaderText = "Kişi Sayısı";
+            dgvMain.Columns["ExtraPrice"].HeaderText = "Ekstra(TL)";
+            dgvMain.Columns["Description"].HeaderText = "Açıklama";
+            dgvMain.Columns["nameSurname"].HeaderText = "İşlem Yapan";
+            dgvMain.Columns["CreatedDate"].HeaderText = "İşlem Tarihi";
+            //
+            dgvMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMain.RowHeadersWidth = 25;
+            //dgvMain.Columns["ServiceName"].Width = 70;
+            //dgvMain.Columns["CustomerName"].Width = 130;
+            //dgvMain.Columns["NumberOfPerson"].Width = 50;
+            //dgvMain.Columns["ExtraPrice"].Width = 60;
+            //dgvMain.Columns["Description"].Width = 145;
+            //dgvMain.Columns["nameSurname"].Width = 100;
+            //dgvMain.Columns["CreatedDate"].Width = 100;
+            //
+            dgvMain.RowTemplate.ReadOnly = true;
+            dgvMain.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
+            dgvMain.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
         }
 
         private void InitializeCustom()
@@ -54,7 +94,7 @@ namespace RestaurantZ.WinFormUI
             //mouse eventler user control tarafında yapıldı.
 
             //
-            tsLblDate.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd");
+            lblDateNow.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd");
             //
             btnBreakfast.Image= Image.FromFile(Global.GetPath("\\Images\\kahvalti2.png"));
             btnBreakfast.ImageAlign = ContentAlignment.MiddleLeft;
@@ -100,7 +140,7 @@ namespace RestaurantZ.WinFormUI
         }
 
         public static bool isMax = false;
-
+ 
         private void tsBtnMax_Click(object sender, EventArgs e)
         {
             if (isMax == false)
@@ -184,6 +224,18 @@ namespace RestaurantZ.WinFormUI
             this.Hide();
             FrmNightMale frmNightMale = new FrmNightMale();
             frmNightMale.ShowDialog();
+        }
+
+        private void tsTxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tsTxtSearch.Text.Trim()))
+            {
+                dgvMain.DataSource = _joinService.GetAllForMainDgv(tsTxtSearch.Text.Trim());
+            }
+            else
+            {
+                dgvMain.DataSource = _joinService.GetAllForMainDgv();
+            }
         }
     }
 }

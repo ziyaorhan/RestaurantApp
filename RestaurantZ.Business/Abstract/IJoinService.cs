@@ -1,4 +1,6 @@
 ﻿
+using RestaurantZ.Entities.Concrete;
+
 namespace RestaurantZ.Business.Abstract
 {
     public interface IJoinService
@@ -14,5 +16,8 @@ namespace RestaurantZ.Business.Abstract
         //
         object GetAllForNightMaleFormDgv();
         object GetAllForNightMaleFormDgv(string customerName);
+        object GetAllForMainDgv();
+        object GetAllForMainDgv(string customerName);
+        ModelForRecordCount GetRecordCount();
     }
 }

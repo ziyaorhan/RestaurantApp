@@ -1,6 +1,8 @@
 ﻿using RestaurantZ.Business.Abstract;
 using RestaurantZ.DataAccess.Abstract;
+using RestaurantZ.Entities.Concrete;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RestaurantZ.Business.Concrete
@@ -14,7 +16,7 @@ namespace RestaurantZ.Business.Concrete
         private IDinnerDal _dinnerDal;
         private INightMaleDal _nightMaleDal;
 
-        public JoinManager(IUserDal userDal, ICustomerDal customerDal, IBreakfastDal breakfastDal, ILunchDal lunchDal, IDinnerDal dinnerDal,INightMaleDal nightMaleDal)
+        public JoinManager(IUserDal userDal, ICustomerDal customerDal, IBreakfastDal breakfastDal, ILunchDal lunchDal, IDinnerDal dinnerDal, INightMaleDal nightMaleDal)
         {
             _userDal = userDal;
             _customerDal = customerDal;
@@ -230,6 +232,143 @@ namespace RestaurantZ.Business.Concrete
                              nameSurname = u.Name + " " + u.Surname
                          };
             return result.ToList();
+        }
+
+        public object GetAllForMainDgv()
+        {
+            var customers = _customerDal.GetAll();
+            var breakfasts = _breakfastDal.GetAll();
+            var lunches = _lunchDal.GetAll();
+            var dinners = _dinnerDal.GetAll();
+            var nigthMales = _nightMaleDal.GetAll();
+            var allServices = GetAllServices(breakfasts, lunches, dinners, nigthMales);
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from a in allServices
+                         join c in customers
+                         on a.CustomerId equals c.CustomerId
+                         join u in users
+                         on a.CreatedUserId equals u.UserId
+                         where a.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
+                         orderby a.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             a.ServiceName,
+                             c.CustomerName,
+                             a.NumberOfPerson,
+                             a.ExtraPrice,
+                             a.Description,
+                             a.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }    
+
+        public object GetAllForMainDgv(string customerName)
+        {
+            var customers = _customerDal.GetAll(c => c.CustomerName.ToLower().Contains(customerName.ToLower()));
+            var breakfasts = _breakfastDal.GetAll();
+            var lunches = _lunchDal.GetAll();
+            var dinners = _dinnerDal.GetAll();
+            var nigthMales = _nightMaleDal.GetAll();
+            var allServices = GetAllServices(breakfasts, lunches, dinners, nigthMales);
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from a in allServices
+                         join c in customers
+                         on a.CustomerId equals c.CustomerId
+                         join u in users
+                         on a.CreatedUserId equals u.UserId
+                         where a.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
+                         orderby a.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             a.ServiceName,
+                             c.CustomerName,
+                             a.NumberOfPerson,
+                             a.ExtraPrice,
+                             a.Description,
+                             a.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        private static List<ModelForAllServices> GetAllServices(List<Breakfast> breakfasts, List<Lunch> lunches, List<Dinner> dinners, List<NightMale> nigthMales)
+        {
+            List<ModelForAllServices> allService = new List<ModelForAllServices>();
+            foreach (var item in breakfasts)
+            {
+                allService.Add(new ModelForAllServices
+                {
+                    NumberOfPerson = item.NumberOfPerson,
+                    ExtraPrice = item.ExtraPrice,
+                    Description = item.Description,
+                    CustomerId = item.CustomerId,
+                    ServiceName = "Kahvaltı",
+                    CreatedUserId = item.CreatedUserId,
+                    CreatedDate = item.CreatedDate
+                });
+            }
+            foreach (var item in lunches)
+            {
+                allService.Add(new ModelForAllServices
+                {
+                    NumberOfPerson = item.NumberOfPerson,
+                    ExtraPrice = item.ExtraPrice,
+                    Description = item.Description,
+                    CustomerId = item.CustomerId,
+                    ServiceName = "Öğlen Y.",
+                    CreatedUserId = item.CreatedUserId,
+                    CreatedDate = item.CreatedDate
+                });
+            }
+            foreach (var item in dinners)
+            {
+                allService.Add(new ModelForAllServices
+                {
+                    NumberOfPerson = item.NumberOfPerson,
+                    ExtraPrice = item.ExtraPrice,
+                    Description = item.Description,
+                    CustomerId = item.CustomerId,
+                    ServiceName = "Akşam Y.",
+                    CreatedUserId = item.CreatedUserId,
+                    CreatedDate = item.CreatedDate
+                });
+            }
+            foreach (var item in nigthMales)
+            {
+                allService.Add(new ModelForAllServices
+                {
+                    NumberOfPerson = item.NumberOfPerson,
+                    ExtraPrice = item.ExtraPrice,
+                    Description = item.Description,
+                    CustomerId = item.CustomerId,
+                    ServiceName = "Gece Y.",
+                    CreatedUserId = item.CreatedUserId,
+                    CreatedDate = item.CreatedDate
+                });
+            }
+            return allService;
+        }
+
+        public ModelForRecordCount GetRecordCount()
+        {
+            var dateTimeNow = DateTime.Now.ToShortDateString().ToString();
+            int breakfasts = _breakfastDal.GetAll().Where(a=>a.CreatedDate.Value.ToShortDateString().ToString()==dateTimeNow).ToList().Count;
+            int lunches = _lunchDal.GetAll().Where(a => a.CreatedDate.Value.ToShortDateString().ToString() == dateTimeNow).ToList().Count;
+            int dinners = _dinnerDal.GetAll().Where(a => a.CreatedDate.Value.ToShortDateString().ToString() == dateTimeNow).ToList().Count;
+            int nigthMales = _nightMaleDal.GetAll().Where(a => a.CreatedDate.Value.ToShortDateString().ToString() == dateTimeNow).ToList().Count;
+            int all = breakfasts + lunches + dinners + nigthMales;
+            var result = new ModelForRecordCount
+            {
+                BreakfastCount= breakfasts,
+                LunchCount= lunches,
+                DinnerCount= dinners,
+                NightMaleCount= nigthMales,
+                AllCount= all
+            };
+            return result;
         }
     }
 }
