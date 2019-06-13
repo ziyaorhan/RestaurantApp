@@ -50,14 +50,6 @@ namespace RestaurantZ.WinFormUI
             //
             dgvMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMain.RowHeadersWidth = 25;
-            //dgvMain.Columns["ServiceName"].Width = 70;
-            //dgvMain.Columns["CustomerName"].Width = 130;
-            //dgvMain.Columns["NumberOfPerson"].Width = 50;
-            //dgvMain.Columns["ExtraPrice"].Width = 60;
-            //dgvMain.Columns["Description"].Width = 145;
-            //dgvMain.Columns["nameSurname"].Width = 100;
-            //dgvMain.Columns["CreatedDate"].Width = 100;
-            //
             dgvMain.RowTemplate.ReadOnly = true;
             dgvMain.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
             dgvMain.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -236,6 +228,13 @@ namespace RestaurantZ.WinFormUI
             {
                 dgvMain.DataSource = _joinService.GetAllForMainDgv();
             }
+        }
+
+        private void tsmiReport_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmReports frmReports = new FrmReports();
+            frmReports.ShowDialog();
         }
     }
 }

@@ -52,10 +52,8 @@
             this.tsmiCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblReports = new System.Windows.Forms.ToolStripSplitButton();
-            this.günlükRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aylıkRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kapsamlıRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.geçmişKayıtlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPastRecords = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblSearch = new System.Windows.Forms.ToolStripLabel();
             this.tsTxtSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -69,11 +67,14 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnNightMale = new System.Windows.Forms.Button();
             this.btnDinner = new System.Windows.Forms.Button();
             this.btnLunch = new System.Windows.Forms.Button();
             this.btnBreakfast = new System.Windows.Forms.Button();
             this.tsInfo = new System.Windows.Forms.ToolStrip();
+            this.lblDateNow = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblAllRecord = new System.Windows.Forms.ToolStripLabel();
@@ -89,9 +90,6 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.lblNightMaleRecord = new System.Windows.Forms.ToolStripLabel();
-            this.lblDateNow = new System.Windows.Forms.ToolStripLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tsTop.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -100,8 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tsInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tsInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -246,7 +244,7 @@
             this.bilgilerimiGuncelleToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bilgilerimiGuncelleToolStripMenuItem.Name = "bilgilerimiGuncelleToolStripMenuItem";
             this.bilgilerimiGuncelleToolStripMenuItem.ShowShortcutKeys = false;
-            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.bilgilerimiGuncelleToolStripMenuItem.Text = "Bilgilerimi Güncelle";
             this.bilgilerimiGuncelleToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -321,14 +319,14 @@
             // tsmiUsers
             // 
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(140, 22);
+            this.tsmiUsers.Size = new System.Drawing.Size(180, 22);
             this.tsmiUsers.Text = "Kullanıcılar";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
             // tsmiCustomers
             // 
             this.tsmiCustomers.Name = "tsmiCustomers";
-            this.tsmiCustomers.Size = new System.Drawing.Size(140, 22);
+            this.tsmiCustomers.Size = new System.Drawing.Size(180, 22);
             this.tsmiCustomers.Text = "Müşteriler";
             this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
             // 
@@ -341,37 +339,24 @@
             // 
             this.tsLblReports.DropDownButtonWidth = 24;
             this.tsLblReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.günlükRaporToolStripMenuItem,
-            this.aylıkRaporToolStripMenuItem,
-            this.kapsamlıRaporToolStripMenuItem,
-            this.geçmişKayıtlarToolStripMenuItem});
+            this.tsmiReport,
+            this.tsmiPastRecords});
             this.tsLblReports.Name = "tsLblReports";
             this.tsLblReports.Size = new System.Drawing.Size(84, 22);
             this.tsLblReports.Text = "Raporlar";
             // 
-            // günlükRaporToolStripMenuItem
+            // tsmiReport
             // 
-            this.günlükRaporToolStripMenuItem.Name = "günlükRaporToolStripMenuItem";
-            this.günlükRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.günlükRaporToolStripMenuItem.Text = "Günlük Rapor";
+            this.tsmiReport.Name = "tsmiReport";
+            this.tsmiReport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReport.Text = "Ayrıntılı Rapor";
+            this.tsmiReport.Click += new System.EventHandler(this.tsmiReport_Click);
             // 
-            // aylıkRaporToolStripMenuItem
+            // tsmiPastRecords
             // 
-            this.aylıkRaporToolStripMenuItem.Name = "aylıkRaporToolStripMenuItem";
-            this.aylıkRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aylıkRaporToolStripMenuItem.Text = "Aylık Rapor";
-            // 
-            // kapsamlıRaporToolStripMenuItem
-            // 
-            this.kapsamlıRaporToolStripMenuItem.Name = "kapsamlıRaporToolStripMenuItem";
-            this.kapsamlıRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kapsamlıRaporToolStripMenuItem.Text = "Kapsamlı Rapor";
-            // 
-            // geçmişKayıtlarToolStripMenuItem
-            // 
-            this.geçmişKayıtlarToolStripMenuItem.Name = "geçmişKayıtlarToolStripMenuItem";
-            this.geçmişKayıtlarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.geçmişKayıtlarToolStripMenuItem.Text = "Geçmiş Kayıtlar";
+            this.tsmiPastRecords.Name = "tsmiPastRecords";
+            this.tsmiPastRecords.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPastRecords.Text = "Geçmiş Kayıtlar";
             // 
             // toolStripSeparator6
             // 
@@ -498,6 +483,26 @@
             this.panel1.Size = new System.Drawing.Size(205, 562);
             this.panel1.TabIndex = 5;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 492);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 70);
+            this.flowLayoutPanel1.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "RESTAURANTZ V 1.0";
+            // 
             // btnNightMale
             // 
             this.btnNightMale.BackColor = System.Drawing.Color.Tomato;
@@ -589,6 +594,13 @@
             this.tsInfo.Size = new System.Drawing.Size(818, 25);
             this.tsInfo.TabIndex = 13;
             this.tsInfo.Text = "toolStrip1";
+            // 
+            // lblDateNow
+            // 
+            this.lblDateNow.ForeColor = System.Drawing.Color.White;
+            this.lblDateNow.Name = "lblDateNow";
+            this.lblDateNow.Size = new System.Drawing.Size(49, 22);
+            this.lblDateNow.Text = "BUGÜN";
             // 
             // toolStripSeparator3
             // 
@@ -690,33 +702,6 @@
             this.lblNightMaleRecord.Size = new System.Drawing.Size(15, 22);
             this.lblNightMaleRecord.Text = "0";
             // 
-            // lblDateNow
-            // 
-            this.lblDateNow.ForeColor = System.Drawing.Color.White;
-            this.lblDateNow.Name = "lblDateNow";
-            this.lblDateNow.Size = new System.Drawing.Size(49, 22);
-            this.lblDateNow.Text = "BUGÜN";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 492);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 70);
-            this.flowLayoutPanel1.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "RESTAURANTZ V 1.0";
-            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -752,10 +737,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tsInfo.ResumeLayout(false);
-            this.tsInfo.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tsInfo.ResumeLayout(false);
+            this.tsInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -787,9 +772,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiUsers;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSplitButton tsLblReports;
-        private System.Windows.Forms.ToolStripMenuItem günlükRaporToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aylıkRaporToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kapsamlıRaporToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripLabel tsLblSearch;
         private System.Windows.Forms.ToolStripTextBox tsTxtSearch;
@@ -802,7 +785,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBreakfast;
-        private System.Windows.Forms.ToolStripMenuItem geçmişKayıtlarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPastRecords;
         private System.Windows.Forms.Button btnNightMale;
         private System.Windows.Forms.Button btnDinner;
         private System.Windows.Forms.Button btnLunch;

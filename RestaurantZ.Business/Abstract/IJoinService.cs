@@ -1,4 +1,5 @@
 ﻿
+using System;
 using RestaurantZ.Entities.Concrete;
 
 namespace RestaurantZ.Business.Abstract
@@ -19,5 +20,9 @@ namespace RestaurantZ.Business.Abstract
         object GetAllForMainDgv();
         object GetAllForMainDgv(string customerName);
         ModelForRecordCount GetRecordCount();
+        object GetDetailedReportByDate(DateTime firstDate, DateTime secondDate);
+        object GetDetailedReportByDate(DateTime firstDate, DateTime secondDate, int customerId);
+        object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate);
+        object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate, int customerId);
     }
 }
