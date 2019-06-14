@@ -51,10 +51,6 @@
             this.tsmiUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsLblReports = new System.Windows.Forms.ToolStripSplitButton();
-            this.tsmiReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiPastRecords = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblSearch = new System.Windows.Forms.ToolStripLabel();
             this.tsTxtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tsBtnClear = new System.Windows.Forms.ToolStripButton();
@@ -90,6 +86,8 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.lblNightMaleRecord = new System.Windows.Forms.ToolStripLabel();
+            this.tsmiReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPastRecords = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.tsTop.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -279,8 +277,6 @@
             this.toolStripSeparator1,
             this.tsLblSettings,
             this.toolStripSeparator2,
-            this.tsLblReports,
-            this.toolStripSeparator6,
             this.tsLblSearch,
             this.tsTxtSearch,
             this.tsBtnClear});
@@ -311,10 +307,12 @@
             this.tsLblSettings.DropDownButtonWidth = 24;
             this.tsLblSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiUsers,
-            this.tsmiCustomers});
+            this.tsmiCustomers,
+            this.tsmiPastRecords,
+            this.tsmiReport});
             this.tsLblSettings.Name = "tsLblSettings";
-            this.tsLblSettings.Size = new System.Drawing.Size(74, 22);
-            this.tsLblSettings.Text = "Ayarlar";
+            this.tsLblSettings.Size = new System.Drawing.Size(79, 22);
+            this.tsLblSettings.Text = "Kayıtlar";
             // 
             // tsmiUsers
             // 
@@ -334,34 +332,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsLblReports
-            // 
-            this.tsLblReports.DropDownButtonWidth = 24;
-            this.tsLblReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiReport,
-            this.tsmiPastRecords});
-            this.tsLblReports.Name = "tsLblReports";
-            this.tsLblReports.Size = new System.Drawing.Size(84, 22);
-            this.tsLblReports.Text = "Raporlar";
-            // 
-            // tsmiReport
-            // 
-            this.tsmiReport.Name = "tsmiReport";
-            this.tsmiReport.Size = new System.Drawing.Size(180, 22);
-            this.tsmiReport.Text = "Ayrıntılı Rapor";
-            this.tsmiReport.Click += new System.EventHandler(this.tsmiReport_Click);
-            // 
-            // tsmiPastRecords
-            // 
-            this.tsmiPastRecords.Name = "tsmiPastRecords";
-            this.tsmiPastRecords.Size = new System.Drawing.Size(180, 22);
-            this.tsmiPastRecords.Text = "Geçmiş Kayıtlar";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
             // tsLblSearch
             // 
@@ -488,16 +458,16 @@
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 492);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 520);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 70);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(205, 42);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 54);
+            this.label4.Location = new System.Drawing.Point(3, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 16);
             this.label4.TabIndex = 0;
@@ -702,6 +672,19 @@
             this.lblNightMaleRecord.Size = new System.Drawing.Size(15, 22);
             this.lblNightMaleRecord.Text = "0";
             // 
+            // tsmiReport
+            // 
+            this.tsmiReport.Name = "tsmiReport";
+            this.tsmiReport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReport.Text = "Raporlar";
+            this.tsmiReport.Click += new System.EventHandler(this.tsmiReport_Click);
+            // 
+            // tsmiPastRecords
+            // 
+            this.tsmiPastRecords.Name = "tsmiPastRecords";
+            this.tsmiPastRecords.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPastRecords.Text = "Geçmiş Kayıtlar";
+            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -771,9 +754,6 @@
         private System.Windows.Forms.ToolStripSplitButton tsLblSettings;
         private System.Windows.Forms.ToolStripMenuItem tsmiUsers;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSplitButton tsLblReports;
-        private System.Windows.Forms.ToolStripMenuItem tsmiReport;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripLabel tsLblSearch;
         private System.Windows.Forms.ToolStripTextBox tsTxtSearch;
         private System.Windows.Forms.ToolStripButton tsBtnClear;
@@ -785,7 +765,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBreakfast;
-        private System.Windows.Forms.ToolStripMenuItem tsmiPastRecords;
         private System.Windows.Forms.Button btnNightMale;
         private System.Windows.Forms.Button btnDinner;
         private System.Windows.Forms.Button btnLunch;
@@ -808,5 +787,7 @@
         private System.Windows.Forms.ToolStripLabel lblDateNow;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPastRecords;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReport;
     }
 }

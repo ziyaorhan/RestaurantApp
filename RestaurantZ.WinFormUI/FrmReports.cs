@@ -102,6 +102,7 @@ namespace RestaurantZ.WinFormUI
                 int customerId = Convert.ToInt32(cbCustomers.SelectedValue);
                 dgvReport.DataSource = _joinService.GetDetailedReportByDate(dtpFirst.Value, dtpSecond.Value, customerId);
             }
+            SheetName = "AyrıntılıRapor";
             dgvReport.Columns["ServiceName"].HeaderText = "Hizmet";
             dgvReport.Columns["CustomerName"].HeaderText = "Müşteri";
             dgvReport.Columns["NumberOfPerson"].HeaderText = "Kişi Sayısı";
@@ -115,6 +116,7 @@ namespace RestaurantZ.WinFormUI
             dgvReport.RowTemplate.ReadOnly = true;
             dgvReport.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
             dgvReport.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            ExcelButtonIsEnable();
         }
 
         private void btnGroupedReport_Click(object sender, EventArgs e)
@@ -130,6 +132,7 @@ namespace RestaurantZ.WinFormUI
                 int customerId = Convert.ToInt32(cbCustomers.SelectedValue);
                 dgvReport.DataSource = _joinService.GetDetailedReportByDateAsGrouped(dtpFirst.Value, dtpSecond.Value, customerId);
             }
+            SheetName = "HesaplanmışRapor";
             dgvReport.Columns["customerId"].HeaderText = "Id";
             dgvReport.Columns["customerName"].HeaderText = "Müşteri";
             dgvReport.Columns["serviceName"].HeaderText = "Hizmet";
@@ -144,6 +147,7 @@ namespace RestaurantZ.WinFormUI
             dgvReport.RowTemplate.ReadOnly = true;
             dgvReport.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
             dgvReport.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            ExcelButtonIsEnable();
         }
 
         private void dtpFirst_ValueChanged(object sender, EventArgs e)
@@ -153,6 +157,13 @@ namespace RestaurantZ.WinFormUI
                 MessageBox.Show("Başlangıç tarihi, bitiş tarihinden büyük olamaz.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpFirst.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             }
+        }
+
+        public string SheetName { get; set; }
+
+        private void btnReportToExcel_Click(object sender, EventArgs e)
+        {
+            Global.ExportDataGridViewToExcel(dgvReport, SheetName, Global.GetPath("\\Files\\Reports"),SheetName);
         }
     }
 }

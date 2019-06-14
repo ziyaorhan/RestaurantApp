@@ -250,6 +250,7 @@
             this.btnReportToExcel.TabIndex = 18;
             this.btnReportToExcel.Text = "EXCEL\'E AKTAR";
             this.btnReportToExcel.UseVisualStyleBackColor = true;
+            this.btnReportToExcel.Click += new System.EventHandler(this.btnReportToExcel_Click);
             // 
             // groupBox5
             // 
