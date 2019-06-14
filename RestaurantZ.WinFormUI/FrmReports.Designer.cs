@@ -48,6 +48,7 @@
             this.btnReportToExcel = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnGroupedReport = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(19, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1165, 22);
+            this.pnlTop.Size = new System.Drawing.Size(1346, 22);
             this.pnlTop.TabIndex = 12;
             this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
@@ -73,7 +74,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnClose.Location = new System.Drawing.Point(1142, 0);
+            this.btnClose.Location = new System.Drawing.Point(1323, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 22);
             this.btnClose.TabIndex = 0;
@@ -88,7 +89,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(19, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1165, 37);
+            this.panel2.Size = new System.Drawing.Size(1346, 37);
             this.panel2.TabIndex = 13;
             // 
             // lblServiceName
@@ -109,7 +110,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(19, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1165, 3);
+            this.label1.Size = new System.Drawing.Size(1346, 3);
             this.label1.TabIndex = 14;
             this.label1.Text = "label1";
             // 
@@ -119,7 +120,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Location = new System.Drawing.Point(16, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(3, 561);
+            this.label2.Size = new System.Drawing.Size(3, 710);
             this.label2.TabIndex = 15;
             this.label2.Text = "label2";
             // 
@@ -129,7 +130,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(16, 561);
+            this.panel1.Size = new System.Drawing.Size(16, 710);
             this.panel1.TabIndex = 11;
             // 
             // groupBox1
@@ -199,7 +200,7 @@
             this.groupBox2.Controls.Add(this.cbCustomers);
             this.groupBox2.Controls.Add(this.chkAllCustomers);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(22, 129);
+            this.groupBox2.Location = new System.Drawing.Point(432, 66);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(401, 57);
             this.groupBox2.TabIndex = 16;
@@ -210,9 +211,9 @@
             // 
             this.btnDeatailedReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeatailedReport.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDeatailedReport.Location = new System.Drawing.Point(6, 18);
+            this.btnDeatailedReport.Location = new System.Drawing.Point(6, 17);
             this.btnDeatailedReport.Name = "btnDeatailedReport";
-            this.btnDeatailedReport.Size = new System.Drawing.Size(383, 32);
+            this.btnDeatailedReport.Size = new System.Drawing.Size(252, 32);
             this.btnDeatailedReport.TabIndex = 18;
             this.btnDeatailedReport.Text = "AYRINTILI OLARAK LİSTELE";
             this.btnDeatailedReport.UseVisualStyleBackColor = true;
@@ -222,12 +223,12 @@
             // 
             this.groupBox4.Controls.Add(this.dgvReport);
             this.groupBox4.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.Location = new System.Drawing.Point(429, 75);
+            this.groupBox4.Location = new System.Drawing.Point(22, 129);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(750, 486);
+            this.groupBox4.Size = new System.Drawing.Size(1341, 509);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ayrıntılı Rapor";
+            this.groupBox4.Text = "Rapor";
             // 
             // dgvReport
             // 
@@ -236,29 +237,28 @@
             this.dgvReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReport.Location = new System.Drawing.Point(3, 17);
             this.dgvReport.Name = "dgvReport";
-            this.dgvReport.Size = new System.Drawing.Size(744, 466);
+            this.dgvReport.Size = new System.Drawing.Size(1335, 489);
             this.dgvReport.TabIndex = 0;
             // 
             // btnReportToExcel
             // 
             this.btnReportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportToExcel.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnReportToExcel.Location = new System.Drawing.Point(6, 94);
+            this.btnReportToExcel.Location = new System.Drawing.Point(1220, 644);
             this.btnReportToExcel.Name = "btnReportToExcel";
-            this.btnReportToExcel.Size = new System.Drawing.Size(383, 32);
+            this.btnReportToExcel.Size = new System.Drawing.Size(140, 32);
             this.btnReportToExcel.TabIndex = 18;
             this.btnReportToExcel.Text = "EXCEL\'E AKTAR";
             this.btnReportToExcel.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btnGroupedReport);
             this.groupBox5.Controls.Add(this.btnDeatailedReport);
-            this.groupBox5.Controls.Add(this.btnReportToExcel);
+            this.groupBox5.Controls.Add(this.btnGroupedReport);
             this.groupBox5.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox5.Location = new System.Drawing.Point(25, 192);
+            this.groupBox5.Location = new System.Drawing.Point(839, 66);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(398, 132);
+            this.groupBox5.Size = new System.Drawing.Size(524, 57);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Listele";
@@ -267,20 +267,32 @@
             // 
             this.btnGroupedReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGroupedReport.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGroupedReport.Location = new System.Drawing.Point(6, 56);
+            this.btnGroupedReport.Location = new System.Drawing.Point(263, 17);
             this.btnGroupedReport.Name = "btnGroupedReport";
-            this.btnGroupedReport.Size = new System.Drawing.Size(383, 32);
+            this.btnGroupedReport.Size = new System.Drawing.Size(252, 32);
             this.btnGroupedReport.TabIndex = 18;
-            this.btnGroupedReport.Text = "GRUPLANMIŞ OLARAK LİSTELE";
+            this.btnGroupedReport.Text = "HESAPLANMIŞ OLARAK LİSTELE";
             this.btnGroupedReport.UseVisualStyleBackColor = true;
             this.btnGroupedReport.Click += new System.EventHandler(this.btnGroupedReport_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Snow;
+            this.statusStrip1.Location = new System.Drawing.Point(19, 688);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(1346, 22);
+            this.statusStrip1.TabIndex = 21;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // FrmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(1365, 710);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnReportToExcel);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -306,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -331,5 +344,6 @@
         private System.Windows.Forms.Button btnGroupedReport;
         private System.Windows.Forms.DataGridView dgvReport;
         private System.Windows.Forms.Label lblServiceName;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

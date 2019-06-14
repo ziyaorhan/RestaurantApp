@@ -130,6 +130,20 @@ namespace RestaurantZ.WinFormUI
                 int customerId = Convert.ToInt32(cbCustomers.SelectedValue);
                 dgvReport.DataSource = _joinService.GetDetailedReportByDateAsGrouped(dtpFirst.Value, dtpSecond.Value, customerId);
             }
+            dgvReport.Columns["customerId"].HeaderText = "Id";
+            dgvReport.Columns["customerName"].HeaderText = "Müşteri";
+            dgvReport.Columns["serviceName"].HeaderText = "Hizmet";
+            dgvReport.Columns["unitPrice"].HeaderText = "Birim Fiyat(TL)";
+            dgvReport.Columns["sumPerson"].HeaderText = "Toplam Kişi Sayısı";
+            dgvReport.Columns["sumExtraPrice"].HeaderText = "Toplam Ekstra(TL)";
+            dgvReport.Columns["grandTotal"].HeaderText = "Genel Toplam(TL)";
+            dgvReport.Columns["dateRange"].HeaderText = "Tarih Aralığı";
+            //
+            dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReport.RowHeadersWidth = 25;
+            dgvReport.RowTemplate.ReadOnly = true;
+            dgvReport.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
+            dgvReport.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
         }
 
         private void dtpFirst_ValueChanged(object sender, EventArgs e)
