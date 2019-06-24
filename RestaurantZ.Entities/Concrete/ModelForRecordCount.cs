@@ -1,7 +1,7 @@
 ﻿
 namespace RestaurantZ.Entities.Concrete
 {
-   public class ModelForRecordCount
+    public class ModelForRecordCount
     {
         public int BreakfastCount { get; set; }
         public int LunchCount { get; set; }

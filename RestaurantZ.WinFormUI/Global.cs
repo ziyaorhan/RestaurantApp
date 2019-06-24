@@ -57,39 +57,46 @@ namespace RestaurantZ.WinFormUI
 
         public static void ExportDataGridViewToExcel(DataGridView dataGridView, string sheetName, string folderName, string fileName)
         {
-            //excel uygulaması oluştur.
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            //excel uygulaması içinde bir çalışma kitabı oluştur.  
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            //çalışma kitabında yeni bir excel sayfası oluştur. şimdilik null değeri ata.
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            //programın arkasında excel sayfasına bak.  
-            app.Visible = true;
-            // get the reference of first sheet. By default its name is Sheet1.  
-            // store its reference to worksheet  
-            worksheet = workbook.Sheets["Sayfa1"];
-            worksheet = workbook.ActiveSheet;
-            // changing the name of active sheet  
-            worksheet.Name = sheetName;
-            // storing header part in Excel  
-            for (int i = 1; i < dataGridView.Columns.Count + 1; i++)
+            try
             {
-                worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
-            }
-            // storing Each row and column value to excel sheet  
-            for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < dataGridView.Columns.Count; j++)
+                //excel uygulaması oluştur.
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                //excel uygulaması içinde bir çalışma kitabı oluştur.  
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                //çalışma kitabında yeni bir excel sayfası oluştur. şimdilik null değeri ata.
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                //programın arkasında excel sayfasına bak.  
+                app.Visible = true;
+                worksheet = workbook.Sheets["Sayfa1"];
+                worksheet = workbook.ActiveSheet;
+                // aktif sayfa adını değiştir 
+                worksheet.Name = sheetName;
+                // kolon isimleri
+                for (int i = 1; i <= dataGridView.Columns.Count; i++)
                 {
-                    worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                    worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
                 }
-            }
-            // save the application  
-            string fileTimeStamp = DateTime.Now.ToShortDateString() + "_" + DateTime.Now.Hour.ToString() + "." + DateTime.Now.Minute.ToString() + "." + DateTime.Now.Second.ToString();
+                // satırlar
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                // save the application  
+                string fileTimeStamp = DateTime.Now.ToShortDateString() + "_" + DateTime.Now.Hour.ToString() + "." + DateTime.Now.Minute.ToString() + "." + DateTime.Now.Second.ToString();
 
-            workbook.SaveAs(folderName + "\\" + fileTimeStamp + "-" + fileName + ".xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            // Exit from the application  
-            // app.Quit();
+                workbook.SaveAs(folderName + "\\" + fileTimeStamp + "-" + fileName + ".xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                // Exit from the application  
+                // app.Quit();
+            }
+            catch 
+            {
+               
+            }
         }
+
+
     }
 }

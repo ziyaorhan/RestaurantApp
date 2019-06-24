@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using RestaurantZ.Entities.Concrete;
+using RestaurantZ.Business.Utilities;
 
 namespace RestaurantZ.WinFormUI
 {
@@ -48,6 +49,7 @@ namespace RestaurantZ.WinFormUI
                     ExtraPrice = Convert.ToDecimal(txtExtraPrice.Text),
                     Description = rTxtDescription.Text,
                     CustomerId = Convert.ToInt32(txtCustomerDetail.Tag),
+                    UserId = Variables.CurrentUser.UserId
                 };
                 _breakfastService.Add(breakfast);
                 //

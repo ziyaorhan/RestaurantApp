@@ -34,6 +34,7 @@ namespace RestaurantZ.WinFormUI
         {
             this.Close();
             FrmMain refreshedFrm = (FrmMain)Application.OpenForms["FrmMain"];
+            refreshedFrm.DgvFrmMainFill();
             refreshedFrm.Show();
         }
 
@@ -92,7 +93,7 @@ namespace RestaurantZ.WinFormUI
                     }
                     catch
                     {
-                        MessageBox.Show("Kullanıcı silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
+                        MessageBox.Show("Bu müşteriye ait geçmiş kayıtlar olduğu için silinemez.\r\nEğer müşteriye bundan sonra hizmet verilmeyecekse, güncelleme formundan pasif yapabilirsiniz...","İşlem Durduruldu!", MessageBoxButtons.OK,MessageBoxIcon.Stop);
                     }
                     DgvCustomerFill();
                 }

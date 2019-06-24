@@ -36,7 +36,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on b.CustomerId equals c.CustomerId
                          join u in users
-                         on b.CreatedUserId equals u.UserId
+                         on b.UserId equals u.UserId
                          where b.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby b.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -62,7 +62,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on b.CustomerId equals c.CustomerId
                          join u in users
-                         on b.CreatedUserId equals u.UserId
+                         on b.UserId equals u.UserId
                          where b.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby b.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -88,7 +88,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on l.CustomerId equals c.CustomerId
                          join u in users
-                         on l.CreatedUserId equals u.UserId
+                         on l.UserId equals u.UserId
                          where l.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby l.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -114,7 +114,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on l.CustomerId equals c.CustomerId
                          join u in users
-                         on l.CreatedUserId equals u.UserId
+                         on l.UserId equals u.UserId
                          where l.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby l.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -140,7 +140,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on d.CustomerId equals c.CustomerId
                          join u in users
-                         on d.CreatedUserId equals u.UserId
+                         on d.UserId equals u.UserId
                          where d.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby d.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -166,7 +166,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on d.CustomerId equals c.CustomerId
                          join u in users
-                         on d.CreatedUserId equals u.UserId
+                         on d.UserId equals u.UserId
                          where d.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby d.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -192,7 +192,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on n.CustomerId equals c.CustomerId
                          join u in users
-                         on n.CreatedUserId equals u.UserId
+                         on n.UserId equals u.UserId
                          where n.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby n.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -218,7 +218,7 @@ namespace RestaurantZ.Business.Concrete
                          join c in customers
                          on n.CustomerId equals c.CustomerId
                          join u in users
-                         on n.CreatedUserId equals u.UserId
+                         on n.UserId equals u.UserId
                          where n.CreatedDate.Value.ToShortDateString() == dateTimeNow//bu günün kayıtları
                          orderby n.CreatedDate descending// tarihe göre tersten sırala
                          select new
@@ -306,7 +306,7 @@ namespace RestaurantZ.Business.Concrete
                     Description = item.Description,
                     CustomerId = item.CustomerId,
                     ServiceName = "Kahvaltı",
-                    CreatedUserId = item.CreatedUserId,
+                    CreatedUserId = item.UserId,
                     CreatedDate = item.CreatedDate
                 });
             }
@@ -319,7 +319,7 @@ namespace RestaurantZ.Business.Concrete
                     Description = item.Description,
                     CustomerId = item.CustomerId,
                     ServiceName = "Öğlen Y.",
-                    CreatedUserId = item.CreatedUserId,
+                    CreatedUserId = item.UserId,
                     CreatedDate = item.CreatedDate
                 });
             }
@@ -332,7 +332,7 @@ namespace RestaurantZ.Business.Concrete
                     Description = item.Description,
                     CustomerId = item.CustomerId,
                     ServiceName = "Akşam Y.",
-                    CreatedUserId = item.CreatedUserId,
+                    CreatedUserId = item.UserId,
                     CreatedDate = item.CreatedDate
                 });
             }
@@ -345,7 +345,7 @@ namespace RestaurantZ.Business.Concrete
                     Description = item.Description,
                     CustomerId = item.CustomerId,
                     ServiceName = "Gece Y.",
-                    CreatedUserId = item.CreatedUserId,
+                    CreatedUserId = item.UserId,
                     CreatedDate = item.CreatedDate
                 });
             }

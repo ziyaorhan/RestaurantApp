@@ -1,6 +1,8 @@
-﻿using RestaurantZ.Entities.Concrete;
+﻿using RestaurantZ.Entities.Abstract;
+using RestaurantZ.Entities.Concrete;
 using System;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
 namespace RestaurantZ.DataAccess.Concrete.EntityFramework
@@ -19,32 +21,17 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
             {
                 User user = new User()
                 {
-                    Name = "admin",
-                    Surname = "admin",
+                    Name = "Admin",
+                    Surname = "Admin",
                     Phone = "(505) 666-5308",
                     Mail = "zy.orhan@gmail.com",
                     UserName = "admin",
-                    Password = "kevserkebap",
-                    Role = "Manager",
+                    Password = "0e282527abe49e04f3b6abfde22d4a04145bdbd4f0131b0a2b77fd2f051b18fbaa5455999a50152e73db5531a74bf00ddd8d5a07b0c8f73ef103382a69a787d8",
+                    Role = "Admin",
                     IsActive = true,
                     IsVisible = true
                 };
                 context.Users.Add(user);
-                //
-                Customer customer = new Customer()
-                {
-                    CustomerName = "Kayıtsız Müşteri",
-                    CustomerRepresentative = "Abdullah Şahin",
-                    Phone1 = "(111) 111-1111",
-                    Notes = "Herhangi bir hesabı olmayan, dışarıdan gelen müşteri tutarları kayıt altına alınmak istenirse bu seçenek seçilmelidir.",
-                    BreakfastPrice = 11,
-                    LunchPrice = 12,
-                    DinnerPrice = 15,
-                    NightMalePrice = 27,
-                    IsActive = true,
-                    IsVisible = true
-                };
-                context.Customers.Add(customer);
                 context.SaveChanges();
             }
         }
@@ -63,23 +50,47 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
             //SaveChances(); yapmadan önce yukarıdaki işlemleri yap.
             return base.SaveChanges();
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //aşağıdaki işlemler bire çok ilişkili tablolarda veriyi siler fakat foreignKey değerini null atar, eğer true yapılırsa ilişkili tüm verileri siler.
+
+            //modelBuilder.Entity<Breakfast>()
+            //    .HasOptional<Customer>(s => s.Customer)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Lunch>()
+            //    .HasOptional<Customer>(s => s.Customer)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Dinner>()
+            //    .HasOptional<Customer>(s => s.Customer)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<NightMale>()
+            //    .HasOptional<Customer>(s => s.Customer)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+
+            //Aşağıdaki işlem bire çok ilişkili tablolarda silme işlemini yasaklayarak veri kaybını önler.
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
         private void AddTimestamps()
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
-            var currentUserId = LoginInfo.CurrentUserId != 0
-                ? LoginInfo.CurrentUserId
-                : 0;
+           // var currentUserId = LoginInfo.CurrentUserId != 0
+               // ? LoginInfo.CurrentUserId
+               // : 0;
 
             foreach (var entity in entities)
             {
                 if (entity.State == EntityState.Added)
                 {
                     ((BaseEntity)entity.Entity).CreatedDate = DateTime.Now;
-                    ((BaseEntity)entity.Entity).CreatedUserId = currentUserId;
+                   // ((BaseEntity)entity.Entity).UserId = currentUserId;
                 }
                 ((BaseEntity)entity.Entity).ModifiedDate = DateTime.Now;
-                ((BaseEntity)entity.Entity).ModifiedUserId = currentUserId;
+                //((BaseEntity)entity.Entity).ModifiedUserId = currentUserId;
             }
         }
         private void AddSyncProperties()
@@ -99,7 +110,6 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
             }
         }
     }
-
 }
 
 

@@ -77,6 +77,12 @@
     <Compile Include="FrmDinner.Designer.cs">
       <DependentUpon>FrmDinner.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLunch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="FrmUpdateCustomers.Designer.cs">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateMyUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateMyUserInfo.Designer.cs">
+      <DependentUpon>FrmUpdateMyUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateUserByAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDinner.resx">
       <DependentUpon>FrmDinner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLunch.resx">
       <DependentUpon>FrmLunch.cs</DependentUpon>
@@ -181,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateCustomers.resx">
       <DependentUpon>FrmUpdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateMyUserInfo.resx">
+      <DependentUpon>FrmUpdateMyUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateUserByAdmin.resx">
       <DependentUpon>FrmUpdateUserByAdmin.cs</DependentUpon>
@@ -242,6 +260,7 @@
     <Content Include="Images\info.png" />
     <Content Include="Images\kahvalti.png" />
     <Content Include="Images\kahvalti2.png" />
+    <Content Include="Images\login.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logout.png" />
     <Content Include="Images\maximise.png" />

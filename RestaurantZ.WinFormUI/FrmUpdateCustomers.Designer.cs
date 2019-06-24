@@ -45,11 +45,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtNightMale = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
+            this.txtDinner = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
+            this.txtLunch = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
+            this.txtBreakfast = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
             this.chkNightMale = new System.Windows.Forms.CheckBox();
             this.chkDinner = new System.Windows.Forms.CheckBox();
             this.chkLunch = new System.Windows.Forms.CheckBox();
             this.chkBreakfast = new System.Windows.Forms.CheckBox();
             this.gbCustomerInfo = new System.Windows.Forms.GroupBox();
+            this.txtCustomerRep = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
+            this.txtCustomerName = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
+            this.txtMail = new RestaurantZ.WinFormUI.PlaceHolderTextBox();
             this.txtPhone2 = new System.Windows.Forms.MaskedTextBox();
             this.txtPhone1Intercom = new System.Windows.Forms.MaskedTextBox();
             this.txtPhone1 = new System.Windows.Forms.MaskedTextBox();
@@ -70,13 +77,6 @@
             this.epLunch = new System.Windows.Forms.ErrorProvider(this.components);
             this.epDinner = new System.Windows.Forms.ErrorProvider(this.components);
             this.epNightMale = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtNightMale = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
-            this.txtDinner = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
-            this.txtLunch = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
-            this.txtBreakfast = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
-            this.txtCustomerRep = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
-            this.txtCustomerName = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
-            this.txtMail = new RestaurantZ.WinFormUI.PlaceHolderTextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -174,9 +174,9 @@
             this.chkIsActive.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.chkIsActive.Location = new System.Drawing.Point(24, 440);
             this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(110, 21);
+            this.chkIsActive.Size = new System.Drawing.Size(106, 21);
             this.chkIsActive.TabIndex = 26;
-            this.chkIsActive.Text = "Aktif Kullanıcı";
+            this.chkIsActive.Text = "Aktif Müşteri";
             this.chkIsActive.UseVisualStyleBackColor = true;
             this.chkIsActive.Click += new System.EventHandler(this.chkIsActive_Click);
             // 
@@ -276,6 +276,39 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "TL";
             // 
+            // txtNightMale
+            // 
+            this.txtNightMale.Location = new System.Drawing.Point(159, 109);
+            this.txtNightMale.Name = "txtNightMale";
+            this.txtNightMale.Size = new System.Drawing.Size(138, 23);
+            this.txtNightMale.TabIndex = 7;
+            this.txtNightMale.Text = "0.00";
+            // 
+            // txtDinner
+            // 
+            this.txtDinner.Location = new System.Drawing.Point(159, 81);
+            this.txtDinner.Name = "txtDinner";
+            this.txtDinner.Size = new System.Drawing.Size(138, 23);
+            this.txtDinner.TabIndex = 5;
+            this.txtDinner.Text = "0.00";
+            // 
+            // txtLunch
+            // 
+            this.txtLunch.Location = new System.Drawing.Point(159, 53);
+            this.txtLunch.Name = "txtLunch";
+            this.txtLunch.Size = new System.Drawing.Size(138, 23);
+            this.txtLunch.TabIndex = 3;
+            this.txtLunch.Text = "0.00";
+            // 
+            // txtBreakfast
+            // 
+            this.txtBreakfast.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtBreakfast.Location = new System.Drawing.Point(159, 25);
+            this.txtBreakfast.Name = "txtBreakfast";
+            this.txtBreakfast.Size = new System.Drawing.Size(138, 23);
+            this.txtBreakfast.TabIndex = 1;
+            this.txtBreakfast.Text = "0.00";
+            // 
             // chkNightMale
             // 
             this.chkNightMale.AutoSize = true;
@@ -351,6 +384,34 @@
             this.gbCustomerInfo.TabIndex = 23;
             this.gbCustomerInfo.TabStop = false;
             this.gbCustomerInfo.Text = "Müşteri Bilgileri";
+            // 
+            // txtCustomerRep
+            // 
+            this.txtCustomerRep.Location = new System.Drawing.Point(159, 49);
+            this.txtCustomerRep.Name = "txtCustomerRep";
+            this.txtCustomerRep.Size = new System.Drawing.Size(161, 23);
+            this.txtCustomerRep.TabIndex = 1;
+            this.txtCustomerRep.TextChanged += new System.EventHandler(this.txtCustomerRep_TextChanged);
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(159, 22);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(161, 23);
+            this.txtCustomerName.TabIndex = 0;
+            this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
+            // 
+            // txtMail
+            // 
+            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtMail.ForeColor = System.Drawing.Color.Gray;
+            this.txtMail.Location = new System.Drawing.Point(159, 154);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.PlaceHolderText = "abc@abc.com";
+            this.txtMail.Size = new System.Drawing.Size(161, 22);
+            this.txtMail.TabIndex = 5;
+            this.txtMail.Text = "abc@abc.com";
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             // 
             // txtPhone2
             // 
@@ -503,67 +564,6 @@
             // epNightMale
             // 
             this.epNightMale.ContainerControl = this;
-            // 
-            // txtNightMale
-            // 
-            this.txtNightMale.Location = new System.Drawing.Point(159, 109);
-            this.txtNightMale.Name = "txtNightMale";
-            this.txtNightMale.Size = new System.Drawing.Size(138, 23);
-            this.txtNightMale.TabIndex = 7;
-            this.txtNightMale.Text = "0.00";
-            // 
-            // txtDinner
-            // 
-            this.txtDinner.Location = new System.Drawing.Point(159, 81);
-            this.txtDinner.Name = "txtDinner";
-            this.txtDinner.Size = new System.Drawing.Size(138, 23);
-            this.txtDinner.TabIndex = 5;
-            this.txtDinner.Text = "0.00";
-            // 
-            // txtLunch
-            // 
-            this.txtLunch.Location = new System.Drawing.Point(159, 53);
-            this.txtLunch.Name = "txtLunch";
-            this.txtLunch.Size = new System.Drawing.Size(138, 23);
-            this.txtLunch.TabIndex = 3;
-            this.txtLunch.Text = "0.00";
-            // 
-            // txtBreakfast
-            // 
-            this.txtBreakfast.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtBreakfast.Location = new System.Drawing.Point(159, 25);
-            this.txtBreakfast.Name = "txtBreakfast";
-            this.txtBreakfast.Size = new System.Drawing.Size(138, 23);
-            this.txtBreakfast.TabIndex = 1;
-            this.txtBreakfast.Text = "0.00";
-            // 
-            // txtCustomerRep
-            // 
-            this.txtCustomerRep.Location = new System.Drawing.Point(159, 49);
-            this.txtCustomerRep.Name = "txtCustomerRep";
-            this.txtCustomerRep.Size = new System.Drawing.Size(161, 23);
-            this.txtCustomerRep.TabIndex = 1;
-            this.txtCustomerRep.TextChanged += new System.EventHandler(this.txtCustomerRep_TextChanged);
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Location = new System.Drawing.Point(159, 22);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(161, 23);
-            this.txtCustomerName.TabIndex = 0;
-            this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
-            // 
-            // txtMail
-            // 
-            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMail.ForeColor = System.Drawing.Color.Gray;
-            this.txtMail.Location = new System.Drawing.Point(159, 154);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.PlaceHolderText = "abc@abc.com";
-            this.txtMail.Size = new System.Drawing.Size(161, 22);
-            this.txtMail.TabIndex = 5;
-            this.txtMail.Text = "abc@abc.com";
-            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             // 
             // FrmUpdateCustomers
             // 

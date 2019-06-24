@@ -1,85 +1,88 @@
 ﻿using RestaurantZ.Business.Abstract;
-using RestaurantZ.Business.Concrete;
 using RestaurantZ.Business.DependencyResolvers.Ninject;
 using RestaurantZ.Business.Utilities;
 using RestaurantZ.Business.ValidationRules;
-using RestaurantZ.DataAccess.Concrete.EntityFramework;
-using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public partial class FrmNewUser : Form
+    public partial class FrmUpdateMyUserInfo : Form
     {
-        public IUserService _userService;// Business katmanı
+        private IUserService _userService;
 
-        public List<MessagesAndProperties> allExceptions;// User managerden fluent validation vasıtası ile gelen hataları property isimlerine göre tutar.
-        public FrmNewUser()
+        public List<MessagesAndProperties> allExceptions;
+
+        public FrmUpdateMyUserInfo()
         {
             InitializeComponent();
-
-            //_userService = new UserManager(new EfUserDal());//IoC Container kullanmadan önce böyle idi.
-            try
-            {
-                _userService = InstanceFactory.GetInstance<IUserService>();
-            }
-            catch 
-            {
-                MessageBox.Show("Form açılırken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
-            }
-            allExceptions = new List<MessagesAndProperties>();
+            _userService = InstanceFactory.GetInstance<IUserService>();
         }
 
-        //private void GetControlsByUserRole()
-        //{
-        //    if (Variables.CurrentUser.Role == Variables.UserType.Employee.ToString())
-        //    {
-        //        tsLblRecords.Visible = false;
-        //        tssRecords.Visible = false;//seperatör
-        //    }
-        //    else if (Variables.CurrentUser.Role == Variables.UserType.Employee.ToString())
-        //    {
-        //        //tsLblRecords.Visible = true;
-        //        //tssRecords.Visible = true;//seperatör
-        //        tsmiUsers.Visible = false;
-        //    }
-        //}
+        private void FrmUpdateMyUserInfo_Load(object sender, EventArgs e)
+        {
+            var currentUser = _userService.Get(Variables.CurrentUser.UserId);
+            txtName.Text = currentUser.Name;
+            txtSurname.Text = currentUser.Surname;
+            txtPhone.Text = currentUser.Phone;
+            txtMail.Text = currentUser.Mail;
+            txtUserName.Text = currentUser.UserName;
+            if (currentUser.Role == Variables.UserType.Employee.ToString())
+            {
+                rbEmployee.Checked = true;
+            }
+            else if (currentUser.Role == Variables.UserType.Manager.ToString())
+            {
+                rbManager.Checked = true;
+            }
+            else
+            {
+                rbAdmin.Checked = true;
+            }
+            if (currentUser.IsActive == true)
+            {
+                chkIsActive.Checked = true;
+            }
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            FrmMain frmMain = (FrmMain)Application.OpenForms["FrmMain"];
+            frmMain.Show();
             this.Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            allExceptions.Clear();
             try
             {
-                User user = new User
+                Cursor.Current = Cursors.WaitCursor;
+                var updatedUser = _userService.Get(Variables.CurrentUser.UserId);
+                updatedUser.Name = txtName.Text.Trim();
+                updatedUser.Surname = txtSurname.Text.Trim();
+                updatedUser.Phone = txtPhone.Text.Trim();
+                updatedUser.Mail = txtMail.Text.Trim();
+                updatedUser.UserName = txtUserName.Text.Trim();
+                if (txtPwd1.Text.Trim() != "")
                 {
-                    Name = txtName.Text.Trim(),
-                    Surname = txtSurname.Text.Trim(),
-                    Phone = txtPhone.Text.Trim(),
-                    Mail = txtMail.Text.Trim(),
-                    UserName = txtUserName.Text.Trim(),
-                    Password = CryptTool.EncryptSha(CryptTool.EncryptMd5(txtPwd1.Text.Trim())),
-                    IsActive = chkIsActive.Checked,
-                    Role = rbEmployee.Checked ?
-                    Variables.UserType.Employee.ToString() :
-                    (rbManager.Checked ? 
-                    Variables.UserType.Manager.ToString() :
-                    Variables.UserType.Admin.ToString())
-                };
+                    updatedUser.Password = CryptTool.EncryptSha(CryptTool.EncryptMd5(txtPwd1.Text.Trim()));
+                }
                 if (PasswordsAreSame())
-                {
-                    _userService.Add(user);
-                    FrmUsers refreshedFrm = (FrmUsers)Application.OpenForms["FrmUsers"];
-                    refreshedFrm.DgvUsersFill();
-                    Cursor.Current = Cursors.Default;
-                    this.Close();
+                {  
+                _userService.Update(updatedUser);
+                MessageBox.Show("Güncelleme işlemi başarılı bir şekilde gerçekleştirilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmMain frmMain = (FrmMain)Application.OpenForms["FrmMain"];
+                frmMain.tsLblSessionName.Text = "Hoşgeldin " + updatedUser.Name;
+                frmMain.Show();
+                Cursor.Current = Cursors.Default;
+                this.Close();
                 }
             }
             catch (CustomExceptionForValidation ex)
@@ -141,6 +144,7 @@ namespace RestaurantZ.WinFormUI
             {
                 epUserName.Clear();
             }
+            //
             if (ValidationTool.IsThereAExceptionByProperty(allExceptions, "Password"))
             {
                 epPwd1.SetError(txtPwd1, ValidationTool.GetExceptionsByProperty(allExceptions, "Password"));
@@ -203,13 +207,5 @@ namespace RestaurantZ.WinFormUI
             }
         }
         #endregion
-
-        private void rbManager_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbManager.Checked)
-            {
-                MessageBox.Show("Bir kullanıcıyı yönetici olarak belirlediğinizde, program üzerinde tüm değişiklikleri yapabilecek yetkileri vermiş olursunuz. Bunu yapmak istediğinizden emin misiniz?", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
     }
 }

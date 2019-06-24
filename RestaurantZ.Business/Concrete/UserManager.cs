@@ -1,5 +1,4 @@
-﻿
-using RestaurantZ.Business.Abstract;
+﻿using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.Utilities;
 using RestaurantZ.Business.ValidationRules.FluentValidation;
 using RestaurantZ.DataAccess.Abstract;
@@ -22,13 +21,13 @@ namespace RestaurantZ.Business.Concrete
         public void Add(User user)
         {
             //business kodları
-            ValidationTool.Validate(new UserValidator(new EfUserDal(),user), user);//Burada if else kullanmadık. Çünkü Validate metodu void bir metod olmasına rağmen validasyon sağlanmadığı takdirde throw ile hata fırlatan bir metot dolayısı ile doğrulanma olmaz ise aşağıdaki satıra geçilmeyeceltir. içerisindeki throw
+            ValidationTool.Validate(new UserValidator(new EfUserDal(), user), user);//Burada if else kullanmadık. Çünkü Validate metodu void bir metod olmasına rağmen validasyon sağlanmadığı takdirde throw ile hata fırlatan bir metot dolayısı ile doğrulanma olmaz ise aşağıdaki satıra geçilmeyeceltir. içerisindeki throw
             //data access
             try
             {
                 _userDal.Add(user);
             }
-            catch 
+            catch
             {
                 throw new Exception("Yeni bir kullanıcı eklenirken hata oluştu.");
             }
@@ -54,12 +53,12 @@ namespace RestaurantZ.Business.Concrete
 
         public void Update(User user)
         {
-            ValidationTool.Validate(new UserValidator(new EfUserDal(),user), user);
+            ValidationTool.Validate(new UserValidator(new EfUserDal(), user), user);
             try
             {
                 _userDal.Update(user);
             }
-            catch 
+            catch
             {
                 throw new Exception("Kullanıcı güncellenirken bir hata oluştu.");
             }
@@ -83,10 +82,28 @@ namespace RestaurantZ.Business.Concrete
             {
                 return _userDal.GetAll();
             }
-            catch 
+            catch
             {
                 throw new Exception("Kullanıcılar listelenirken bir hata oluştu.");
             }
+        }
+
+        public User GetByUserNameAndPwd(string enteredUserName, string enteredPwd)
+        {
+            User user = null;
+            try
+            {
+                var result = _userDal.GetAll(a => a.UserName == enteredUserName && a.Password == enteredPwd && a.IsActive == true);
+                if (result.Count == 1)
+                {
+                    user = result[0];
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Doğrulama kontrolünde bir hata oluştu.");
+            }
+            return user;
         }
 
         //burası dal ile benzer de faklı da olabilir. önce business kodları gelir.

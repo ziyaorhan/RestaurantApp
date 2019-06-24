@@ -43,13 +43,16 @@ namespace RestaurantZ.WinFormUI
         {
             dgvUsers.DataSource = _userService.GetAll();
             dgvUsers.Columns["CreatedDate"].Visible = false;
-            dgvUsers.Columns["CreatedUserId"].Visible = false;
             dgvUsers.Columns["ModifiedDate"].Visible = false;
-            dgvUsers.Columns["ModifiedUserId"].Visible = false;
             dgvUsers.Columns["SyncId"].Visible = false;
             dgvUsers.Columns["IsSync"].Visible = false;
             dgvUsers.Columns["Password"].Visible = false;
             dgvUsers.Columns["IsVisible"].Visible = false;
+            dgvUsers.Columns["Breakfasts"].Visible = false;
+            dgvUsers.Columns["Lunches"].Visible = false;
+            dgvUsers.Columns["Dinners"].Visible = false;
+            dgvUsers.Columns["Nightmales"].Visible = false;
+            dgvUsers.Columns["Customers"].Visible = false;
             //
             dgvUsers.Columns["UserId"].HeaderText = "Id";
             dgvUsers.Columns["Name"].HeaderText = "Ad";
@@ -83,6 +86,7 @@ namespace RestaurantZ.WinFormUI
         {
             this.Close();
             FrmMain refreshedFrm =(FrmMain) Application.OpenForms["FrmMain"];
+            refreshedFrm.DgvFrmMainFill();
             refreshedFrm.Show();
         }
 
@@ -99,27 +103,41 @@ namespace RestaurantZ.WinFormUI
             //Güncelle
             if (dgvUsers.Columns[e.ColumnIndex].Name == "btnUpdate")
             {
-                int updatedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
-                FrmUpdateUserByAdmin frmUpdateUserByAdmin = new FrmUpdateUserByAdmin(updatedUseerId);
-                frmUpdateUserByAdmin.ShowDialog();
+                if (e.RowIndex!=0)
+                {
+                    int updatedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
+                    FrmUpdateUserByAdmin frmUpdateUserByAdmin = new FrmUpdateUserByAdmin(updatedUseerId);
+                    frmUpdateUserByAdmin.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nGüncellenemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
             //Sil
             if (dgvUsers.Columns[e.ColumnIndex].Name == "btnDelete")
             {
-                string name = dgvUsers.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-                DialogResult dialogResult = MessageBox.Show("Bu işlem geri döndürülemez.\r\n\"" + name + "\" isimli kullanıcıyı silmek istediğinizden emin misiniz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                if (e.RowIndex!=0)
                 {
-                    int deletedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
-                    try
+                    string name = dgvUsers.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Bu işlem geri döndürülemez.\r\n\"" + name + "\" isimli kullanıcıyı silmek istediğinizden emin misiniz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        _userService.Delete(_userService.Get(deletedUseerId));
+                        int deletedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
+                        try
+                        {
+                            _userService.Delete(_userService.Get(deletedUseerId));
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Bu kullanıcıya ait geçmiş kayıtlar olduğu için silinemez.\r\nEğer kullanıcı bundan sonra uygulamayı kullanmayacaksa, güncelleme formundan pasif yapabilirsiniz...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        DgvUsersFill();
                     }
-                    catch
-                    {
-                        MessageBox.Show("Kullanıcı silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
-                    }
-                    DgvUsersFill();
+                }
+                else
+                {
+                    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nSilinemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }

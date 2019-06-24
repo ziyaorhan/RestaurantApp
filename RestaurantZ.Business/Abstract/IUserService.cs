@@ -14,6 +14,7 @@ namespace RestaurantZ.Business.Abstract
         User Get(int id);
         List<User> GetAll();
         void Delete(User user);
+        User GetByUserNameAndPwd(string enteredUserName, string enteredPwd);
         //void UpdateRoleAndActivityById(User user);
     }
 }

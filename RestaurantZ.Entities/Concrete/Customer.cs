@@ -30,7 +30,10 @@ namespace RestaurantZ.Entities.Concrete
 
         public bool IsActive { get; set; }
         public bool IsVisible { get; set; }
-
+        //  
+        public int UserId { get; set; }
+        public User User { get; set; }//bir kullanıcının eklediği birden fazla müşteri olabilir.
+        //
         public ICollection<Breakfast> Breakfasts { get; set; }
         public ICollection<Lunch> Lunches { get; set; }
         public ICollection<Dinner> Dinners { get; set; }

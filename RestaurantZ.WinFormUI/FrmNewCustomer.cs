@@ -57,7 +57,8 @@ namespace RestaurantZ.WinFormUI
                     DinnerPrice = Convert.ToDecimal(txtDinner.Text),
                     NightMalePrice = Convert.ToDecimal(txtNightMale.Text),
                     IsActive = chkIsActive.Checked == true ? true : false,
-                    IsVisible = true
+                    IsVisible = true,
+                    UserId = Variables.CurrentUser.UserId
                 };
                 _customerService.Add(customer);
                 FrmCustomers refreshedFrm = (FrmCustomers)Application.OpenForms["FrmCustomers"];

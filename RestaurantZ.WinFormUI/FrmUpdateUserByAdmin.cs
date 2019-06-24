@@ -20,7 +20,7 @@ namespace RestaurantZ.WinFormUI
                 updatedUserId = id;
                 _userService = InstanceFactory.GetInstance<IUserService>();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Form açılırken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
             }
@@ -40,16 +40,20 @@ namespace RestaurantZ.WinFormUI
                 {
                     rbEmployee.Checked = true;
                 }
-                else
+                else if(updatedUser.Role == Variables.UserType.Manager.ToString())
                 {
                     rbManager.Checked = true;
+                }
+                else
+                {
+                    rbAdmin.Checked = true;
                 }
                 if (updatedUser.IsActive == true)
                 {
                     chkIsActive.Checked = true;
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Bilgiler veri tabanından çekilirken bir hata oluştu.\r\nTekrar deneyiniz.");
             }
@@ -69,8 +73,10 @@ namespace RestaurantZ.WinFormUI
                 if (updatedUser != null)
                 {
                     updatedUser.Role = rbEmployee.Checked ?
-                        Variables.UserType.Employee.ToString() :
-                        Variables.UserType.Manager.ToString();
+                     Variables.UserType.Employee.ToString() :
+                     (rbManager.Checked ?
+                     Variables.UserType.Manager.ToString() :
+                     Variables.UserType.Admin.ToString());
                     updatedUser.IsActive = chkIsActive.Checked;
                     _userService.Update(updatedUser);
                     FrmUsers refreshedFrm = (FrmUsers)Application.OpenForms["FrmUsers"];

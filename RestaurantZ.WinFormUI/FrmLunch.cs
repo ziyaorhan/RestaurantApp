@@ -1,5 +1,6 @@
 ﻿using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.DependencyResolvers.Ninject;
+using RestaurantZ.Business.Utilities;
 using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,7 @@ namespace RestaurantZ.WinFormUI
                     ExtraPrice = Convert.ToDecimal(txtExtraPrice.Text),
                     Description = rTxtDescription.Text,
                     CustomerId = Convert.ToInt32(txtCustomerDetail.Tag),
+                    UserId = Variables.CurrentUser.UserId
                 };
                 _lunchService.Add(lunch);
                 //

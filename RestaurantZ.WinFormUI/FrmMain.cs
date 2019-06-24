@@ -1,5 +1,6 @@
 ﻿using RestaurantZ.Business.Abstract;
 using RestaurantZ.Business.DependencyResolvers.Ninject;
+using RestaurantZ.Business.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,11 +17,28 @@ namespace RestaurantZ.WinFormUI
     public partial class FrmMain : Form
     {
         private IJoinService _joinService;
+
         public FrmMain()
         {
             InitializeComponent();
             InitializeCustom();
+            GetControlsByUserRole();
             _joinService = InstanceFactory.GetInstance<IJoinService>();
+        }
+
+        private void GetControlsByUserRole()
+        {
+            if (Variables.CurrentUser.Role == Variables.UserType.Employee.ToString())
+            {
+                tsLblRecords.Visible = false;
+                tssRecords.Visible = false;//seperatör
+            }
+            else if (Variables.CurrentUser.Role == Variables.UserType.Manager.ToString())
+            {
+                //tsLblRecords.Visible = true;
+                //tssRecords.Visible = true;//seperatör
+                tsmiUsers.Visible = false;
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -71,7 +90,7 @@ namespace RestaurantZ.WinFormUI
             //
             tsLblSessionName.Image = Image.FromFile(Global.GetPath("\\Images\\person.png"));
             //
-            tsBtnSessionOut.Image = Image.FromFile(Global.GetPath("\\Images\\logout.png"));
+            //tsBtnSessionOut.Image = Image.FromFile(Global.GetPath("\\Images\\logout.png"));
             //
             tsLblSearch.Image = Image.FromFile(Global.GetPath("\\Images\\search.png"));
             //
@@ -81,10 +100,7 @@ namespace RestaurantZ.WinFormUI
             //
             tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-darkred.png"));
             //
-            //btnBreakfast.Image = Image.FromFile(Global.GetPath("\\Images\\kahvalti.png"));
-            //MenuItem'ların renk ve icon ayarları
-            //mouse eventler user control tarafında yapıldı.
-
+            tsLblSessionName.Text = "Hoşgeldin "+Variables.CurrentUser.Name;
             //
             lblDateNow.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd");
             //
@@ -105,7 +121,6 @@ namespace RestaurantZ.WinFormUI
         {
             tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
         }
-
         // Title bar özelliği(controlbox) kapalı iken formu hareket ettirebilmek için
         // ControlBox=false
         // FormBorderStyle=none
@@ -158,11 +173,6 @@ namespace RestaurantZ.WinFormUI
         }
 
         private void tsBtnHelp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsBtnSessionOut_Click(object sender, EventArgs e)
         {
 
         }
@@ -235,6 +245,18 @@ namespace RestaurantZ.WinFormUI
             this.Hide();
             FrmReports frmReports = new FrmReports();
             frmReports.ShowDialog();
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bilgilerimiGuncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUpdateMyUserInfo frmUpdateMyUserInfo = new FrmUpdateMyUserInfo();
+            frmUpdateMyUserInfo.ShowDialog();
         }
     }
 }
