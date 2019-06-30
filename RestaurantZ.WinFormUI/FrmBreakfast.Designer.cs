@@ -46,13 +46,13 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbCustomer = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerDetail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSearch = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
             this.pbClear = new System.Windows.Forms.PictureBox();
+            this.cbCustomer = new System.Windows.Forms.ComboBox();
             this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -186,6 +186,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbCustomer);
             this.groupBox1.Controls.Add(this.txtExtraPrice);
             this.groupBox1.Controls.Add(this.nudNumberOfPerson);
             this.groupBox1.Controls.Add(this.rTxtDescription);
@@ -193,7 +194,6 @@
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbCustomer);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtCustomerDetail);
             this.groupBox1.Controls.Add(this.label6);
@@ -293,17 +293,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "(Adet)";
             // 
-            // cbCustomer
-            // 
-            this.cbCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbCustomer.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbCustomer.Location = new System.Drawing.Point(129, 25);
-            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4);
-            this.cbCustomer.Name = "cbCustomer";
-            this.cbCustomer.Size = new System.Drawing.Size(203, 25);
-            this.cbCustomer.TabIndex = 0;
-            this.cbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbCustomer_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -368,6 +357,18 @@
             this.pbClear.TabStop = false;
             this.pbClear.Click += new System.EventHandler(this.pbClear_Click);
             // 
+            // cbCustomer
+            // 
+            this.cbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCustomer.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbCustomer.FormattingEnabled = true;
+            this.cbCustomer.Location = new System.Drawing.Point(129, 22);
+            this.cbCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCustomer.Name = "cbCustomer";
+            this.cbCustomer.Size = new System.Drawing.Size(203, 25);
+            this.cbCustomer.TabIndex = 11;
+            this.cbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbCustomer_SelectedIndexChanged);
+            // 
             // FrmBreakfast
             // 
             this.AcceptButton = this.btnSave;
@@ -426,7 +427,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbCustomer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCustomerDetail;
         private System.Windows.Forms.Label label6;
@@ -434,5 +434,6 @@
         private CustomTools.DecimalTextBox txtExtraPrice;
         private CustomTools.LetterOrDigitTextBox txtSearch;
         private System.Windows.Forms.PictureBox pbClear;
+        private System.Windows.Forms.ComboBox cbCustomer;
     }
 }

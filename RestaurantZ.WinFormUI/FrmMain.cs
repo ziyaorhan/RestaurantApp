@@ -258,6 +258,13 @@ namespace RestaurantZ.WinFormUI
             FrmUpdateMyUserInfo frmUpdateMyUserInfo = new FrmUpdateMyUserInfo();
             frmUpdateMyUserInfo.ShowDialog();
         }
+
+        private void tsmiPastRecords_Click(object sender, EventArgs e)
+        {
+            FrmPastRecords frmPastRecords = new FrmPastRecords();
+            frmPastRecords.Show();
+            this.Hide();
+        }
     }
 }
 

@@ -39,6 +39,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
+            this.rbManager = new System.Windows.Forms.RadioButton();
+            this.rbEmployee = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
             this.txtSurname = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
@@ -51,9 +54,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.rbAdmin = new System.Windows.Forms.RadioButton();
-            this.rbManager = new System.Windows.Forms.RadioButton();
-            this.rbEmployee = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -180,6 +180,43 @@
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
+            // rbAdmin
+            // 
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbAdmin.Location = new System.Drawing.Point(260, 10);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
+            this.rbAdmin.TabIndex = 15;
+            this.rbAdmin.Text = "Admin";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            this.rbAdmin.Click += new System.EventHandler(this.rbAdmin_Click);
+            // 
+            // rbManager
+            // 
+            this.rbManager.AutoSize = true;
+            this.rbManager.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbManager.Location = new System.Drawing.Point(180, 10);
+            this.rbManager.Name = "rbManager";
+            this.rbManager.Size = new System.Drawing.Size(74, 21);
+            this.rbManager.TabIndex = 14;
+            this.rbManager.Text = "Yönetici";
+            this.rbManager.UseVisualStyleBackColor = true;
+            this.rbManager.Click += new System.EventHandler(this.rbManager_Click);
+            // 
+            // rbEmployee
+            // 
+            this.rbEmployee.AutoSize = true;
+            this.rbEmployee.Checked = true;
+            this.rbEmployee.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbEmployee.Location = new System.Drawing.Point(105, 9);
+            this.rbEmployee.Name = "rbEmployee";
+            this.rbEmployee.Size = new System.Drawing.Size(69, 21);
+            this.rbEmployee.TabIndex = 13;
+            this.rbEmployee.TabStop = true;
+            this.rbEmployee.Text = "Çalışan";
+            this.rbEmployee.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -299,41 +336,6 @@
             this.label7.Size = new System.Drawing.Size(55, 17);
             this.label7.TabIndex = 6;
             this.label7.Text = "E-Posta";
-            // 
-            // rbAdmin
-            // 
-            this.rbAdmin.AutoSize = true;
-            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbAdmin.Location = new System.Drawing.Point(260, 10);
-            this.rbAdmin.Name = "rbAdmin";
-            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
-            this.rbAdmin.TabIndex = 15;
-            this.rbAdmin.Text = "Admin";
-            this.rbAdmin.UseVisualStyleBackColor = true;
-            // 
-            // rbManager
-            // 
-            this.rbManager.AutoSize = true;
-            this.rbManager.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbManager.Location = new System.Drawing.Point(180, 10);
-            this.rbManager.Name = "rbManager";
-            this.rbManager.Size = new System.Drawing.Size(74, 21);
-            this.rbManager.TabIndex = 14;
-            this.rbManager.Text = "Yönetici";
-            this.rbManager.UseVisualStyleBackColor = true;
-            // 
-            // rbEmployee
-            // 
-            this.rbEmployee.AutoSize = true;
-            this.rbEmployee.Checked = true;
-            this.rbEmployee.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbEmployee.Location = new System.Drawing.Point(105, 9);
-            this.rbEmployee.Name = "rbEmployee";
-            this.rbEmployee.Size = new System.Drawing.Size(69, 21);
-            this.rbEmployee.TabIndex = 13;
-            this.rbEmployee.TabStop = true;
-            this.rbEmployee.Text = "Çalışan";
-            this.rbEmployee.UseVisualStyleBackColor = true;
             // 
             // FrmUpdateUserByAdmin
             // 

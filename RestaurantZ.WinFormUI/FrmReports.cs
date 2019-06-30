@@ -78,15 +78,23 @@ namespace RestaurantZ.WinFormUI
 
         private void chkAllCustomers_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAllCustomers.Checked == true)
+            try
             {
-                cbCustomers.SelectedIndex = -1;
-                cbCustomers.Enabled = false;
+                if (chkAllCustomers.Checked == true)
+                {
+                    cbCustomers.SelectedIndex = -1;
+                    cbCustomers.Enabled = false;
+                }
+                else
+                {
+                    cbCustomers.SelectedIndex = 0;
+                    cbCustomers.Enabled = true;
+                }
             }
-            else
+            catch
             {
-                cbCustomers.SelectedIndex = 0;
-                cbCustomers.Enabled = true;
+
+                MessageBox.Show("Önce sisteme müşteri ekleyiniz.");
             }
         }
 

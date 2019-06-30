@@ -69,9 +69,13 @@ namespace RestaurantZ.WinFormUI
                 {
                     dgvUsers["Role", i].Value = "Çalışan";
                 }
-                else
+                else if (dgvUsers["Role", i].Value.ToString() == Variables.UserType.Manager.ToString())
                 {
                     dgvUsers["Role", i].Value = "Yönetici";
+                }
+                else
+                {
+                    dgvUsers["Role", i].Value = "Admin";
                 }
             }
             //

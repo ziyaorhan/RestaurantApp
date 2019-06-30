@@ -105,7 +105,15 @@ namespace RestaurantZ.WinFormUI
         {
             if (rbManager.Checked)
             {
-                MessageBox.Show("Bir kullanıcıyı yönetici olarak belirlediğinizde, program üzerinde tüm değişiklikleri yapabilecek yetkileri vermiş olursunuz. Bunu yapmak istediğinizden emin misiniz?", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bir yönetici,\r\n-Günlük kayıt tutabilir,\r\n-Geçmiş kayıtlarda işlem yapabilir,\r\n-Rapor alabilir,\r\n-Müşteriler üzerinde işlem yapabilir.\r\n\r\nBunu yapmak istediğinizden emin misiniz?", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void rbAdmin_Click(object sender, EventArgs e)
+        {
+            if (rbAdmin.Checked)
+            {
+                MessageBox.Show("Admin yetkisi en kapsamlı yetkidir.Bir admin,\r\n-Günlük kayıt tutabilir,\r\n-Geçmiş kayıtlarda işlem yapabilir,\r\n-Rapor alabilir,\r\n-Müşteriler üzerinde işlem yapabilir,\r\n-Kullanıcılar üzerinde işlem yapabilir.\r\n\r\nBunu yapmak istediğinizden emin misiniz?", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

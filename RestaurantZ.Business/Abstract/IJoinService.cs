@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using RestaurantZ.Entities.Concrete;
 
 namespace RestaurantZ.Business.Abstract
@@ -8,15 +7,24 @@ namespace RestaurantZ.Business.Abstract
     {
         object GetAllForBreakfastFormDgv();
         object GetAllForBreakfastFormDgv(string customerName);
+        object GetAllForBreakfastPastRecord(DateTime firstDate, DateTime secondDate);
+        object GetAllForBreakfastPastRecord(DateTime firstDate, DateTime secondDate, int customerId);
         //
         object GetAllForLunchFormDgv();
         object GetAllForLunchFormDgv(string customerName);
+        object GetAllForLunchPastRecord(DateTime firstDate, DateTime secondDate);
+        object GetAllForLunchPastRecord(DateTime firstDate, DateTime secondDate, int customerId);
         //
         object GetAllForDinnerFormDgv();
         object GetAllForDinnerFormDgv(string customerName);
+        object GetAllForDinnerPastRecord(DateTime firstDate, DateTime secondDate);
+        object GetAllForDinnerPastRecord(DateTime firstDate, DateTime secondDate, int customerId);
         //
         object GetAllForNightMaleFormDgv();
         object GetAllForNightMaleFormDgv(string customerName);
+        object GetAllForNightMalePastRecord(DateTime firstDate, DateTime secondDate);
+        object GetAllForNightMalePastRecord(DateTime firstDate, DateTime secondDate, int customerId);
+        //
         object GetAllForMainDgv();
         object GetAllForMainDgv(string customerName);
         ModelForRecordCount GetRecordCount();

@@ -222,7 +222,7 @@
             this.bilgilerimiGuncelleToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bilgilerimiGuncelleToolStripMenuItem.Name = "bilgilerimiGuncelleToolStripMenuItem";
             this.bilgilerimiGuncelleToolStripMenuItem.ShowShortcutKeys = false;
-            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bilgilerimiGuncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.bilgilerimiGuncelleToolStripMenuItem.Text = "Bilgilerimi Güncelle";
             this.bilgilerimiGuncelleToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.bilgilerimiGuncelleToolStripMenuItem.Click += new System.EventHandler(this.bilgilerimiGuncelleToolStripMenuItem_Click);
@@ -298,27 +298,28 @@
             // tsmiUsers
             // 
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(165, 22);
+            this.tsmiUsers.Size = new System.Drawing.Size(180, 22);
             this.tsmiUsers.Text = "Kullanıcılar";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
             // tsmiCustomers
             // 
             this.tsmiCustomers.Name = "tsmiCustomers";
-            this.tsmiCustomers.Size = new System.Drawing.Size(165, 22);
+            this.tsmiCustomers.Size = new System.Drawing.Size(180, 22);
             this.tsmiCustomers.Text = "Müşteriler";
             this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
             // 
             // tsmiPastRecords
             // 
             this.tsmiPastRecords.Name = "tsmiPastRecords";
-            this.tsmiPastRecords.Size = new System.Drawing.Size(165, 22);
+            this.tsmiPastRecords.Size = new System.Drawing.Size(180, 22);
             this.tsmiPastRecords.Text = "Geçmiş Kayıtlar";
+            this.tsmiPastRecords.Click += new System.EventHandler(this.tsmiPastRecords_Click);
             // 
             // tsmiReport
             // 
             this.tsmiReport.Name = "tsmiReport";
-            this.tsmiReport.Size = new System.Drawing.Size(165, 22);
+            this.tsmiReport.Size = new System.Drawing.Size(180, 22);
             this.tsmiReport.Text = "Raporlar";
             this.tsmiReport.Click += new System.EventHandler(this.tsmiReport_Click);
             // 

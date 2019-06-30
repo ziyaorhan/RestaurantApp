@@ -55,6 +55,7 @@
             this.rbEmployee = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
             this.rbManager = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -66,7 +67,6 @@
             this.epPwd1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkIsActive = new System.Windows.Forms.CheckBox();
-            this.rbAdmin = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbUserInfo.SuspendLayout();
@@ -367,6 +367,18 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Rol";
             // 
+            // rbAdmin
+            // 
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbAdmin.Location = new System.Drawing.Point(260, 10);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
+            this.rbAdmin.TabIndex = 1;
+            this.rbAdmin.Text = "Admin";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            this.rbAdmin.Click += new System.EventHandler(this.rbAdmin_Click);
+            // 
             // rbManager
             // 
             this.rbManager.AutoSize = true;
@@ -377,7 +389,7 @@
             this.rbManager.TabIndex = 1;
             this.rbManager.Text = "Yönetici";
             this.rbManager.UseVisualStyleBackColor = true;
-            this.rbManager.CheckedChanged += new System.EventHandler(this.rbManager_CheckedChanged);
+            this.rbManager.Click += new System.EventHandler(this.rbManager_Click);
             // 
             // btnSave
             // 
@@ -442,18 +454,6 @@
             this.chkIsActive.TabIndex = 20;
             this.chkIsActive.Text = "Aktif Kullanıcı";
             this.chkIsActive.UseVisualStyleBackColor = true;
-            // 
-            // rbAdmin
-            // 
-            this.rbAdmin.AutoSize = true;
-            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbAdmin.Location = new System.Drawing.Point(260, 10);
-            this.rbAdmin.Name = "rbAdmin";
-            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
-            this.rbAdmin.TabIndex = 1;
-            this.rbAdmin.Text = "Admin";
-            this.rbAdmin.UseVisualStyleBackColor = true;
-            this.rbAdmin.CheckedChanged += new System.EventHandler(this.rbManager_CheckedChanged);
             // 
             // FrmNewUser
             // 

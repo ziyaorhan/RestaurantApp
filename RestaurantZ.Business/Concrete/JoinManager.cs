@@ -25,7 +25,7 @@ namespace RestaurantZ.Business.Concrete
             _dinnerDal = dinnerDal;
             _nightMaleDal = nightMaleDal;
         }
-
+        //
         public object GetAllForBreakfastFormDgv()
         {
             var customers = _customerDal.GetAll();
@@ -78,6 +78,60 @@ namespace RestaurantZ.Business.Concrete
             return result.ToList();
         }
 
+        public object GetAllForBreakfastPastRecord(DateTime firstDate, DateTime secondDate)
+        {
+            var customers = _customerDal.GetAll();
+            var breakfasts = _breakfastDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in breakfasts
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.BreakfastId,
+                             ServiceName = "Kahvaltı",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForBreakfastPastRecord(DateTime firstDate, DateTime secondDate, int customerId)
+        {
+            var customers = _customerDal.GetAll().Where(c => c.CustomerId == customerId);
+            var breakfasts = _breakfastDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in breakfasts
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.BreakfastId,
+                             ServiceName = "Kahvaltı",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+        //
         public object GetAllForLunchFormDgv()
         {
             var customers = _customerDal.GetAll();
@@ -130,6 +184,60 @@ namespace RestaurantZ.Business.Concrete
             return result.ToList();
         }
 
+        public object GetAllForLunchPastRecord(DateTime firstDate, DateTime secondDate)
+        {
+            var customers = _customerDal.GetAll();
+            var lunches = _lunchDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in lunches
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.LunchId,
+                             ServiceName = "Öğlen Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForLunchPastRecord(DateTime firstDate, DateTime secondDate, int customerId)
+        {
+            var customers = _customerDal.GetAll().Where(c => c.CustomerId == customerId);
+            var lunches = _lunchDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in lunches
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.LunchId,
+                             ServiceName = "Öğlen Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+        //
         public object GetAllForDinnerFormDgv()
         {
             var customers = _customerDal.GetAll();
@@ -182,6 +290,60 @@ namespace RestaurantZ.Business.Concrete
             return result.ToList();
         }
 
+        public object GetAllForDinnerPastRecord(DateTime firstDate, DateTime secondDate)
+        {
+            var customers = _customerDal.GetAll();
+            var dinners = _dinnerDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in dinners
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.DinnerId,
+                             ServiceName = "Akşam Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForDinnerPastRecord(DateTime firstDate, DateTime secondDate, int customerId)
+        {
+            var customers = _customerDal.GetAll().Where(c => c.CustomerId == customerId);
+            var dinners = _dinnerDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in dinners
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.DinnerId,
+                             ServiceName = "Akşam Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+        //
         public object GetAllForNightMaleFormDgv()
         {
             var customers = _customerDal.GetAll();
@@ -234,6 +396,60 @@ namespace RestaurantZ.Business.Concrete
             return result.ToList();
         }
 
+        public object GetAllForNightMalePastRecord(DateTime firstDate, DateTime secondDate)
+        {
+            var customers = _customerDal.GetAll();
+            var nightMale = _nightMaleDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in nightMale
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.NightMaleId,
+                             ServiceName = "Gece Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+
+        public object GetAllForNightMalePastRecord(DateTime firstDate, DateTime secondDate, int customerId)
+        {
+            var customers = _customerDal.GetAll().Where(c => c.CustomerId == customerId);
+            var nightMale = _nightMaleDal.GetAll();
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from b in nightMale
+                         join c in customers
+                         on b.CustomerId equals c.CustomerId
+                         join u in users
+                         on b.UserId equals u.UserId
+                         where Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(b.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())
+                         orderby b.CreatedDate descending// tarihe göre tersten sırala
+                         select new
+                         {
+                             Id = b.NightMaleId,
+                             ServiceName = "Gece Yemeği",
+                             c.CustomerName,
+                             b.NumberOfPerson,
+                             b.ExtraPrice,
+                             b.Description,
+                             b.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            return result.ToList();
+        }
+        //
         public object GetAllForMainDgv()
         {
             var customers = _customerDal.GetAll();
@@ -436,21 +652,23 @@ namespace RestaurantZ.Business.Concrete
             var grupedBreakfasts = _breakfastDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
-                    serviceName ="Kahvaltı",
+                    serviceName = "Kahvaltı",
                     unitPrice = _customerDal.Get(c => c.CustomerId == a.Key).BreakfastPrice,
                     sumPerson = a.Sum(t => t.NumberOfPerson),
                     sumExtraPrice = a.Sum(p => p.ExtraPrice),
-                    grandTotal=((_customerDal.Get(c => c.CustomerId == a.Key).BreakfastPrice) *(a.Sum(t => t.NumberOfPerson)))+(a.Sum(p => p.ExtraPrice)),
+                    grandTotal = ((_customerDal.Get(c => c.CustomerId == a.Key).BreakfastPrice) * (a.Sum(t => t.NumberOfPerson))) + (a.Sum(p => p.ExtraPrice)),
                     dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
                 }).ToList();
             //
-            var grupedLunches=_lunchDal.GetAll()
+            var grupedLunches = _lunchDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Öğlen Y.",
@@ -464,7 +682,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedDinners = _dinnerDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Akşam Y.",
@@ -478,7 +697,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedNightMale = _lunchDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Gece Y.",
@@ -489,7 +709,7 @@ namespace RestaurantZ.Business.Concrete
                     dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
                 }).ToList();
             //
-            var allServiceGruped = grupedBreakfasts.Concat(grupedLunches).Concat(grupedDinners).Concat(grupedNightMale).OrderBy(a=>a.customerName).ToList();
+            var allServiceGruped = grupedBreakfasts.Concat(grupedLunches).Concat(grupedDinners).Concat(grupedNightMale).OrderBy(a => a.customerName).ToList();
             return allServiceGruped;
         }
 
@@ -498,7 +718,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedBreakfasts = _breakfastDal.GetAll()
                  .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                  .GroupBy(g => g.CustomerId)
-                 .Select(a => new {
+                 .Select(a => new
+                 {
                      customerId = a.Key,
                      customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                      serviceName = "Kahvaltı",
@@ -512,7 +733,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedLunches = _lunchDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Öğlen Y.",
@@ -526,7 +748,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedDinners = _dinnerDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Akşam Y.",
@@ -540,7 +763,8 @@ namespace RestaurantZ.Business.Concrete
             var grupedNightMale = _lunchDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
-                .Select(a => new {
+                .Select(a => new
+                {
                     customerId = a.Key,
                     customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
                     serviceName = "Gece Y.",
@@ -555,11 +779,13 @@ namespace RestaurantZ.Business.Concrete
                 .Concat(grupedLunches)
                 .Concat(grupedDinners)
                 .Concat(grupedNightMale)
-                .Where(c=>c.customerId==customerId)
+                .Where(c => c.customerId == customerId)
                 .OrderBy(a => a.customerName)
-                
+
                 .ToList();
             return allServiceGruped;
         }
+        //
+        
     }
 }
