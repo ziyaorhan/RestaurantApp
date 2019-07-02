@@ -615,7 +615,7 @@ namespace RestaurantZ.Business.Concrete
                              nameSurname = u.Name + " " + u.Surname
                          };
             return result.ToList();
-        }
+        }   
 
         public object GetDetailedReportByDate(DateTime firstDate, DateTime secondDate, int customerId)
         {
@@ -712,7 +712,7 @@ namespace RestaurantZ.Business.Concrete
             var allServiceGruped = grupedBreakfasts.Concat(grupedLunches).Concat(grupedDinners).Concat(grupedNightMale).OrderBy(a => a.customerName).ToList();
             return allServiceGruped;
         }
-
+      
         public object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate, int customerId)
         {
             var grupedBreakfasts = _breakfastDal.GetAll()
@@ -786,6 +786,118 @@ namespace RestaurantZ.Business.Concrete
             return allServiceGruped;
         }
         //
-        
+        public List<ModelForDetailedReport> GetDetailedReportForMail(DateTime firstDate, DateTime secondDate)
+        {
+            List<ModelForDetailedReport> lst = new List<ModelForDetailedReport>();
+            var customers = _customerDal.GetAll();
+            var breakfasts = _breakfastDal.GetAll();
+            var lunches = _lunchDal.GetAll();
+            var dinners = _dinnerDal.GetAll();
+            var nigthMales = _nightMaleDal.GetAll();
+            var allServices = GetAllServices(breakfasts, lunches, dinners, nigthMales);
+            var users = _userDal.GetAll();
+            var dateTimeNow = DateTime.Now.ToShortDateString();
+            var result = from a in allServices
+                         join c in customers
+                         on a.CustomerId equals c.CustomerId
+                         join u in users
+                         on a.CreatedUserId equals u.UserId
+                         where (Convert.ToDateTime(a.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(a.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())) //verilen tarih aralığında
+                         orderby a.CreatedDate ascending// tarihe göre sırala
+                         select new
+                         {
+                             a.ServiceName,
+                             c.CustomerName,
+                             a.NumberOfPerson,
+                             a.ExtraPrice,
+                             a.Description,
+                             a.CreatedDate,
+                             nameSurname = u.Name + " " + u.Surname
+                         };
+            lst = result as List<ModelForDetailedReport>;
+            return lst;
+        }
+
+        public List<ModelForGroupedReport> GetGroupedReportForMail(DateTime firstDate, DateTime secondDate)
+        {
+            List<ModelForGroupedReport> lst = new List<ModelForGroupedReport>();
+            var grupedBreakfasts = _breakfastDal.GetAll()
+               .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
+               .GroupBy(g => g.CustomerId)
+               .Select(a => new
+               {
+                   customerId = a.Key,
+                   customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
+                   serviceName = "Kahvaltı",
+                   unitPrice = _customerDal.Get(c => c.CustomerId == a.Key).BreakfastPrice,
+                   sumPerson = a.Sum(t => t.NumberOfPerson),
+                   sumExtraPrice = a.Sum(p => p.ExtraPrice),
+                   grandTotal = ((_customerDal.Get(c => c.CustomerId == a.Key).BreakfastPrice) * (a.Sum(t => t.NumberOfPerson))) + (a.Sum(p => p.ExtraPrice)),
+                   dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
+               }).ToList();
+            //
+            var grupedLunches = _lunchDal.GetAll()
+                .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
+                .GroupBy(g => g.CustomerId)
+                .Select(a => new
+                {
+                    customerId = a.Key,
+                    customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
+                    serviceName = "Öğlen Y.",
+                    unitPrice = _customerDal.Get(c => c.CustomerId == a.Key).LunchPrice,
+                    sumPerson = a.Sum(t => t.NumberOfPerson),
+                    sumExtraPrice = a.Sum(p => p.ExtraPrice),
+                    grandTotal = ((_customerDal.Get(c => c.CustomerId == a.Key).LunchPrice) * (a.Sum(t => t.NumberOfPerson))) + (a.Sum(p => p.ExtraPrice)),
+                    dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
+                }).ToList();
+            //
+            var grupedDinners = _dinnerDal.GetAll()
+                .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
+                .GroupBy(g => g.CustomerId)
+                .Select(a => new
+                {
+                    customerId = a.Key,
+                    customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
+                    serviceName = "Akşam Y.",
+                    unitPrice = _customerDal.Get(c => c.CustomerId == a.Key).DinnerPrice,
+                    sumPerson = a.Sum(t => t.NumberOfPerson),
+                    sumExtraPrice = a.Sum(p => p.ExtraPrice),
+                    grandTotal = ((_customerDal.Get(c => c.CustomerId == a.Key).DinnerPrice) * (a.Sum(t => t.NumberOfPerson))) + (a.Sum(p => p.ExtraPrice)),
+                    dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
+                }).ToList();
+            //
+            var grupedNightMale = _lunchDal.GetAll()
+                .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
+                .GroupBy(g => g.CustomerId)
+                .Select(a => new
+                {
+                    customerId = a.Key,
+                    customerName = _customerDal.Get(c => c.CustomerId == a.Key).CustomerName,
+                    serviceName = "Gece Y.",
+                    unitPrice = _customerDal.Get(c => c.CustomerId == a.Key).NightMalePrice,
+                    sumPerson = a.Sum(t => t.NumberOfPerson),
+                    sumExtraPrice = a.Sum(p => p.ExtraPrice),
+                    grandTotal = ((_customerDal.Get(c => c.CustomerId == a.Key).NightMalePrice) * (a.Sum(t => t.NumberOfPerson))) + (a.Sum(p => p.ExtraPrice)),
+                    dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
+                }).ToList();
+            //
+            var allServiceGruped = grupedBreakfasts.Concat(grupedLunches).Concat(grupedDinners).Concat(grupedNightMale).OrderBy(a => a.customerName).ToList();
+            foreach (var item in allServiceGruped)
+            {
+                lst.Add(
+                    new ModelForGroupedReport
+                    {
+                        customerId = item.customerId,
+                        customerName = item.customerName,
+                        dateRange = item.dateRange,
+                        grandTotal = item.grandTotal,
+                        serviceName = item.serviceName,
+                        sumExtraPrice = item.sumExtraPrice,
+                        sumPerson = item.sumPerson,
+                        unitPrice = item.unitPrice
+                    });
+            }
+            return lst;
+        }
     }
 }

@@ -90,7 +90,7 @@ namespace RestaurantZ.WinFormUI
             //
             tsLblSessionName.Image = Image.FromFile(Global.GetPath("\\Images\\person.png"));
             //
-            //tsBtnSessionOut.Image = Image.FromFile(Global.GetPath("\\Images\\logout.png"));
+            tsLblBackupMail.Image = Image.FromFile(Global.GetPath("\\Images\\sendMail.png"));
             //
             tsLblSearch.Image = Image.FromFile(Global.GetPath("\\Images\\search.png"));
             //
@@ -98,19 +98,17 @@ namespace RestaurantZ.WinFormUI
             //
             bilgilerimiGuncelleToolStripMenuItem.Image = Image.FromFile(Global.GetPath("\\Images\\updateUserInfo.png"));
             //
-            tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-darkred.png"));
-            //
-            tsLblSessionName.Text = "Hoşgeldin "+Variables.CurrentUser.Name;
+            tsLblSessionName.Text = "Hoşgeldin " + Variables.CurrentUser.Name;
             //
             lblDateNow.Text = DateTime.Now.ToString("dd MMMMMMM yyyy ddddddddd");
             //
-            btnBreakfast.Image= Image.FromFile(Global.GetPath("\\Images\\kahvalti2.png"));
+            btnBreakfast.Image = Image.FromFile(Global.GetPath("\\Images\\kahvalti2.png"));
             btnBreakfast.ImageAlign = ContentAlignment.MiddleLeft;
             //
             btnLunch.Image = Image.FromFile(Global.GetPath("\\Images\\oglen.png"));
             btnLunch.ImageAlign = ContentAlignment.MiddleLeft;
             //
-            btnDinner.Image = Image.FromFile(Global.GetPath("\\Images\\aksam-2.png"));  
+            btnDinner.Image = Image.FromFile(Global.GetPath("\\Images\\aksam-2.png"));
             btnDinner.ImageAlign = ContentAlignment.MiddleLeft;
             //
             btnNightMale.Image = Image.FromFile(Global.GetPath("\\Images\\gece.png"));
@@ -119,7 +117,7 @@ namespace RestaurantZ.WinFormUI
 
         private void tsLblSync_Click(object sender, EventArgs e)
         {
-            tsLblSync.Image = Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
+            //tsLblBackupMail.Image = Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
         }
         // Title bar özelliği(controlbox) kapalı iken formu hareket ettirebilmek için
         // ControlBox=false
@@ -147,7 +145,7 @@ namespace RestaurantZ.WinFormUI
         }
 
         public static bool isMax = false;
- 
+
         private void tsBtnMax_Click(object sender, EventArgs e)
         {
             if (isMax == false)
@@ -174,6 +172,7 @@ namespace RestaurantZ.WinFormUI
 
         private void tsBtnHelp_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -264,6 +263,52 @@ namespace RestaurantZ.WinFormUI
             FrmPastRecords frmPastRecords = new FrmPastRecords();
             frmPastRecords.Show();
             this.Hide();
+        }
+
+        private void tsLblBackupMail_Click(object sender, EventArgs e)
+        {
+            if (Global.CheckForInternetConnection())
+            {
+                var time = DateTime.Now.Hour;
+                if (time < 18)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Mail ile yedekleme işlemi kayıtlar girildikten sonra, mesai bitiminde yapılmalıdır.\r\nYedekleme yapmak istiyormusunuz?", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        SendMail();
+                    }
+                }
+                else
+                {
+                    SendMail();
+                }
+            }
+            else
+            {
+                MessageBox.Show("İnternet bağlantınızı kontrol ediniz!", "Bağlantı Hatası!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SendMail()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            tsLblBackupMail.Enabled = false;
+            var first = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var second = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            bool isSuccess = Global.SendEmail
+                    (
+                    "Kevser Kebap Hesaplanmış Rapor",
+                    Global.GetHtmlStringForGroupedReport(_joinService.GetGroupedReportForMail(first, second)),
+                    "zy.orhan@gmail.com"
+                    );
+            if (isSuccess)
+            {
+                Cursor.Current = Cursors.Default;
+                tsLblBackupMail.Enabled = true;
+                MessageBox.Show("Yedekleme maili başarılı bir şekilde gönderilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            Cursor.Current = Cursors.Default;
+            tsLblBackupMail.Enabled = true;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RestaurantZ.Entities.Concrete;
 
 namespace RestaurantZ.Business.Abstract
@@ -32,5 +33,9 @@ namespace RestaurantZ.Business.Abstract
         object GetDetailedReportByDate(DateTime firstDate, DateTime secondDate, int customerId);
         object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate);
         object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate, int customerId);
+        //
+        List<ModelForDetailedReport> GetDetailedReportForMail(DateTime firstDate, DateTime secondDate);
+        List<ModelForGroupedReport> GetGroupedReportForMail(DateTime firstDate, DateTime secondDate);
+
     }
 }

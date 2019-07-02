@@ -43,7 +43,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tsMain = new System.Windows.Forms.ToolStrip();
-            this.tsLblSync = new System.Windows.Forms.ToolStripLabel();
+            this.tsLblBackupMail = new System.Windows.Forms.ToolStripLabel();
             this.tssRecords = new System.Windows.Forms.ToolStripSeparator();
             this.tsLblRecords = new System.Windows.Forms.ToolStripSplitButton();
             this.tsmiUsers = new System.Windows.Forms.ToolStripMenuItem();
@@ -254,7 +254,7 @@
             this.tsMain.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tsMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsLblSync,
+            this.tsLblBackupMail,
             this.tssRecords,
             this.tsLblRecords,
             this.toolStripSeparator2,
@@ -266,17 +266,17 @@
             this.tsMain.Size = new System.Drawing.Size(818, 25);
             this.tsMain.TabIndex = 0;
             // 
-            // tsLblSync
+            // tsLblBackupMail
             // 
-            this.tsLblSync.BackColor = System.Drawing.Color.White;
-            this.tsLblSync.Image = ((System.Drawing.Image)(resources.GetObject("tsLblSync.Image")));
-            this.tsLblSync.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tsLblSync.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsLblSync.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
-            this.tsLblSync.Name = "tsLblSync";
-            this.tsLblSync.Size = new System.Drawing.Size(109, 22);
-            this.tsLblSync.Text = "Senkronizasyon";
-            this.tsLblSync.Click += new System.EventHandler(this.tsLblSync_Click);
+            this.tsLblBackupMail.BackColor = System.Drawing.Color.White;
+            this.tsLblBackupMail.Image = ((System.Drawing.Image)(resources.GetObject("tsLblBackupMail.Image")));
+            this.tsLblBackupMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsLblBackupMail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsLblBackupMail.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.tsLblBackupMail.Name = "tsLblBackupMail";
+            this.tsLblBackupMail.Size = new System.Drawing.Size(111, 22);
+            this.tsLblBackupMail.Text = "Mail Yedekleme";
+            this.tsLblBackupMail.Click += new System.EventHandler(this.tsLblBackupMail_Click);
             // 
             // tssRecords
             // 
@@ -298,28 +298,28 @@
             // tsmiUsers
             // 
             this.tsmiUsers.Name = "tsmiUsers";
-            this.tsmiUsers.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUsers.Size = new System.Drawing.Size(165, 22);
             this.tsmiUsers.Text = "Kullanıcılar";
             this.tsmiUsers.Click += new System.EventHandler(this.tsmiUsers_Click);
             // 
             // tsmiCustomers
             // 
             this.tsmiCustomers.Name = "tsmiCustomers";
-            this.tsmiCustomers.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCustomers.Size = new System.Drawing.Size(165, 22);
             this.tsmiCustomers.Text = "Müşteriler";
             this.tsmiCustomers.Click += new System.EventHandler(this.tsmiCustomers_Click);
             // 
             // tsmiPastRecords
             // 
             this.tsmiPastRecords.Name = "tsmiPastRecords";
-            this.tsmiPastRecords.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPastRecords.Size = new System.Drawing.Size(165, 22);
             this.tsmiPastRecords.Text = "Geçmiş Kayıtlar";
             this.tsmiPastRecords.Click += new System.EventHandler(this.tsmiPastRecords_Click);
             // 
             // tsmiReport
             // 
             this.tsmiReport.Name = "tsmiReport";
-            this.tsmiReport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReport.Size = new System.Drawing.Size(165, 22);
             this.tsmiReport.Text = "Raporlar";
             this.tsmiReport.Click += new System.EventHandler(this.tsmiReport_Click);
             // 
@@ -737,7 +737,7 @@
         private System.Windows.Forms.ToolStripLabel tsLblSearch;
         private System.Windows.Forms.ToolStripTextBox tsTxtSearch;
         private System.Windows.Forms.ToolStripButton tsBtnClear;
-        private System.Windows.Forms.ToolStripLabel tsLblSync;
+        private System.Windows.Forms.ToolStripLabel tsLblBackupMail;
         private System.Windows.Forms.ToolStripMenuItem tsmiCustomers;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;

@@ -277,6 +277,7 @@
     <Content Include="Images\oglen.png" />
     <Content Include="Images\person.png" />
     <Content Include="Images\search.png" />
+    <Content Include="Images\sendMail.png" />
     <Content Include="Images\sil.PNG" />
     <Content Include="Images\sync-darkred.png" />
     <Content Include="Images\sync-green.gif" />

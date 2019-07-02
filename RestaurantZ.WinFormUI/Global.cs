@@ -1,10 +1,14 @@
 ﻿using RestaurantZ.Business.ValidationRules;
+using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,12 +95,91 @@ namespace RestaurantZ.WinFormUI
                 // Exit from the application  
                 // app.Quit();
             }
-            catch 
+            catch
             {
-               
+
             }
         }
 
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
+        public static string GetHtmlStringForGroupedReport(List<ModelForGroupedReport> lst)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Hesaplı Rapor</title><style>");
+            sb.Append("body {font-family: Verdana, Geneva, sans-serif;font-size: small;}");
+            sb.Append("table {border-collapse: collapse;}");
+            sb.Append("table,th,td {border: 1px solid silver;padding: 5px}");
+            sb.Append("tr:nth-child(even) {background-color: #dddddd;}</style></head><body>");
+            sb.Append("<h4>Merhaba,</h4><p>");
+            sb.Append(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToShortDateString());
+            sb.Append(" - ");
+            sb.Append(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToShortDateString());
+            sb.Append(" tarih aralığına ait <b style='background-color: yellow'>hesaplı rapor</b> aşağıdaki gibidir. Lütfen içeriği kontrol ediniz.</p><table><tr>");
+            sb.Append("<th>Müşteri Id</th>");
+            sb.Append("<th>Müşteri Adı</th>");
+            sb.Append("<th>Hizmet</th>");
+            sb.Append("<th>Birim Fiyat</th>");
+            sb.Append("<th>Toplam Kişi Sayısı</th>");
+            sb.Append("<th>Toplam Ekstra(TL)</th>");
+            sb.Append("<th>Genel Toplam(TL)</th>");
+            sb.Append("<th>Tarih Aralığı</th></tr>");
+            foreach (var row in lst)
+            {
+                sb.Append("<tr><td>" + row.customerId.ToString() + "</td>");
+                sb.Append("<td>" + row.customerName + "</td>");
+                sb.Append("<td>" + row.serviceName + "</td>");
+                sb.Append("<td>" + row.unitPrice.ToString() + "</td>");
+                sb.Append("<td>" + row.sumPerson.ToString() + "</td>");
+                sb.Append("<td>" + row.sumExtraPrice.ToString() + "</td>");
+                sb.Append("<td>" + row.grandTotal.ToString() + "</td>");
+                sb.Append("<td>" + row.dateRange + "</td></tr>");
+            }
+            sb.Append("</table><br><br><p><b><i>Kevser Kebap</i></b><br><br>Not: Bu bir robot mesajdır. Lütfen yanıtlamayınız...</p></body></html>");
+            return sb.ToString();
+        }
+
+        public static bool SendEmail(string subject, string htmlString, string toMailAdress)
+        {
+            bool returnValue = false;
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress("bilgi@dogrucevaptuzla.com");
+                message.To.Add(new MailAddress(toMailAdress));
+                message.Subject = subject;
+                message.IsBodyHtml = true; //to make message body as html  
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "mail.dogrucevaptuzla.com"; //for gmail host  
+                smtp.EnableSsl = false;// ssl sertifikası varsa true yapılacak
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("bilgi@dogrucevaptuzla.com", "%34dcTuzla");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                returnValue = true;
+            }
+            catch
+            {
+                MessageBox.Show("Mail gönderilirken bir hata oluştu.\r\nLütfen tekrar deneyiniz", "Gönderim Hatası!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                returnValue = false;
+            }
+            return returnValue;
+        }
     }
 }

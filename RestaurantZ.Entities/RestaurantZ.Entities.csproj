@@ -51,6 +51,8 @@
     <Compile Include="Concrete\LoginInfo.cs" />
     <Compile Include="Concrete\Lunch.cs" />
     <Compile Include="Concrete\ModelForAllServices.cs" />
+    <Compile Include="Concrete\ModelForDetailedReport.cs" />
+    <Compile Include="Concrete\ModelForGroupedReport.cs" />
     <Compile Include="Concrete\ModelForRecordCount.cs" />
     <Compile Include="Concrete\NightMale.cs" />
     <Compile Include="Concrete\User.cs" />
