@@ -615,7 +615,7 @@ namespace RestaurantZ.Business.Concrete
                              nameSurname = u.Name + " " + u.Surname
                          };
             return result.ToList();
-        }   
+        }
 
         public object GetDetailedReportByDate(DateTime firstDate, DateTime secondDate, int customerId)
         {
@@ -712,7 +712,7 @@ namespace RestaurantZ.Business.Concrete
             var allServiceGruped = grupedBreakfasts.Concat(grupedLunches).Concat(grupedDinners).Concat(grupedNightMale).OrderBy(a => a.customerName).ToList();
             return allServiceGruped;
         }
-      
+
         public object GetDetailedReportByDateAsGrouped(DateTime firstDate, DateTime secondDate, int customerId)
         {
             var grupedBreakfasts = _breakfastDal.GetAll()
@@ -803,7 +803,7 @@ namespace RestaurantZ.Business.Concrete
                          join u in users
                          on a.CreatedUserId equals u.UserId
                          where (Convert.ToDateTime(a.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(a.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString())) //verilen tarih aralığında
-                         orderby a.CreatedDate ascending// tarihe göre sırala
+                         orderby a.CreatedDate descending// tarihe göre sırala
                          select new
                          {
                              a.ServiceName,
@@ -814,7 +814,19 @@ namespace RestaurantZ.Business.Concrete
                              a.CreatedDate,
                              nameSurname = u.Name + " " + u.Surname
                          };
-            lst = result as List<ModelForDetailedReport>;
+            foreach (var item in result)
+            {
+                lst.Add(new ModelForDetailedReport
+                {
+                    CreatedDate = item.CreatedDate,
+                    CustomerName = item.CustomerName,
+                    Description = item.Description,
+                    ExtraPrice = item.ExtraPrice,
+                    nameSurname = item.nameSurname,
+                    NumberOfPerson = item.NumberOfPerson,
+                    ServiceName = item.ServiceName
+                });
+            }
             return lst;
         }
 

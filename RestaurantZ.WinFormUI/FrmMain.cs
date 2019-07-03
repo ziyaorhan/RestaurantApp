@@ -115,13 +115,6 @@ namespace RestaurantZ.WinFormUI
             btnNightMale.ImageAlign = ContentAlignment.MiddleLeft;
         }
 
-        private void tsLblSync_Click(object sender, EventArgs e)
-        {
-            //tsLblBackupMail.Image = Image.FromFile(Global.GetPath("\\Images\\sync-green.gif"));
-        }
-        // Title bar özelliği(controlbox) kapalı iken formu hareket ettirebilmek için
-        // ControlBox=false
-        // FormBorderStyle=none
         private void tsTop_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -267,38 +260,41 @@ namespace RestaurantZ.WinFormUI
 
         private void tsLblBackupMail_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (Global.CheckForInternetConnection())
             {
                 var time = DateTime.Now.Hour;
                 if (time < 18)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Mail ile yedekleme işlemi kayıtlar girildikten sonra, mesai bitiminde yapılmalıdır.\r\nYedekleme yapmak istiyormusunuz?", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult dialogResult = MessageBox.Show("Mail ile yedekleme işlemi, tüm kayıtlar girildikten sonra, mesai bitiminde yapılmalıdır.\r\nDevam etmek istiyormusunuz?", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        SendMail();
+                        SendMailForBackup();
                     }
                 }
                 else
                 {
-                    SendMail();
+                    SendMailForBackup();
                 }
             }
             else
             {
                 MessageBox.Show("İnternet bağlantınızı kontrol ediniz!", "Bağlantı Hatası!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Cursor.Current = Cursors.Default;
         }
 
-        private void SendMail()
+        private void SendMailForBackup()
         {
             Cursor.Current = Cursors.WaitCursor;
             tsLblBackupMail.Enabled = false;
-            var first = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var second = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            var firstDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var secondDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            string subjectStr = "Kevser Kebap \"" + secondDate.ToShortDateString() + "\" Tarihli Rapor";
             bool isSuccess = Global.SendEmail
                     (
-                    "Kevser Kebap Hesaplanmış Rapor",
-                    Global.GetHtmlStringForGroupedReport(_joinService.GetGroupedReportForMail(first, second)),
+                    subjectStr,
+                    Global.GetHtmlStringForReports(_joinService.GetGroupedReportForMail(firstDate, secondDate),_joinService.GetDetailedReportForMail(firstDate,secondDate)),
                     "zy.orhan@gmail.com"
                     );
             if (isSuccess)

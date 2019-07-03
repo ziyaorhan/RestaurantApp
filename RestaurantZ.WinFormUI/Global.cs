@@ -117,7 +117,7 @@ namespace RestaurantZ.WinFormUI
             }
         }
 
-        public static string GetHtmlStringForGroupedReport(List<ModelForGroupedReport> lst)
+        public static string GetHtmlStringForReports(List<ModelForGroupedReport> lst1, List<ModelForDetailedReport> lst2)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Hesaplı Rapor</title><style>");
@@ -138,7 +138,7 @@ namespace RestaurantZ.WinFormUI
             sb.Append("<th>Toplam Ekstra(TL)</th>");
             sb.Append("<th>Genel Toplam(TL)</th>");
             sb.Append("<th>Tarih Aralığı</th></tr>");
-            foreach (var row in lst)
+            foreach (var row in lst1)
             {
                 sb.Append("<tr><td>" + row.customerId.ToString() + "</td>");
                 sb.Append("<td>" + row.customerName + "</td>");
@@ -149,7 +149,30 @@ namespace RestaurantZ.WinFormUI
                 sb.Append("<td>" + row.grandTotal.ToString() + "</td>");
                 sb.Append("<td>" + row.dateRange + "</td></tr>");
             }
-            sb.Append("</table><br><br><p><b><i>Kevser Kebap</i></b><br><br>Not: Bu bir robot mesajdır. Lütfen yanıtlamayınız...</p></body></html>");
+            sb.Append("</table><br><hr><br>");
+            sb.Append(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToShortDateString());
+            sb.Append(" - ");
+            sb.Append(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToShortDateString());
+            sb.Append(" tarih aralığına ait <b style='background-color: yellow'>detaylı rapor</b> aşağıdaki gibidir. Lütfen içeriği kontrol ediniz.</p><table><tr>");
+            sb.Append("<th>İşlem Tarihi</th>");
+            sb.Append("<th>Hizmet</th>");
+            sb.Append("<th>Müşteri Adı</th>");
+            sb.Append("<th>Kişi Sayısı</th>");
+            sb.Append("<th>Ekstra(TL)</th>");
+            sb.Append("<th>Açıklama</th>");
+            sb.Append("<th>İşlemi Yapan</th></tr>");
+            foreach (var row in lst2)
+            {
+                sb.Append("<td>" + row.CreatedDate.ToString() + "</td>");
+                sb.Append("<td>" + row.ServiceName + "</td>");
+                sb.Append("<td>" + row.CustomerName + "</td>");
+                sb.Append("<td>" + row.NumberOfPerson.ToString() + "</td>");
+                sb.Append("<td>" + row.ExtraPrice.ToString() + "</td>");
+                sb.Append("<td>" + row.Description + "</td>");
+                sb.Append("<td>" + row.nameSurname + "</td></tr>");
+            }
+
+            sb.Append("</table><br><hr><br><p><b><i>Kevser Kebap</i></b><br><br>Not: Bu bir robot mesajdır. Lütfen yanıtlamayınız...</p></body></html>");
             return sb.ToString();
         }
 
