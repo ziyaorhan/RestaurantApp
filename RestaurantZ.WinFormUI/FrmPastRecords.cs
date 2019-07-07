@@ -110,14 +110,14 @@ namespace RestaurantZ.WinFormUI
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            dgvPastRecords.Columns.Clear();
+            
             FillDgvPastRecord();
-            Global.GetDeleteButton(dgvPastRecords);
+              
         }
 
-        private void FillDgvPastRecord()
+        public void FillDgvPastRecord()
         {
-           
+            dgvPastRecords.Columns.Clear();
             if (chkAllCustomers.Checked)//tüm müşteriler için
             {
                 if (selectedService == "Kahvaltı")
@@ -171,6 +171,8 @@ namespace RestaurantZ.WinFormUI
             dgvPastRecords.RowTemplate.ReadOnly = true;
             dgvPastRecords.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
             dgvPastRecords.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            Global.GetUpdateButton(dgvPastRecords);
+            Global.GetDeleteButton(dgvPastRecords);
         }
 
         private void cbServices_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,6 +228,38 @@ namespace RestaurantZ.WinFormUI
                     }
                     FillDgvPastRecord();
                 }
+            }
+            if (dgvPastRecords.Columns[e.ColumnIndex].Name == "btnUpdate")
+            {
+                int updatedId = Convert.ToInt32(dgvPastRecords.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                try
+                {
+                    if (dgvPastRecords.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString() == "Kahvaltı")
+                    {
+                        FrmUpdatePastRecord frmUpdatePastRecord = new FrmUpdatePastRecord("breakfast", updatedId);
+                        frmUpdatePastRecord.ShowDialog();
+                    }
+                    else if (dgvPastRecords.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString() == "Öğlen Yemeği")
+                    {
+                        FrmUpdatePastRecord frmUpdatePastRecord = new FrmUpdatePastRecord("lunch", updatedId);
+                        frmUpdatePastRecord.ShowDialog();
+                    }
+                    else if (dgvPastRecords.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString() == "Akşam Yemeği")
+                    {
+                        FrmUpdatePastRecord frmUpdatePastRecord = new FrmUpdatePastRecord("dinner", updatedId);
+                        frmUpdatePastRecord.ShowDialog();
+                    }
+                    else
+                    {
+                        FrmUpdatePastRecord frmUpdatePastRecord = new FrmUpdatePastRecord("nightMale", updatedId);
+                        frmUpdatePastRecord.ShowDialog();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Kayıt silinirken bir hata oluştu.\r\nLütfen tekrar deneyiniz.");
+                }
+                FillDgvPastRecord();
             }
         }
     }
