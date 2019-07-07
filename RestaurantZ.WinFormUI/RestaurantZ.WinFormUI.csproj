@@ -77,6 +77,12 @@
     <Compile Include="FrmDinner.Designer.cs">
       <DependentUpon>FrmDinner.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInfo.Designer.cs">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <EmbeddedResource Include="FrmDinner.resx">
       <DependentUpon>FrmDinner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInfo.resx">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +272,8 @@
     <Content Include="Images\clear.png" />
     <Content Include="Images\close.png" />
     <Content Include="Images\cursor.gif" />
+    <Content Include="Images\customers.png" />
+    <Content Include="Images\excel.png" />
     <Content Include="Images\gece.png" />
     <Content Include="Images\guncelle.PNG" />
     <Content Include="Images\help.png" />
@@ -276,12 +287,15 @@
     <Content Include="Images\minimize.png" />
     <Content Include="Images\oglen.png" />
     <Content Include="Images\person.png" />
+    <Content Include="Images\record.png" />
+    <Content Include="Images\report.png" />
     <Content Include="Images\search.png" />
     <Content Include="Images\sendMail.png" />
     <Content Include="Images\sil.PNG" />
     <Content Include="Images\sync-darkred.png" />
     <Content Include="Images\sync-green.gif" />
     <Content Include="Images\updateUserInfo.png" />
+    <Content Include="Images\users.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

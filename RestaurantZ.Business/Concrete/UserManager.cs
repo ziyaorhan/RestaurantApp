@@ -106,6 +106,18 @@ namespace RestaurantZ.Business.Concrete
             return user;
         }
 
+        public List<User> GetVisibleUsers()
+        {
+            try
+            {
+                return _userDal.GetAll(a=>a.IsVisible==true);
+            }
+            catch
+            {
+                throw new Exception("Görünür kullanıcılar listelenirken bir hata oluştu.");
+            }
+        }
+
         //burası dal ile benzer de faklı da olabilir. önce business kodları gelir.
         // GetAll() gibi metotlar burada da olabilir.
         //UI tarafı business ile muhatap olur.

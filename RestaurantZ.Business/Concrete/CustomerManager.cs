@@ -103,12 +103,12 @@ namespace RestaurantZ.Business.Concrete
             }
         }
 
-        public object GetAllForDgv()
-        {
-            var customers = _customerDal.GetAll();
-            var result = customers.Select(c => new { c.CustomerId, c.CustomerName, c.BreakfastPrice, c.LunchPrice, c.DinnerPrice, c.NightMalePrice, c.IsActive }).ToList();
-            return result;
-        }
+        //public object GetAllForDgv()
+        //{
+        //    var customers = _customerDal.GetAll();
+        //    var result = customers.Select(c => new { c.CustomerId, c.CustomerName, c.BreakfastPrice, c.LunchPrice, c.DinnerPrice, c.NightMalePrice, c.IsActive }).ToList();
+        //    return result;
+        //}
 
         public List<Customer> GetAllActiveAndReceivingBreakfast()
         {

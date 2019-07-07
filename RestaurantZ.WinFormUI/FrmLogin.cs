@@ -32,6 +32,7 @@ namespace RestaurantZ.WinFormUI
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             pbLogo.BackgroundImage = Image.FromFile(Global.GetPath("\\Images\\login.png"));
+            this.ActiveControl = txtUserName;//başlangıçta fokuslamak için
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

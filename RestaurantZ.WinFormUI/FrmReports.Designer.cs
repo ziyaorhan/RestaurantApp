@@ -244,11 +244,13 @@
             // 
             this.btnReportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportToExcel.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnReportToExcel.Location = new System.Drawing.Point(1220, 644);
+            this.btnReportToExcel.Location = new System.Drawing.Point(1191, 644);
             this.btnReportToExcel.Name = "btnReportToExcel";
-            this.btnReportToExcel.Size = new System.Drawing.Size(140, 32);
+            this.btnReportToExcel.Size = new System.Drawing.Size(169, 32);
             this.btnReportToExcel.TabIndex = 18;
             this.btnReportToExcel.Text = "EXCEL\'E AKTAR";
+            this.btnReportToExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportToExcel.UseVisualStyleBackColor = true;
             this.btnReportToExcel.Click += new System.EventHandler(this.btnReportToExcel_Click);
             // 

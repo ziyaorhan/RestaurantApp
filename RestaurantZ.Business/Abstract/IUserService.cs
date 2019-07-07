@@ -13,6 +13,7 @@ namespace RestaurantZ.Business.Abstract
         void Update(User user);
         User Get(int id);
         List<User> GetAll();
+        List<User> GetVisibleUsers();
         void Delete(User user);
         User GetByUserNameAndPwd(string enteredUserName, string enteredPwd);
         //void UpdateRoleAndActivityById(User user);

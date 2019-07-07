@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblFormName = new System.Windows.Forms.Label();
@@ -77,7 +77,7 @@
             this.epLunch = new System.Windows.Forms.ErrorProvider(this.components);
             this.epDinner = new System.Windows.Forms.ErrorProvider(this.components);
             this.epNightMale = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel4.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -101,19 +101,21 @@
             this.panel1.Size = new System.Drawing.Size(16, 505);
             this.panel1.TabIndex = 0;
             // 
-            // panel4
+            // pnlTop
             // 
-            this.panel4.Controls.Add(this.btnClose);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(19, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(591, 22);
-            this.panel4.TabIndex = 2;
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(19, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(591, 22);
+            this.pnlTop.TabIndex = 2;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnClose
             // 
             this.btnClose.AutoSize = true;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.Location = new System.Drawing.Point(564, 0);
@@ -514,9 +516,9 @@
             this.chkIsActive.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.chkIsActive.Location = new System.Drawing.Point(29, 446);
             this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(110, 21);
+            this.chkIsActive.Size = new System.Drawing.Size(106, 21);
             this.chkIsActive.TabIndex = 21;
-            this.chkIsActive.Text = "Aktif Kullanıcı";
+            this.chkIsActive.Text = "Aktif Müşteri";
             this.chkIsActive.UseVisualStyleBackColor = true;
             // 
             // epCustomerName
@@ -563,7 +565,6 @@
             // 
             // FrmNewCustomer
             // 
-            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
@@ -576,7 +577,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.DarkRed;
@@ -584,8 +585,8 @@
             this.Name = "FrmNewCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmNewCustomer_Load);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -609,7 +610,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

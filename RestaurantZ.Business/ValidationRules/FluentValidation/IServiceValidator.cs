@@ -13,6 +13,7 @@ namespace RestaurantZ.Business.ValidationRules.FluentValidation
                 .GreaterThanOrEqualTo(1).WithMessage(RuleMessages.GreaterThanOrEqualTo(1));
 
             RuleFor(s => s.ExtraPrice)
+                
                      .GreaterThanOrEqualTo(0).WithMessage(RuleMessages.GreaterThanOrEqualTo(0));
             RuleFor(s => s.CustomerId)
                 .NotEmpty().WithMessage(RuleMessages.NotEmty);

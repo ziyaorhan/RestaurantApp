@@ -32,6 +32,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.nudNumberOfPerson = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtExtraPrice = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
             this.rTxtDescription = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -50,9 +51,8 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pbSearch = new System.Windows.Forms.PictureBox();
-            this.pbClear = new System.Windows.Forms.PictureBox();
             this.txtSearch = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
-            this.txtExtraPrice = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLunch)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPerson)).BeginInit();
@@ -60,7 +60,6 @@
             this.panel2.SuspendLayout();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClear)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvLunch
@@ -75,7 +74,7 @@
             this.dgvLunch.ReadOnly = true;
             this.dgvLunch.RowHeadersWidth = 16;
             this.dgvLunch.ShowEditingIcon = false;
-            this.dgvLunch.Size = new System.Drawing.Size(855, 345);
+            this.dgvLunch.Size = new System.Drawing.Size(852, 296);
             this.dgvLunch.TabIndex = 0;
             this.dgvLunch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLunch_CellContentClick);
             // 
@@ -87,7 +86,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(863, 368);
+            this.groupBox2.Size = new System.Drawing.Size(860, 319);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bugünün Kayıtları";
@@ -104,7 +103,7 @@
             0});
             this.nudNumberOfPerson.Name = "nudNumberOfPerson";
             this.nudNumberOfPerson.Size = new System.Drawing.Size(204, 22);
-            this.nudNumberOfPerson.TabIndex = 19;
+            this.nudNumberOfPerson.TabIndex = 1;
             this.nudNumberOfPerson.Value = new decimal(new int[] {
             1,
             0,
@@ -130,10 +129,19 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(863, 251);
+            this.groupBox1.Size = new System.Drawing.Size(860, 250);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yeni Kayıt";
+            // 
+            // txtExtraPrice
+            // 
+            this.txtExtraPrice.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtExtraPrice.Location = new System.Drawing.Point(129, 105);
+            this.txtExtraPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExtraPrice.Name = "txtExtraPrice";
+            this.txtExtraPrice.Size = new System.Drawing.Size(203, 22);
+            this.txtExtraPrice.TabIndex = 2;
             // 
             // rTxtDescription
             // 
@@ -142,7 +150,7 @@
             this.rTxtDescription.Location = new System.Drawing.Point(129, 140);
             this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtDescription.Name = "rTxtDescription";
-            this.rTxtDescription.Size = new System.Drawing.Size(203, 99);
+            this.rTxtDescription.Size = new System.Drawing.Size(203, 103);
             this.rTxtDescription.TabIndex = 3;
             this.rTxtDescription.Text = "";
             // 
@@ -254,7 +262,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 749);
+            this.panel1.Size = new System.Drawing.Size(21, 700);
             this.panel1.TabIndex = 19;
             // 
             // label1
@@ -264,7 +272,7 @@
             this.label1.Location = new System.Drawing.Point(25, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(879, 4);
+            this.label1.Size = new System.Drawing.Size(875, 4);
             this.label1.TabIndex = 22;
             this.label1.Text = "label1";
             // 
@@ -288,16 +296,17 @@
             this.panel2.Location = new System.Drawing.Point(25, 29);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(879, 48);
+            this.panel2.Size = new System.Drawing.Size(875, 48);
             this.panel2.TabIndex = 21;
             // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnClose.Location = new System.Drawing.Point(848, 0);
+            this.btnClose.Location = new System.Drawing.Point(844, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 29);
@@ -313,7 +322,7 @@
             this.pnlTop.Location = new System.Drawing.Point(25, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(879, 29);
+            this.pnlTop.Size = new System.Drawing.Size(875, 29);
             this.pnlTop.TabIndex = 20;
             this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
@@ -324,7 +333,7 @@
             this.label2.Location = new System.Drawing.Point(21, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(4, 749);
+            this.label2.Size = new System.Drawing.Size(4, 700);
             this.label2.TabIndex = 23;
             this.label2.Text = "label2";
             // 
@@ -337,17 +346,6 @@
             this.pbSearch.TabIndex = 26;
             this.pbSearch.TabStop = false;
             // 
-            // pbClear
-            // 
-            this.pbClear.Location = new System.Drawing.Point(216, 351);
-            this.pbClear.Margin = new System.Windows.Forms.Padding(4);
-            this.pbClear.Name = "pbClear";
-            this.pbClear.Size = new System.Drawing.Size(22, 22);
-            this.pbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbClear.TabIndex = 33;
-            this.pbClear.TabStop = false;
-            this.pbClear.Click += new System.EventHandler(this.pbClear_Click);
-            // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -358,22 +356,24 @@
             this.txtSearch.TabIndex = 27;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // txtExtraPrice
+            // btnClear
             // 
-            this.txtExtraPrice.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtExtraPrice.Location = new System.Drawing.Point(129, 105);
-            this.txtExtraPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExtraPrice.Name = "txtExtraPrice";
-            this.txtExtraPrice.Size = new System.Drawing.Size(203, 22);
-            this.txtExtraPrice.TabIndex = 21;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Location = new System.Drawing.Point(215, 351);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(22, 22);
+            this.btnClear.TabIndex = 34;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // FrmLunch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(904, 749);
-            this.Controls.Add(this.pbClear);
+            this.ClientSize = new System.Drawing.Size(900, 700);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.groupBox2);
@@ -399,7 +399,6 @@
             this.panel2.PerformLayout();
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,6 +430,6 @@
         private CustomTools.LetterOrDigitTextBox txtSearch;
         private System.Windows.Forms.PictureBox pbSearch;
         private CustomTools.DecimalTextBox txtExtraPrice;
-        private System.Windows.Forms.PictureBox pbClear;
+        private System.Windows.Forms.Button btnClear;
     }
 }

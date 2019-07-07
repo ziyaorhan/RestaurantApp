@@ -101,6 +101,48 @@ namespace RestaurantZ.WinFormUI
             }
         }
 
+        public static void ExportDataGridViewToExcel(DataGridView dataGridView, string sheetName, string folderName, string fileName,int columnsCount)
+        {
+            try
+            {
+                //excel uygulaması oluştur.
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                //excel uygulaması içinde bir çalışma kitabı oluştur.  
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                //çalışma kitabında yeni bir excel sayfası oluştur. şimdilik null değeri ata.
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                //programın arkasında excel sayfasına bak.  
+                app.Visible = true;
+                worksheet = workbook.Sheets["Sayfa1"];
+                worksheet = workbook.ActiveSheet;
+                // aktif sayfa adını değiştir 
+                worksheet.Name = sheetName;
+                // kolon isimleri
+                for (int i = 1; i <= columnsCount; i++)
+                {
+                    worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
+                }
+                // satırlar
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    for (int j = 0; j < columnsCount; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                // save the application  
+                string fileTimeStamp = DateTime.Now.ToShortDateString() + "_" + DateTime.Now.Hour.ToString() + "." + DateTime.Now.Minute.ToString() + "." + DateTime.Now.Second.ToString();
+
+                workbook.SaveAs(folderName + "\\" + fileTimeStamp + "-" + fileName + ".xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                // Exit from the application  
+                // app.Quit();
+            }
+            catch
+            {
+
+            }
+        }
+
         public static bool CheckForInternetConnection()
         {
             try

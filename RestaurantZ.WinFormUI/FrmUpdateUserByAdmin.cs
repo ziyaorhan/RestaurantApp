@@ -116,5 +116,22 @@ namespace RestaurantZ.WinFormUI
                 MessageBox.Show("Admin yetkisi en kapsamlı yetkidir.Bir admin,\r\n-Günlük kayıt tutabilir,\r\n-Geçmiş kayıtlarda işlem yapabilir,\r\n-Rapor alabilir,\r\n-Müşteriler üzerinde işlem yapabilir,\r\n-Kullanıcılar üzerinde işlem yapabilir.\r\n\r\nBunu yapmak istediğinizden emin misiniz?", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Release the mouse capture started by the mouse down.
+                pnlTop.Capture = false; //select control
+
+                // Create and send a WM_NCLBUTTONDOWN message.
+                const int WM_NCLBUTTONDOWN = 0x00A1;
+                const int HTCAPTION = 2;
+                Message msg =
+                    Message.Create(this.Handle, WM_NCLBUTTONDOWN,
+                        new IntPtr(HTCAPTION), IntPtr.Zero);
+                this.DefWndProc(ref msg);
+            }
+        }
     }
 }

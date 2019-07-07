@@ -694,7 +694,7 @@ namespace RestaurantZ.Business.Concrete
                     dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
                 }).ToList();
             //
-            var grupedNightMale = _lunchDal.GetAll()
+            var grupedNightMale = _nightMaleDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
                 .Select(a => new
@@ -760,7 +760,7 @@ namespace RestaurantZ.Business.Concrete
                     dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
                 }).ToList();
             //
-            var grupedNightMale = _lunchDal.GetAll()
+            var grupedNightMale = _nightMaleDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
                 .Select(a => new
@@ -878,7 +878,7 @@ namespace RestaurantZ.Business.Concrete
                     dateRange = firstDate.ToShortDateString() + "-" + secondDate.ToShortDateString()
                 }).ToList();
             //
-            var grupedNightMale = _lunchDal.GetAll()
+            var grupedNightMale = _nightMaleDal.GetAll()
                 .Where(t => Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) >= Convert.ToDateTime(firstDate.ToShortDateString()) && Convert.ToDateTime(t.CreatedDate.Value.ToShortDateString()) <= Convert.ToDateTime(secondDate.ToShortDateString()))
                 .GroupBy(g => g.CustomerId)
                 .Select(a => new

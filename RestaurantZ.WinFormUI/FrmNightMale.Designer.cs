@@ -50,16 +50,15 @@
             this.txtExtraPrice = new RestaurantZ.WinFormUI.CustomTools.DecimalTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pbClear = new System.Windows.Forms.PictureBox();
             this.txtSearch = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPerson)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNightMale)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +74,7 @@
             0});
             this.nudNumberOfPerson.Name = "nudNumberOfPerson";
             this.nudNumberOfPerson.Size = new System.Drawing.Size(204, 22);
-            this.nudNumberOfPerson.TabIndex = 19;
+            this.nudNumberOfPerson.TabIndex = 1;
             this.nudNumberOfPerson.Value = new decimal(new int[] {
             1,
             0,
@@ -89,7 +88,7 @@
             this.pnlTop.Location = new System.Drawing.Point(25, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(879, 29);
+            this.pnlTop.Size = new System.Drawing.Size(875, 29);
             this.pnlTop.TabIndex = 29;
             this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
@@ -100,7 +99,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnClose.Location = new System.Drawing.Point(848, 0);
+            this.btnClose.Location = new System.Drawing.Point(844, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 29);
@@ -116,7 +115,7 @@
             this.rTxtDescription.Location = new System.Drawing.Point(129, 141);
             this.rTxtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtDescription.Name = "rTxtDescription";
-            this.rTxtDescription.Size = new System.Drawing.Size(203, 99);
+            this.rTxtDescription.Size = new System.Drawing.Size(203, 102);
             this.rTxtDescription.TabIndex = 3;
             this.rTxtDescription.Text = "";
             // 
@@ -186,7 +185,7 @@
             this.panel2.Location = new System.Drawing.Point(25, 29);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(879, 48);
+            this.panel2.Size = new System.Drawing.Size(875, 48);
             this.panel2.TabIndex = 30;
             // 
             // lblServiceName
@@ -208,7 +207,7 @@
             this.label1.Location = new System.Drawing.Point(25, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(879, 4);
+            this.label1.Size = new System.Drawing.Size(875, 4);
             this.label1.TabIndex = 31;
             this.label1.Text = "label1";
             // 
@@ -259,11 +258,11 @@
             // 
             this.groupBox2.Controls.Add(this.dgvNightMale);
             this.groupBox2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(33, 381);
+            this.groupBox2.Location = new System.Drawing.Point(33, 379);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(863, 373);
+            this.groupBox2.Size = new System.Drawing.Size(860, 321);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bugünün Kayıtları";
@@ -280,7 +279,7 @@
             this.dgvNightMale.ReadOnly = true;
             this.dgvNightMale.RowHeadersWidth = 16;
             this.dgvNightMale.ShowEditingIcon = false;
-            this.dgvNightMale.Size = new System.Drawing.Size(855, 350);
+            this.dgvNightMale.Size = new System.Drawing.Size(852, 298);
             this.dgvNightMale.TabIndex = 0;
             this.dgvNightMale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNightMale_CellContentClick);
             // 
@@ -303,7 +302,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(863, 251);
+            this.groupBox1.Size = new System.Drawing.Size(860, 250);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yeni Kayıt";
@@ -313,7 +312,7 @@
             this.txtExtraPrice.Location = new System.Drawing.Point(129, 106);
             this.txtExtraPrice.Name = "txtExtraPrice";
             this.txtExtraPrice.Size = new System.Drawing.Size(203, 22);
-            this.txtExtraPrice.TabIndex = 20;
+            this.txtExtraPrice.TabIndex = 2;
             // 
             // panel1
             // 
@@ -322,7 +321,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 749);
+            this.panel1.Size = new System.Drawing.Size(21, 700);
             this.panel1.TabIndex = 28;
             // 
             // label2
@@ -332,25 +331,14 @@
             this.label2.Location = new System.Drawing.Point(21, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(4, 749);
+            this.label2.Size = new System.Drawing.Size(4, 700);
             this.label2.TabIndex = 32;
             this.label2.Text = "label2";
-            // 
-            // pbClear
-            // 
-            this.pbClear.Location = new System.Drawing.Point(216, 351);
-            this.pbClear.Margin = new System.Windows.Forms.Padding(4);
-            this.pbClear.Name = "pbClear";
-            this.pbClear.Size = new System.Drawing.Size(22, 22);
-            this.pbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbClear.TabIndex = 37;
-            this.pbClear.TabStop = false;
-            this.pbClear.Click += new System.EventHandler(this.pbClear_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSearch.Location = new System.Drawing.Point(63, 351);
+            this.txtSearch.Location = new System.Drawing.Point(63, 349);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(145, 22);
@@ -359,7 +347,7 @@
             // 
             // pbSearch
             // 
-            this.pbSearch.Location = new System.Drawing.Point(33, 351);
+            this.pbSearch.Location = new System.Drawing.Point(33, 349);
             this.pbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pbSearch.Name = "pbSearch";
             this.pbSearch.Size = new System.Drawing.Size(22, 22);
@@ -367,13 +355,24 @@
             this.pbSearch.TabIndex = 35;
             this.pbSearch.TabStop = false;
             // 
+            // btnClear
+            // 
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Location = new System.Drawing.Point(215, 349);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(22, 22);
+            this.btnClear.TabIndex = 37;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // FrmNightMale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(904, 749);
-            this.Controls.Add(this.pbClear);
+            this.ClientSize = new System.Drawing.Size(900, 700);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.label1);
@@ -398,7 +397,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNightMale)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -428,8 +426,8 @@
         private CustomTools.DecimalTextBox txtExtraPrice;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pbClear;
         private CustomTools.LetterOrDigitTextBox txtSearch;
         private System.Windows.Forms.PictureBox pbSearch;
+        private System.Windows.Forms.Button btnClear;
     }
 }

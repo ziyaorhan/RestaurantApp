@@ -26,7 +26,7 @@ namespace RestaurantZ.WinFormUI
         private void InitializeCustom()
         {
             pbSearch.Image = Image.FromFile(Global.GetPath("\\Images\\search.png"));
-            pbClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
+            btnClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -72,9 +72,9 @@ namespace RestaurantZ.WinFormUI
 
         private void FillPrize()
         {
-            if (txtExtraPrice.Text == "." || txtExtraPrice.Text == "")
+            if (txtExtraPrice.Text == "," || txtExtraPrice.Text == "")
             {
-                txtExtraPrice.Text = "0.00";
+                txtExtraPrice.Text = "0,00";
             }
         }
 
@@ -115,8 +115,10 @@ namespace RestaurantZ.WinFormUI
             dgvNightMale.Columns["nameSurname"].Width = 90;
             dgvNightMale.Columns["CreatedDate"].Width = 90;
             //
+            dgvNightMale.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNightMale.RowTemplate.ReadOnly = true;
-            dgvNightMale.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
+            dgvNightMale.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.
+            dgvNightMale.RowHeadersWidth = 25;
             dgvNightMale.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
         }
 
@@ -145,11 +147,6 @@ namespace RestaurantZ.WinFormUI
             {
                 dgvNightMale.DataSource = _joinService.GetAllForNightMaleFormDgv();
             }
-        }
-
-        private void pbClear_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
         }
 
         private void dgvNightMale_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -202,6 +199,11 @@ namespace RestaurantZ.WinFormUI
                         new IntPtr(HTCAPTION), IntPtr.Zero);
                 this.DefWndProc(ref msg);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
         }
     }
 }

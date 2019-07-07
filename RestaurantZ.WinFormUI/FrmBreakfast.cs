@@ -26,7 +26,7 @@ namespace RestaurantZ.WinFormUI
         private void InitializeCustom()
         {
             pbSearch.Image= Image.FromFile(Global.GetPath("\\Images\\search.png"));
-            pbClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
+            btnClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -72,9 +72,9 @@ namespace RestaurantZ.WinFormUI
 
         private void FillPrize()
         {
-            if (txtExtraPrice.Text == "." || txtExtraPrice.Text == "")
+            if (txtExtraPrice.Text == "," || txtExtraPrice.Text == "")
             {
-                txtExtraPrice.Text = "0.00";
+                txtExtraPrice.Text = "0,00";
             }
         }
 
@@ -123,9 +123,11 @@ namespace RestaurantZ.WinFormUI
             dgvBreakfast.Columns["nameSurname"].Width = 90;
             dgvBreakfast.Columns["CreatedDate"].Width = 90;
             //
+            dgvBreakfast.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBreakfast.RowTemplate.ReadOnly = true;
-            dgvBreakfast.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.   
-            dgvBreakfast.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvBreakfast.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.
+            dgvBreakfast.RowHeadersWidth = 25;
+            dgvBreakfast.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;            
         }
 
         private void cbCustomer_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,11 +154,6 @@ namespace RestaurantZ.WinFormUI
             {
                 dgvBreakfast.DataSource = _joinService.GetAllForBreakfastFormDgv();
             }
-        }
-
-        private void pbClear_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
         }
 
         private void dgvBreakfast_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,6 +206,11 @@ namespace RestaurantZ.WinFormUI
                         new IntPtr(HTCAPTION), IntPtr.Zero);
                 this.DefWndProc(ref msg);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
         }
     }
 }

@@ -2,14 +2,7 @@
 using RestaurantZ.Business.DependencyResolvers.Ninject;
 using RestaurantZ.Business.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
@@ -113,6 +106,14 @@ namespace RestaurantZ.WinFormUI
             //
             btnNightMale.Image = Image.FromFile(Global.GetPath("\\Images\\gece.png"));
             btnNightMale.ImageAlign = ContentAlignment.MiddleLeft;
+            //
+            tsmiUsers.Image = Image.FromFile(Global.GetPath("\\Images\\users.png"));
+            //
+            tsmiCustomers.Image = Image.FromFile(Global.GetPath("\\Images\\customers.png"));
+            //
+            tsmiPastRecords.Image = Image.FromFile(Global.GetPath("\\Images\\record.png"));
+            //
+            tsmiReport.Image = Image.FromFile(Global.GetPath("\\Images\\report.png"));
         }
 
         private void tsTop_MouseDown(object sender, MouseEventArgs e)
@@ -160,7 +161,8 @@ namespace RestaurantZ.WinFormUI
 
         private void tsBtnInfo_Click(object sender, EventArgs e)
         {
-
+            FrmInfo frmInfo = new FrmInfo();
+            frmInfo.ShowDialog();
         }
 
         private void tsBtnHelp_Click(object sender, EventArgs e)

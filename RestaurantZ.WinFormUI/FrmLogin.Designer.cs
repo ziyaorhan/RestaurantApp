@@ -35,7 +35,6 @@
             this.lblServiceName = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblForgot = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -59,7 +58,9 @@
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.Location = new System.Drawing.Point(242, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 22);
@@ -112,7 +113,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblForgot);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtPwd);
@@ -121,21 +121,9 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 165);
+            this.groupBox1.Size = new System.Drawing.Size(265, 145);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
-            // 
-            // lblForgot
-            // 
-            this.lblForgot.AutoSize = true;
-            this.lblForgot.Font = new System.Drawing.Font("Ubuntu", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblForgot.LinkColor = System.Drawing.Color.Tomato;
-            this.lblForgot.Location = new System.Drawing.Point(102, 125);
-            this.lblForgot.Name = "lblForgot";
-            this.lblForgot.Size = new System.Drawing.Size(100, 16);
-            this.lblForgot.TabIndex = 24;
-            this.lblForgot.TabStop = true;
-            this.lblForgot.Text = "Parolamı Unuttum";
             // 
             // label3
             // 
@@ -192,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(265, 224);
+            this.ClientSize = new System.Drawing.Size(265, 204);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
@@ -222,7 +210,6 @@
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Label lblServiceName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel lblForgot;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPwd;

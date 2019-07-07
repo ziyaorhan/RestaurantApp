@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,7 +77,7 @@
             this.epLunch = new System.Windows.Forms.ErrorProvider(this.components);
             this.epDinner = new System.Windows.Forms.ErrorProvider(this.components);
             this.epNightMale = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel4.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,18 +92,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.epNightMale)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel4
+            // pnlTop
             // 
-            this.panel4.Controls.Add(this.btnClose);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(19, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(583, 22);
-            this.panel4.TabIndex = 14;
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(19, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(583, 22);
+            this.pnlTop.TabIndex = 14;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ForeColor = System.Drawing.Color.DarkRed;
@@ -175,7 +177,7 @@
             this.chkIsActive.Location = new System.Drawing.Point(24, 440);
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Size = new System.Drawing.Size(106, 21);
-            this.chkIsActive.TabIndex = 26;
+            this.chkIsActive.TabIndex = 0;
             this.chkIsActive.Text = "Aktif Müşteri";
             this.chkIsActive.UseVisualStyleBackColor = true;
             this.chkIsActive.Click += new System.EventHandler(this.chkIsActive_Click);
@@ -187,7 +189,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(504, 440);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(93, 33);
-            this.btnUpdate.TabIndex = 22;
+            this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "GÜNCELLE";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -579,7 +581,7 @@
             this.Controls.Add(this.gbCustomerInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -587,7 +589,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmUpdateCustomers";
             this.Load += new System.EventHandler(this.FrmUpdateCustomers_Load);
-            this.panel4.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -609,7 +611,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;

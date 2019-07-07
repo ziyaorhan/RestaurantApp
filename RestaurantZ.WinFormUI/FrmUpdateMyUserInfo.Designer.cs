@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtSurname = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
-            this.txtName = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
+            this.txtSurname = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
+            this.txtName = new RestaurantZ.WinFormUI.CustomTools.LetterTextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
@@ -49,7 +49,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
+            this.rbManager = new System.Windows.Forms.RadioButton();
+            this.rbEmployee = new System.Windows.Forms.RadioButton();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.gbLoginInfo = new System.Windows.Forms.GroupBox();
             this.txtUserName = new RestaurantZ.WinFormUI.CustomTools.LetterOrDigitTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,13 +67,10 @@
             this.epUserName = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.rbAdmin = new System.Windows.Forms.RadioButton();
-            this.rbManager = new System.Windows.Forms.RadioButton();
-            this.rbEmployee = new System.Windows.Forms.RadioButton();
             this.gbUserInfo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.gbLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epSurname)).BeginInit();
@@ -80,22 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.epPwd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epPwd2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Location = new System.Drawing.Point(105, 48);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(220, 22);
-            this.txtSurname.TabIndex = 10;
-            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(105, 22);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(220, 22);
-            this.txtName.TabIndex = 10;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPhone
             // 
@@ -166,6 +150,24 @@
             this.gbUserInfo.TabStop = false;
             this.gbUserInfo.Text = "Kullanıcı Bilgileri";
             // 
+            // txtSurname
+            // 
+            this.txtSurname.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSurname.Location = new System.Drawing.Point(105, 48);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(220, 22);
+            this.txtSurname.TabIndex = 1;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtName.Location = new System.Drawing.Point(105, 22);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(220, 22);
+            this.txtName.TabIndex = 0;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
             // txtMail
             // 
             this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -179,7 +181,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(11, 12);
+            this.label8.Location = new System.Drawing.Point(11, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 17);
             this.label8.TabIndex = 12;
@@ -214,7 +216,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(287, 371);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(84, 28);
-            this.btnUpdate.TabIndex = 32;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "GÜNCELLE";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -274,7 +276,7 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.Location = new System.Drawing.Point(335, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 22);
@@ -297,14 +299,50 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
-            // panel4
+            // rbAdmin
             // 
-            this.panel4.Controls.Add(this.btnClose);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(19, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(358, 22);
-            this.panel4.TabIndex = 28;
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbAdmin.Location = new System.Drawing.Point(262, 12);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
+            this.rbAdmin.TabIndex = 15;
+            this.rbAdmin.Text = "Admin";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rbManager
+            // 
+            this.rbManager.AutoSize = true;
+            this.rbManager.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbManager.Location = new System.Drawing.Point(182, 12);
+            this.rbManager.Name = "rbManager";
+            this.rbManager.Size = new System.Drawing.Size(74, 21);
+            this.rbManager.TabIndex = 14;
+            this.rbManager.Text = "Yönetici";
+            this.rbManager.UseVisualStyleBackColor = true;
+            // 
+            // rbEmployee
+            // 
+            this.rbEmployee.AutoSize = true;
+            this.rbEmployee.Checked = true;
+            this.rbEmployee.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbEmployee.Location = new System.Drawing.Point(107, 12);
+            this.rbEmployee.Name = "rbEmployee";
+            this.rbEmployee.Size = new System.Drawing.Size(69, 21);
+            this.rbEmployee.TabIndex = 13;
+            this.rbEmployee.TabStop = true;
+            this.rbEmployee.Text = "Çalışan";
+            this.rbEmployee.UseVisualStyleBackColor = true;
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(19, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(358, 22);
+            this.pnlTop.TabIndex = 28;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // gbLoginInfo
             // 
@@ -324,8 +362,8 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtUserName.ForeColor = System.Drawing.Color.Gray;
+            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUserName.ForeColor = System.Drawing.Color.Black;
             this.txtUserName.Location = new System.Drawing.Point(105, 26);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(220, 22);
@@ -410,41 +448,6 @@
             // 
             this.epPwd2.ContainerControl = this;
             // 
-            // rbAdmin
-            // 
-            this.rbAdmin.AutoSize = true;
-            this.rbAdmin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbAdmin.Location = new System.Drawing.Point(260, 11);
-            this.rbAdmin.Name = "rbAdmin";
-            this.rbAdmin.Size = new System.Drawing.Size(64, 21);
-            this.rbAdmin.TabIndex = 15;
-            this.rbAdmin.Text = "Admin";
-            this.rbAdmin.UseVisualStyleBackColor = true;
-            // 
-            // rbManager
-            // 
-            this.rbManager.AutoSize = true;
-            this.rbManager.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbManager.Location = new System.Drawing.Point(180, 11);
-            this.rbManager.Name = "rbManager";
-            this.rbManager.Size = new System.Drawing.Size(74, 21);
-            this.rbManager.TabIndex = 14;
-            this.rbManager.Text = "Yönetici";
-            this.rbManager.UseVisualStyleBackColor = true;
-            // 
-            // rbEmployee
-            // 
-            this.rbEmployee.AutoSize = true;
-            this.rbEmployee.Checked = true;
-            this.rbEmployee.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbEmployee.Location = new System.Drawing.Point(105, 10);
-            this.rbEmployee.Name = "rbEmployee";
-            this.rbEmployee.Size = new System.Drawing.Size(69, 21);
-            this.rbEmployee.TabIndex = 13;
-            this.rbEmployee.TabStop = true;
-            this.rbEmployee.Text = "Çalışan";
-            this.rbEmployee.UseVisualStyleBackColor = true;
-            // 
             // FrmUpdateMyUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,7 +462,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -473,7 +476,7 @@
             this.panel2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
             this.gbLoginInfo.ResumeLayout(false);
             this.gbLoginInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epName)).EndInit();
@@ -510,7 +513,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.GroupBox gbLoginInfo;
         private CustomTools.LetterOrDigitTextBox txtUserName;
         private System.Windows.Forms.Label label3;

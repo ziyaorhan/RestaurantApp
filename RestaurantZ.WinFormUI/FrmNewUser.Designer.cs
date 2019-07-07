@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblFormName = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.epPwd1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.epPwd2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkIsActive = new System.Windows.Forms.CheckBox();
-            this.panel4.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbUserInfo.SuspendLayout();
             this.gbLoginInfo.SuspendLayout();
@@ -81,14 +81,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.epPwd2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel4
+            // pnlTop
             // 
-            this.panel4.Controls.Add(this.btnClose);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(19, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(361, 22);
-            this.panel4.TabIndex = 12;
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(19, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(361, 22);
+            this.pnlTop.TabIndex = 12;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnClose
             // 
@@ -175,43 +176,44 @@
             // 
             // txtMail
             // 
-            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
+            this.txtMail.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Italic);
             this.txtMail.ForeColor = System.Drawing.Color.Gray;
             this.txtMail.Location = new System.Drawing.Point(105, 103);
             this.txtMail.Name = "txtMail";
             this.txtMail.PlaceHolderText = "abc@abc.com";
-            this.txtMail.Size = new System.Drawing.Size(220, 22);
-            this.txtMail.TabIndex = 7;
+            this.txtMail.Size = new System.Drawing.Size(220, 21);
+            this.txtMail.TabIndex = 3;
             this.txtMail.Text = "abc@abc.com";
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtName.ForeColor = System.Drawing.Color.Gray;
+            this.txtName.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.Location = new System.Drawing.Point(105, 25);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(220, 22);
+            this.txtName.Size = new System.Drawing.Size(220, 21);
             this.txtName.TabIndex = 0;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtSurname
             // 
-            this.txtSurname.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtSurname.ForeColor = System.Drawing.Color.Gray;
+            this.txtSurname.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSurname.ForeColor = System.Drawing.Color.Black;
             this.txtSurname.Location = new System.Drawing.Point(105, 50);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(220, 22);
+            this.txtSurname.Size = new System.Drawing.Size(220, 21);
             this.txtSurname.TabIndex = 1;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhone.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPhone.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPhone.ForeColor = System.Drawing.Color.Black;
             this.txtPhone.Location = new System.Drawing.Point(105, 75);
             this.txtPhone.Mask = "(000) 000-0000";
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(220, 22);
+            this.txtPhone.Size = new System.Drawing.Size(220, 21);
             this.txtPhone.TabIndex = 2;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
@@ -273,11 +275,11 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Italic);
-            this.txtUserName.ForeColor = System.Drawing.Color.Gray;
+            this.txtUserName.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUserName.ForeColor = System.Drawing.Color.Black;
             this.txtUserName.Location = new System.Drawing.Point(105, 26);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(220, 22);
+            this.txtUserName.Size = new System.Drawing.Size(220, 21);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
@@ -303,10 +305,11 @@
             // 
             // txtPwd1
             // 
-            this.txtPwd1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPwd1.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPwd1.ForeColor = System.Drawing.Color.Black;
             this.txtPwd1.Location = new System.Drawing.Point(105, 51);
             this.txtPwd1.Name = "txtPwd1";
-            this.txtPwd1.Size = new System.Drawing.Size(220, 22);
+            this.txtPwd1.Size = new System.Drawing.Size(220, 21);
             this.txtPwd1.TabIndex = 1;
             this.txtPwd1.UseSystemPasswordChar = true;
             this.txtPwd1.TextChanged += new System.EventHandler(this.txtPwd1_TextChanged);
@@ -323,10 +326,11 @@
             // 
             // txtPwd2
             // 
-            this.txtPwd2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPwd2.Font = new System.Drawing.Font("Ubuntu", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPwd2.ForeColor = System.Drawing.Color.Black;
             this.txtPwd2.Location = new System.Drawing.Point(105, 76);
             this.txtPwd2.Name = "txtPwd2";
-            this.txtPwd2.Size = new System.Drawing.Size(220, 22);
+            this.txtPwd2.Size = new System.Drawing.Size(220, 21);
             this.txtPwd2.TabIndex = 2;
             this.txtPwd2.UseSystemPasswordChar = true;
             this.txtPwd2.TextChanged += new System.EventHandler(this.txtPwd2_TextChanged);
@@ -374,7 +378,7 @@
             this.rbAdmin.Location = new System.Drawing.Point(260, 10);
             this.rbAdmin.Name = "rbAdmin";
             this.rbAdmin.Size = new System.Drawing.Size(64, 21);
-            this.rbAdmin.TabIndex = 1;
+            this.rbAdmin.TabIndex = 2;
             this.rbAdmin.Text = "Admin";
             this.rbAdmin.UseVisualStyleBackColor = true;
             this.rbAdmin.Click += new System.EventHandler(this.rbAdmin_Click);
@@ -470,7 +474,7 @@
             this.Controls.Add(this.gbUserInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Ubuntu", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -479,7 +483,7 @@
             this.Name = "FrmNewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNewUser";
-            this.panel4.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.gbUserInfo.ResumeLayout(false);
@@ -502,7 +506,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

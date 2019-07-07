@@ -41,7 +41,7 @@ namespace RestaurantZ.WinFormUI
 
         public void DgvUsersFill()
         {
-            dgvUsers.DataSource = _userService.GetAll();
+            dgvUsers.DataSource = _userService.GetVisibleUsers();
             dgvUsers.Columns["CreatedDate"].Visible = false;
             dgvUsers.Columns["ModifiedDate"].Visible = false;
             dgvUsers.Columns["SyncId"].Visible = false;
@@ -107,22 +107,22 @@ namespace RestaurantZ.WinFormUI
             //Güncelle
             if (dgvUsers.Columns[e.ColumnIndex].Name == "btnUpdate")
             {
-                if (e.RowIndex!=0)
-                {
+                //if (e.RowIndex!=0)
+                //{
                     int updatedUseerId = Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells["UserId"].Value.ToString());
                     FrmUpdateUserByAdmin frmUpdateUserByAdmin = new FrmUpdateUserByAdmin(updatedUseerId);
                     frmUpdateUserByAdmin.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nGüncellenemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nGüncellenemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //}
             }
             //Sil
             if (dgvUsers.Columns[e.ColumnIndex].Name == "btnDelete")
             {
-                if (e.RowIndex!=0)
-                {
+                //if (e.RowIndex!=0)
+                //{
                     string name = dgvUsers.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                     DialogResult dialogResult = MessageBox.Show("Bu işlem geri döndürülemez.\r\n\"" + name + "\" isimli kullanıcıyı silmek istediğinizden emin misiniz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
@@ -138,11 +138,28 @@ namespace RestaurantZ.WinFormUI
                         }
                         DgvUsersFill();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nSilinemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Admin kullanıcısı yazılımcı tarafından kullanılmaktadır.\r\nSilinemez özelliktedir...", "İşlem Durduruldu!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //}
+            }
+        }
+
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Release the mouse capture started by the mouse down.
+                pnlTop.Capture = false; //select control
+
+                // Create and send a WM_NCLBUTTONDOWN message.
+                const int WM_NCLBUTTONDOWN = 0x00A1;
+                const int HTCAPTION = 2;
+                Message msg =
+                    Message.Create(this.Handle, WM_NCLBUTTONDOWN,
+                        new IntPtr(HTCAPTION), IntPtr.Zero);
+                this.DefWndProc(ref msg);
             }
         }
     }

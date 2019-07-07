@@ -21,15 +21,16 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
             {
                 User user = new User()
                 {
-                    Name = "Admin",
-                    Surname = "Admin",
+                    Name = "Developer",
+                    Surname = "Developer",
                     Phone = "(505) 666-5308",
                     Mail = "zy.orhan@gmail.com",
-                    UserName = "admin",
-                    Password = "0e282527abe49e04f3b6abfde22d4a04145bdbd4f0131b0a2b77fd2f051b18fbaa5455999a50152e73db5531a74bf00ddd8d5a07b0c8f73ef103382a69a787d8",
+                    UserName = "developer",
+                    //kevserkebap34
+                    Password = "5ff01e5c94cc72bb6a7a3b4016cb5b7f60819179fb01c9b371c1f2d484c8b79e36c7b7a0cb51fdf14272340bd6e599dddc040fa7ff365a4321022de57b1ecdcb",
                     Role = "Admin",
                     IsActive = true,
-                    IsVisible = true
+                    IsVisible = false
                 };
                 context.Users.Add(user);
                 context.SaveChanges();

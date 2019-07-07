@@ -4,12 +4,6 @@ using RestaurantZ.Business.Utilities;
 using RestaurantZ.Business.ValidationRules;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
@@ -238,7 +232,8 @@ namespace RestaurantZ.WinFormUI
 
                 _customerService.Update(updatedCustomer);
                 FrmCustomers refreshedFrm = (FrmCustomers)Application.OpenForms["FrmCustomers"];
-                refreshedFrm.DgvCustomerFill();
+                refreshedFrm.GetAllCustomer
+();
                 Cursor.Current = Cursors.Default;
                 this.Close();
             }
@@ -254,6 +249,7 @@ namespace RestaurantZ.WinFormUI
             }
 
         }
+
         private void RunErrorProviders()
         {
             if (ValidationTool.IsThereAExceptionByProperty(allExceptions, "CustomerName"))
@@ -347,6 +343,23 @@ namespace RestaurantZ.WinFormUI
         private void txtPhone1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             epPhone1.Clear();
+        }
+
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Release the mouse capture started by the mouse down.
+                pnlTop.Capture = false; //select control
+
+                // Create and send a WM_NCLBUTTONDOWN message.
+                const int WM_NCLBUTTONDOWN = 0x00A1;
+                const int HTCAPTION = 2;
+                Message msg =
+                    Message.Create(this.Handle, WM_NCLBUTTONDOWN,
+                        new IntPtr(HTCAPTION), IntPtr.Zero);
+                this.DefWndProc(ref msg);
+            }
         }
     }
 }
