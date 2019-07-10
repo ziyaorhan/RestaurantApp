@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public partial class FrmInfo : Form
+    public partial class FrmSettings : Form
     {
-        public FrmInfo()
+        public FrmSettings()
         {
             InitializeComponent();
-            pbInfo.Image = Image.FromFile(Global.GetPath("\\Images\\info.png"));
-            pbInfo.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void FrmSettings_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

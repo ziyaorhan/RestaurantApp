@@ -8,6 +8,16 @@ namespace RestaurantZ.WinFormUI.CustomTools
         public DecimalTextBox()
         {
             this.KeyPress += DecimalTextBox_KeyPress;
+            this.LostFocus += DecimalTextBox_LostFocus;
+        }
+
+        //fokustan uzaklaştığında(odak kaybolduğunda)
+        private void DecimalTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if ((sender as System.Windows.Forms.TextBox).Text.Trim()==",")
+            {
+                (sender as System.Windows.Forms.TextBox).Text = "0,";
+            }
         }
 
         private void DecimalTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
