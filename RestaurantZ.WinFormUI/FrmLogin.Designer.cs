@@ -152,6 +152,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(145, 21);
             this.txtPwd.TabIndex = 1;
+            this.txtPwd.Text = "12345";
             this.txtPwd.UseSystemPasswordChar = true;
             // 
             // txtUserName
@@ -161,6 +162,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(145, 21);
             this.txtUserName.TabIndex = 0;
+            this.txtUserName.Text = "dev";
             // 
             // btnLogin
             // 

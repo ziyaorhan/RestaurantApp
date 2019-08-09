@@ -5,6 +5,7 @@ using RestaurantZ.Business.ValidationRules;
 using RestaurantZ.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
@@ -17,7 +18,7 @@ namespace RestaurantZ.WinFormUI
         public FrmNewUser()
         {
             InitializeComponent();
-
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             //_userService = new UserManager(new EfUserDal());//IoC Container kullanmadan önce böyle idi.
             try
             {

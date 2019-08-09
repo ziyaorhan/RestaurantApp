@@ -27,6 +27,7 @@ namespace RestaurantZ.WinFormUI
         {
             pbSearch.Image= Image.FromFile(Global.GetPath("\\Images\\search.png"));
             btnClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -12,6 +12,23 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,7 +49,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>chef.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -57,6 +80,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,15 +93,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomTools\DecimalTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomTools\LetterOrDigitTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomTools\LetterTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FrmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +104,12 @@
     </Compile>
     <Compile Include="FrmDinner.Designer.cs">
       <DependentUpon>FrmDinner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInfo.cs">
       <SubType>Form</SubType>
@@ -193,9 +214,6 @@
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="CustomTools\PlaceHolderTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCustomers.resx">
@@ -203,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDinner.resx">
       <DependentUpon>FrmDinner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInfo.resx">
       <DependentUpon>FrmInfo.cs</DependentUpon>
@@ -279,7 +300,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantZ.Business\RestaurantZ.Business.csproj">
@@ -294,11 +317,28 @@
       <Project>{29764959-EC95-4116-B0B9-C2F159923913}</Project>
       <Name>RestaurantZ.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantZ.WinFormUI.CustomTools\RestaurantZ.WinFormUI.CustomTools.csproj">
+      <Project>{d45e6cd8-72b8-4a4e-b966-486e57ca770b}</Project>
+      <Name>RestaurantZ.WinFormUI.CustomTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chef.ico" />
+    <Content Include="Files\Html\NasilYapilir.html" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [1].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [2].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [3].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [4].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [5].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [6].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [7].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [8].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image [9].png" />
+    <Content Include="Files\Html\NasilYapilir_files\Image.png" />
     <Content Include="Images\add.png" />
     <Content Include="Images\aksam-2.png" />
     <Content Include="Images\aksam.png" />
+    <Content Include="Images\chef.ico" />
     <Content Include="Images\chef.png" />
     <Content Include="Images\clear.png" />
     <Content Include="Images\close.png" />
@@ -359,8 +399,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\Backups\" />
-    <Folder Include="Files\Html\" />
     <Folder Include="Files\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

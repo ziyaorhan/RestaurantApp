@@ -4,6 +4,7 @@ using RestaurantZ.Business.Utilities;
 using RestaurantZ.Business.ValidationRules;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
@@ -19,6 +20,7 @@ namespace RestaurantZ.WinFormUI
         public FrmUpdateCustomers(int id)
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             _customerService = InstanceFactory.GetInstance<ICustomerService>();
             updatedCustomerId = id;
             allExceptions = new List<MessagesAndProperties>();

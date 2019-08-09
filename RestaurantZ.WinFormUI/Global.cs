@@ -225,16 +225,17 @@ namespace RestaurantZ.WinFormUI
             {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("bilgi@dogrucevaptuzla.com");
+                message.From = new MailAddress("gonderen@abc.com","RestaurantZ Otamasyon");
                 message.To.Add(new MailAddress(toMailAdress));
                 message.Subject = subject;
+                
                 message.IsBodyHtml = true; //to make message body as html  
                 message.Body = htmlString;
                 smtp.Port = 587;
-                smtp.Host = "mail.dogrucevaptuzla.com"; //for gmail host  
+                smtp.Host = "mail.abc.com"; //for gmail host  
                 smtp.EnableSsl = false;// ssl sertifikası varsa true yapılacak
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("bilgi@dogrucevaptuzla.com", "%34dcTuzla");
+                smtp.Credentials = new NetworkCredential("gonderen@abc.com", "1234");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 returnValue = true;
@@ -245,6 +246,21 @@ namespace RestaurantZ.WinFormUI
                 returnValue = false;
             }
             return returnValue;
+        }
+
+        public static void WebBrowserFill(string htmlFileName, WebBrowser wb)
+        {
+            try
+            {
+                wb.Visible = true;
+                string descriptionFolderPath = Global.GetPath("\\Files\\Html");
+                string descriptionFileUrl = descriptionFolderPath + "\\" + htmlFileName;
+                wb.Url = new Uri(descriptionFileUrl);
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }

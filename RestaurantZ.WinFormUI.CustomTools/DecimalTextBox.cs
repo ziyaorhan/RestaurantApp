@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI.CustomTools
 {
-    class DecimalTextBox:TextBox
+    public class DecimalTextBox:TextBox
     {
         public DecimalTextBox()
         {

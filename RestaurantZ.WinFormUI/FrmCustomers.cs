@@ -21,6 +21,7 @@ namespace RestaurantZ.WinFormUI
 
         private void InitializeCustom()
         {
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             btnNewCustomer.Image = Image.FromFile(Global.GetPath("\\Images\\add.png"));
             btnExportToExcel.Image = Image.FromFile(Global.GetPath("\\Images\\excel.png"));
             pbSearch.BackgroundImage = Image.FromFile(Global.GetPath("\\Images\\search.png"));

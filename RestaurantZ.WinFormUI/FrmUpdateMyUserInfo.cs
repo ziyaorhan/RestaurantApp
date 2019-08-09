@@ -23,6 +23,7 @@ namespace RestaurantZ.WinFormUI
         public FrmUpdateMyUserInfo()
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             _userService = InstanceFactory.GetInstance<IUserService>();
         }
 

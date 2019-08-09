@@ -2,6 +2,7 @@
 using RestaurantZ.Business.DependencyResolvers.Ninject;
 using RestaurantZ.Business.Utilities;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
@@ -15,6 +16,7 @@ namespace RestaurantZ.WinFormUI
         public FrmUpdateUserByAdmin(int id)
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             try
             {
                 updatedUserId = id;

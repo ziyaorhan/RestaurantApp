@@ -69,6 +69,7 @@ namespace RestaurantZ.WinFormUI
 
         private void InitializeCustom()
         {
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             pbLogo.BackgroundImage = Image.FromFile(Global.GetPath("\\Images\\chef.png"));
             //
             tsBtnMin.Image = Image.FromFile(Global.GetPath("\\Images\\minimize.png"));
@@ -167,8 +168,8 @@ namespace RestaurantZ.WinFormUI
 
         private void tsBtnHelp_Click(object sender, EventArgs e)
         {
-
-
+            FrmHelp frmHelp = new FrmHelp();
+            frmHelp.ShowDialog();
         }
 
         private void tsBtnClear_Click(object sender, EventArgs e)
@@ -297,7 +298,7 @@ namespace RestaurantZ.WinFormUI
                     (
                     subjectStr,
                     Global.GetHtmlStringForReports(_joinService.GetGroupedReportForMail(firstDate, secondDate),_joinService.GetDetailedReportForMail(firstDate,secondDate)),
-                    "zy.orhan@gmail.com"
+                    "alici@abc.com"
                     );
             if (isSuccess)
             {

@@ -20,6 +20,7 @@ namespace RestaurantZ.WinFormUI
         public FrmReports()
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             btnReportToExcel.Image = Image.FromFile(Global.GetPath("\\Images\\excel.png"));
             _joinService = InstanceFactory.GetInstance<IJoinService>();
             _customerService = InstanceFactory.GetInstance<ICustomerService>();

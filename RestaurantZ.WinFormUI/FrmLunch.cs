@@ -24,6 +24,7 @@ namespace RestaurantZ.WinFormUI
 
         private void InitializeCustom()
         {
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             pbSearch.Image = Image.FromFile(Global.GetPath("\\Images\\search.png"));
             btnClear.Image = Image.FromFile(Global.GetPath("\\Images\\clear.png"));
         }

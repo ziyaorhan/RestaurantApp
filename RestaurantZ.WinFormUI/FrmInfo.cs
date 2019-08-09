@@ -17,6 +17,7 @@ namespace RestaurantZ.WinFormUI
             InitializeComponent();
             pbInfo.Image = Image.FromFile(Global.GetPath("\\Images\\info.png"));
             pbInfo.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI
 {
-    public partial class FrmSettings : Form
+    public partial class FrmHelp : Form
     {
-        public FrmSettings()
+        public FrmHelp()
         {
             InitializeComponent();
             this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
         }
 
-        private void FrmSettings_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmHelp_Load(object sender, EventArgs e)
+        {
+            Global.WebBrowserFill("NasilYapilir.html", wbHelp);
         }
 
         private void pnlTop_MouseDown(object sender, MouseEventArgs e)

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace RestaurantZ.WinFormUI.CustomTools
 {
-    class LetterOrDigitTextBox: System.Windows.Forms.TextBox
+    public class LetterOrDigitTextBox: System.Windows.Forms.TextBox
     {
         public LetterOrDigitTextBox()
         {

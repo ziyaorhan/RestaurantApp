@@ -27,6 +27,7 @@ namespace RestaurantZ.WinFormUI
         public FrmUpdatePastRecord(string serviceName,int id)
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             ServiceName = serviceName;
             Id = id;
             _breakfastService = InstanceFactory.GetInstance<IBreakfastService>();

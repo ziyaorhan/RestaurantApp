@@ -132,11 +132,11 @@ namespace RestaurantZ.DataAccess.Concrete.EntityFramework
                 {
                     Name = "Developer",
                     Surname = "Developer",
-                    Phone = "(505) 666-5308",
-                    Mail = "zy.orhan@gmail.com",
-                    UserName = "developer",
-                    //kevserkebap34
-                    Password = "5ff01e5c94cc72bb6a7a3b4016cb5b7f60819179fb01c9b371c1f2d484c8b79e36c7b7a0cb51fdf14272340bd6e599dddc040fa7ff365a4321022de57b1ecdcb",
+                    Phone = "(505) 555-5555",
+                    Mail = "abc@abc.com",
+                    UserName = "dev",
+                    //12345
+                    Password = "d7d2f602e155ba700ed76c48d9a48009b9383e8d17435bfb0fe8ad7c664d4002f16cc7a65c6fb066963714a794f96441ef7f9b9c1b1456acfb9225cbad474fb0",
                     Role = "Admin",
                     IsActive = true,
                     IsVisible = false

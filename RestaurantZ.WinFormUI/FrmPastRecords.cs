@@ -18,6 +18,7 @@ namespace RestaurantZ.WinFormUI
         public FrmPastRecords()
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             _joinService = InstanceFactory.GetInstance<IJoinService>();
             _customerService = InstanceFactory.GetInstance<ICustomerService>();
             _breakfastService= InstanceFactory.GetInstance<IBreakfastService>();

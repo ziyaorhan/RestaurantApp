@@ -14,6 +14,7 @@ namespace RestaurantZ.WinFormUI
         public FrmUsers()
         {
             InitializeComponent();
+            this.Icon = new Icon(Global.GetPath("\\Images\\chef.ico"));
             try
             {
                 _userService = InstanceFactory.GetInstance<IUserService>();
@@ -79,7 +80,7 @@ namespace RestaurantZ.WinFormUI
                 }
             }
             //
-            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.RowTemplate.ReadOnly = true;
             dgvUsers.RowsDefaultCellStyle.SelectionBackColor = Color.Silver;//seçilen hücrenin arka plan rengi.
             dgvUsers.RowHeadersWidth = 25;
